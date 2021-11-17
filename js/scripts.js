@@ -17,7 +17,7 @@ closeCookieBanner.addEventListener('click', () => {
 });
 
 // Reveal sections
-const revealSections = function () {
+const revealSections = async function () {
     const allSections = document.querySelectorAll('section');
 
     const revealSection = function (entries, observer) {
@@ -40,85 +40,51 @@ const revealSections = function () {
     });
 };
 
-// Lazy loading images
-const loadingImgs = function () {
-    const imgTargets = document.querySelectorAll('img[data-src]');
-
-    imgTargets.forEach(img => {
-        img.src = img.dataset.src
-        img.classList.remove('lazy-img');
-    });
-
-    const loadImg = function (entries, observer) {
-        const [entry] = entries;
-
-        if (!entry.isIntersecting) return;
-
-        // Replace src with data-src
-        entry.target.src = entry.target.dataset.src;
-
-        entry.target.addEventListener('load', function () {
-            entry.target.classList.remove('lazy-img');
-        });
-
-        observer.unobserve(entry.target);
-    };
-
-    const imgObserver = new IntersectionObserver(loadImg, {
-        root: null,
-        threshold: 0,
-        rootMargin: '200px',
-    });
-
-    imgTargets.forEach(img => {
-        //imgObserver.observe(img);
-    });
-};
-
 // Skills
-const skillsContainer = document.getElementById('skills').querySelector('.row');
-const skillsModalsContainer = document.getElementById('skills-modals');
-const mySkills = [
-    {
-        "img": "01.jpg",
-        "lazy": "01_small.jpg",
-        "title": "Se développer",
-        "texte": "Apprendre à se développer"
-    },
-    {
-        "img": "02.jpg",
-        "lazy": "02_small.jpg",
-        "title": "Construction de soi",
-        "texte": "Apprendre à se développer"
-    },
-    {
-        "img": "03.jpg",
-        "lazy": "03_small.jpg",
-        "title": "Se reconnecter",
-        "texte": "Apprendre à se développer"
-    },
-    {
-        "img": "04.jpg",
-        "lazy": "04_small.jpg",
-        "title": "Motivation",
-        "texte": "Apprendre à se développer"
-    },
-    {
-        "img": "05.jpg",
-        "lazy": "05_small.jpg",
-        "title": "Quête de sens",
-        "texte": "Apprendre à se développer"
-    },
-    {
-        "img": "06.jpg",
-        "lazy": "06_small.jpg",
-        "title": "Respect",
-        "texte": "Apprendre à se développer"
-    }
-];
+const revealSkills = async function () {
+    const skillsContainer = document.getElementById('skills').querySelector('.row');
+    const skillsModalsContainer = document.getElementById('skills-modals');
+    const mySkills = [
+        {
+            "img": "01.jpg",
+            "lazy": "01_small.jpg",
+            "title": "Se développer",
+            "texte": "Apprendre à se développer"
+        },
+        {
+            "img": "02.jpg",
+            "lazy": "02_small.jpg",
+            "title": "Construction de soi",
+            "texte": "Apprendre à se développer"
+        },
+        {
+            "img": "03.jpg",
+            "lazy": "03_small.jpg",
+            "title": "Se reconnecter",
+            "texte": "Apprendre à se développer"
+        },
+        {
+            "img": "04.jpg",
+            "lazy": "04_small.jpg",
+            "title": "Motivation",
+            "texte": "Apprendre à se développer"
+        },
+        {
+            "img": "05.jpg",
+            "lazy": "05_small.jpg",
+            "title": "Quête de sens",
+            "texte": "Apprendre à se développer"
+        },
+        {
+            "img": "06.jpg",
+            "lazy": "06_small.jpg",
+            "title": "Respect",
+            "texte": "Apprendre à se développer"
+        }
+    ];
 
-mySkills.forEach((ele, index) => {
-    skillsContainer.insertAdjacentHTML('beforeend', `
+    mySkills.forEach((ele, index) => {
+        skillsContainer.insertAdjacentHTML('beforeend', `
         <div class="col-lg-4 col-sm-6 mb-4">
             <!-- Portfolio item ${1 + index} -->
             <div class="portfolio-item">
@@ -126,7 +92,7 @@ mySkills.forEach((ele, index) => {
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
-                    <img class="img-fluid" src="assets/img/portfolio/${ele.img}" loading="lazy" alt="${ele.title}" />
+                    <img class="img-fluid" src="assets/img/portfolio/${ele.lazy}" data-src="assets/img/portfolio/${ele.img}" alt="${ele.title}" />
                 </a>
                 <div class="portfolio-caption">
                     <div class="portfolio-caption-heading">${ele.title}</div>
@@ -135,7 +101,7 @@ mySkills.forEach((ele, index) => {
             </div>
         </div>
     `);
-    skillsModalsContainer.insertAdjacentHTML('beforeend', `
+        skillsModalsContainer.insertAdjacentHTML('beforeend', `
         <div class="portfolio-modal modal fade" id="portfolioModal${1 + index}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -167,10 +133,10 @@ mySkills.forEach((ele, index) => {
             </div>
         </div>    
     `);
-});
-
+    });
+};
 // TEAM
-const revealTeam = function () {
+const revealTeam = async function () {
     const teamContainer = document.getElementById('team').querySelector('.row');
     const team = [
         {
@@ -181,7 +147,7 @@ const revealTeam = function () {
         },
         {
             "name": "Antoine Bollinger",
-            "img": "antoine.jfif",
+            "img": "antoine.jpg",
             "function": "Webmaster",
             "linkedIn": "https://www.linkedin.com/in/antoinebollinger/"
         }
@@ -202,12 +168,35 @@ const revealTeam = function () {
     });
 };
 
+// Lazy loading images
+const loadingImgs = function (delay = 0) {
+    const imgTargets = document.querySelectorAll('img');
+    console.log(Array.from(imgTargets).map(ele => ele.src));
+    const revealImage = function (entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            setTimeout(() => {
+                entry.target.src = (!entry.target.dataset.src) ? entry.target.src : entry.target.dataset.src;
+                entry.target.addEventListener('load', function () {
+                    this.classList.add('reveal');
+
+                })
+                observer.unobserve(entry.target);
+            }, delay)
+        });
+    };
+    const imageObserver = new IntersectionObserver(revealImage, { root: null, threshold: 0, rootMargin: '55px' });
+    imgTargets.forEach(function (image) {
+        console.log(image);
+        imageObserver.observe(image);
+    });
+};
+
 // EVENTLISTENER ON DOM LOADED
 window.addEventListener('DOMContentLoaded', async () => {
 
+    await Promise.all([revealSections(), revealTeam(), revealSkills()]);
     loadingImgs();
-    revealSections();
-    revealTeam();
 
     // Navbar shrink function
     var navbarShrink = function () {

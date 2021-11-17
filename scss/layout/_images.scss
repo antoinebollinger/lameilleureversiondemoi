@@ -1,9 +1,10 @@
 img {
     transition: filter 0.5s;
+    filter: blur(20px);
     &.img-fluid {
         width: 100% !important;
     }
-    &.lazy-img {
-        filter: blur(20px);
+    &.reveal {
+        filter: blur(0);
     }
 }
