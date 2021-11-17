@@ -120,13 +120,13 @@ const mySkills = [
 mySkills.forEach((ele, index) => {
     skillsContainer.insertAdjacentHTML('beforeend', `
         <div class="col-lg-4 col-sm-6 mb-4">
-            <!-- Portfolio item ${1 + index}-->
+            <!-- Portfolio item ${1 + index} -->
             <div class="portfolio-item">
                 <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal${1 + index}">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
-                    <img class="img-fluid lazy-img" src="assets/img/portfolio/${ele.lazy}" data-src="assets/img/portfolio/${ele.img}" alt="${ele.title}" />
+                    <img class="img-fluid" src="assets/img/portfolio/${ele.img}" loading="lazy" alt="${ele.title}" />
                 </a>
                 <div class="portfolio-caption">
                     <div class="portfolio-caption-heading">${ele.title}</div>
@@ -148,7 +148,7 @@ mySkills.forEach((ele, index) => {
                                     <!-- Project details-->
                                     <h2 class="text-uppercase">${ele.title}</h2>
                                     <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/${ele.img}" alt="${ele.title}" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/${ele.img}" alt="${ele.title}" loading="lazy" />
                                     <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
                                         adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
                                         repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
