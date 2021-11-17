@@ -8,7 +8,6 @@
 // 
 
 // Cookies constent baner 
-
 const cookieBanner = document.querySelector('.cookie-banner');
 const closeCookieBanner = document.querySelector('.cookie-close');
 if (localStorage.getItem("cookieSeen") !== "shown")
@@ -18,40 +17,105 @@ closeCookieBanner.addEventListener('click', () => {
 });
 
 // Reveal sections
-const allSections = document.querySelectorAll('section');
+const revealSections = function () {
+    const allSections = document.querySelectorAll('section');
 
-const revealSection = function (entries, observer) {
-    const [entry] = entries;
+    const revealSection = function (entries, observer) {
+        const [entry] = entries;
 
-    if (!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
 
-    entry.target.classList.remove('section--hidden');
-    observer.unobserve(entry.target);
+        entry.target.classList.remove('section--hidden');
+        observer.unobserve(entry.target);
+    };
+
+    const sectionObserver = new IntersectionObserver(revealSection, {
+        root: null,
+        threshold: 0.15,
+    });
+
+    allSections.forEach(function (section) {
+        sectionObserver.observe(section);
+        section.classList.add('section--hidden');
+    });
 };
 
-const sectionObserver = new IntersectionObserver(revealSection, {
-    root: null,
-    threshold: 0.15,
-});
+// Lazy loading images
+const loadingImgs = function () {
+    const imgTargets = document.querySelectorAll('img[data-src]');
 
-allSections.forEach(function (section) {
-    sectionObserver.observe(section);
-    section.classList.add('section--hidden');
-});
+    imgTargets.forEach(img => {
+        img.src = img.dataset.src
+        img.classList.remove('lazy-img');
+    });
 
-// Skils
+    const loadImg = function (entries, observer) {
+        const [entry] = entries;
 
+        if (!entry.isIntersecting) return;
+
+        // Replace src with data-src
+        entry.target.src = entry.target.dataset.src;
+
+        entry.target.addEventListener('load', function () {
+            entry.target.classList.remove('lazy-img');
+        });
+
+        observer.unobserve(entry.target);
+    };
+
+    const imgObserver = new IntersectionObserver(loadImg, {
+        root: null,
+        threshold: 0,
+        rootMargin: '200px',
+    });
+
+    imgTargets.forEach(img => {
+        //imgObserver.observe(img);
+    });
+};
+
+// Skills
 const skillsContainer = document.getElementById('skills').querySelector('.row');
 const skillsModalsContainer = document.getElementById('skills-modals');
 const mySkills = [
     {
         "img": "01.jpg",
-        "lazy-img": "01_small.jpg",
+        "lazy": "01_small.jpg",
         "title": "Se développer",
+        "texte": "Apprendre à se développer"
+    },
+    {
+        "img": "02.jpg",
+        "lazy": "02_small.jpg",
+        "title": "Construction de soi",
+        "texte": "Apprendre à se développer"
+    },
+    {
+        "img": "03.jpg",
+        "lazy": "03_small.jpg",
+        "title": "Se reconnecter",
+        "texte": "Apprendre à se développer"
+    },
+    {
+        "img": "04.jpg",
+        "lazy": "04_small.jpg",
+        "title": "Motivation",
+        "texte": "Apprendre à se développer"
+    },
+    {
+        "img": "05.jpg",
+        "lazy": "05_small.jpg",
+        "title": "Quête de sens",
+        "texte": "Apprendre à se développer"
+    },
+    {
+        "img": "06.jpg",
+        "lazy": "06_small.jpg",
+        "title": "Respect",
         "texte": "Apprendre à se développer"
     }
 ];
-
 
 mySkills.forEach((ele, index) => {
     skillsContainer.insertAdjacentHTML('beforeend', `
@@ -62,7 +126,7 @@ mySkills.forEach((ele, index) => {
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
-                    <img class="img-fluid lazy-img" src="assets/img/portfolio/${ele.img}" alt="${ele.title}" />
+                    <img class="img-fluid lazy-img" src="assets/img/portfolio/${ele.lazy}" data-src="assets/img/portfolio/${ele.img}" alt="${ele.title}" />
                 </a>
                 <div class="portfolio-caption">
                     <div class="portfolio-caption-heading">${ele.title}</div>
@@ -105,7 +169,45 @@ mySkills.forEach((ele, index) => {
     `);
 });
 
-window.addEventListener('DOMContentLoaded', event => {
+// TEAM
+const revealTeam = function () {
+    const teamContainer = document.getElementById('team').querySelector('.row');
+    const team = [
+        {
+            "name": "Sabrina Appriou",
+            "img": "sabrina.jfif",
+            "function": "Coach",
+            "linkedIn": "https://www.linkedin.com/in/sabrina-appriou-0138a8122/"
+        },
+        {
+            "name": "Antoine Bollinger",
+            "img": "antoine.jfif",
+            "function": "Webmaster",
+            "linkedIn": "https://www.linkedin.com/in/antoinebollinger/"
+        }
+    ];
+    team.forEach((ele, index) => {
+        teamContainer.insertAdjacentHTML('beforeend', `
+            <div class="col-lg-6">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="assets/img/team/${ele.img}" alt="..." />
+                    <h4>${ele.name}</h4>
+                    <p class="text-muted">${ele.function}</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="${ele.linkedIn}"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        `);
+    });
+};
+
+// EVENTLISTENER ON DOM LOADED
+window.addEventListener('DOMContentLoaded', async () => {
+
+    loadingImgs();
+    revealSections();
+    revealTeam();
 
     // Navbar shrink function
     var navbarShrink = function () {
@@ -151,28 +253,3 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-// Lazy loading images
-const imgTargets = document.querySelectorAll('img[data-src]');
-
-const loadImg = function (entries, observer) {
-    const [entry] = entries;
-
-    if (!entry.isIntersecting) return;
-
-    // Replace src with data-src
-    entry.target.src = entry.target.dataset.src;
-
-    entry.target.addEventListener('load', function () {
-        entry.target.classList.remove('lazy-img');
-    });
-
-    observer.unobserve(entry.target);
-};
-
-const imgObserver = new IntersectionObserver(loadImg, {
-    root: null,
-    threshold: 0,
-    rootMargin: '200px',
-});
-
-imgTargets.forEach(img => imgObserver.observe(img));
