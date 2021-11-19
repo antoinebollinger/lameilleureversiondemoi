@@ -1,7 +1,13 @@
 section {
-    transition: transform 1s, opacity 1s;
+    transition: transform 1s, opacity 1s, margin 1s, border 1s;
+    border-top-style: solid;
+    border-top-color: transparent;
+    border-top-width: 0;
+    border-top: 0 solid transparent;
     &.section--hidden {
         opacity: 0;
-        transform: translateY(8rem);
+        // transform: translateY(8rem);
+        // margin-top: 14rem;
+        // border-top-width: 8rem;
     }
 }

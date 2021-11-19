@@ -8,32 +8,27 @@
 // 
 
 // Cookies constent baner 
-const cookieBanner = document.querySelector('.cookie-banner');
-const closeCookieBanner = document.querySelector('.cookie-close');
-if (localStorage.getItem("cookieSeen") !== "shown")
-    cookieBanner.style.display = 'block'; localStorage.setItem("cookieSeen", "shown");
-closeCookieBanner.addEventListener('click', () => {
-    cookieBanner.style.display = 'none';
-});
+// const cookieBanner = document.querySelector('.cookie-banner');
+// const closeCookieBanner = document.querySelector('.cookie-close');
+// if (localStorage.getItem("cookieSeen") !== "shown")
+//     cookieBanner.style.display = 'block'; //localStorage.setItem("cookieSeen", "shown");
+// closeCookieBanner.addEventListener('click', () => {
+//     cookieBanner.style.display = 'none';
+// });
 
 // Reveal sections
-const revealSections = async function () {
+const revealSections = async function (delay = 0) {
     const allSections = document.querySelectorAll('section');
-
-    const revealSection = function (entries, observer) {
-        const [entry] = entries;
-
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.remove('section--hidden');
-        observer.unobserve(entry.target);
+    const reveal = function (entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            setTimeout(() => {
+                entry.target.classList.remove('section--hidden');
+                observer.unobserve(entry.target);
+            }, delay)
+        });
     };
-
-    const sectionObserver = new IntersectionObserver(revealSection, {
-        root: null,
-        threshold: 0.15,
-    });
-
+    const sectionObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.15 });
     allSections.forEach(function (section) {
         sectionObserver.observe(section);
         section.classList.add('section--hidden');
@@ -42,7 +37,7 @@ const revealSections = async function () {
 
 // Skills
 const revealSkills = async function () {
-    const skillsContainer = document.getElementById('skills').querySelector('.row');
+    const skillsContainer = document.getElementById('services').querySelector('.row');
     const skillsModalsContainer = document.getElementById('skills-modals');
     const mySkills = [
         {
@@ -142,19 +137,19 @@ const revealTeam = async function () {
         {
             "name": "Sabrina Appriou",
             "img": "sabrina.jfif",
-            "function": "Coach",
+            "function": "Coach en développement personnel",
             "linkedIn": "https://www.linkedin.com/in/sabrina-appriou-0138a8122/"
         },
-        {
-            "name": "Antoine Bollinger",
-            "img": "antoine.jpg",
-            "function": "Webmaster",
-            "linkedIn": "https://www.linkedin.com/in/antoinebollinger/"
-        }
+        // {
+        //     "name": "Antoine Bollinger",
+        //     "img": "antoine.jpg",
+        //     "function": "Webmaster",
+        //     "linkedIn": "https://www.linkedin.com/in/antoinebollinger/"
+        // }
     ];
     team.forEach((ele, index) => {
         teamContainer.insertAdjacentHTML('beforeend', `
-            <div class="col-lg-6">
+            <div class="col-lg-${12 / team.length}">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="assets/img/team/${ele.img}" alt="..." />
                     <h4>${ele.name}</h4>
@@ -167,11 +162,27 @@ const revealTeam = async function () {
         `);
     });
 };
+// ABOUT
+const revealAbout = async function (delay = 0) {
+    const timeline = document.querySelector('.timeline').querySelectorAll('li');
+    const reveal = function (entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            setTimeout(() => {
+                entry.target.classList.add('in');
+                observer.unobserve(entry.target);
+            }, delay);
+        });
+    };
+    const timelineObserver = new IntersectionObserver(reveal, { root: null, threshold: 0, rootMargin: '55px' });
+    timeline.forEach(function (li) {
+        timelineObserver.observe(li);
+    });
+};
 
 // Lazy loading images
 const loadingImgs = function (delay = 0) {
     const imgTargets = document.querySelectorAll('img');
-    console.log(Array.from(imgTargets).map(ele => ele.src));
     const revealImage = function (entries, observer) {
         entries.forEach(entry => {
             if (!entry.isIntersecting) return;
@@ -187,7 +198,6 @@ const loadingImgs = function (delay = 0) {
     };
     const imageObserver = new IntersectionObserver(revealImage, { root: null, threshold: 0, rootMargin: '55px' });
     imgTargets.forEach(function (image) {
-        console.log(image);
         imageObserver.observe(image);
     });
 };
@@ -195,7 +205,7 @@ const loadingImgs = function (delay = 0) {
 // EVENTLISTENER ON DOM LOADED
 window.addEventListener('DOMContentLoaded', async () => {
 
-    await Promise.all([revealSections(), revealTeam(), revealSkills()]);
+    await Promise.all([revealTeam(), revealSkills(), revealAbout(), revealSections()]);
     loadingImgs();
 
     // Navbar shrink function
