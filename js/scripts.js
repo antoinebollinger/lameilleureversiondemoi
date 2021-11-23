@@ -37,7 +37,7 @@ const revealSections = async function (delay = 0) {
 
 // Skills
 const revealSkills = async function () {
-    const skillsContainer = document.getElementById('services').querySelector('.row');
+    const skillsContainer = document.getElementById('work').querySelector('.row');
     const skillsModalsContainer = document.getElementById('skills-modals');
     const mySkills = [
         {

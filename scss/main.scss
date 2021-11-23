@@ -1,5 +1,9 @@
+// BASE
 @import './vendors/bootstrap';
 @import './base/general';
+// LAYOUTS
+@import './layout/nav';
+@import './layout/header';
+@import './layout/sections';
+@import './layout/footer';
 @import './layout/cookies';
-@import './layout/section';
-@import './layout/images';
