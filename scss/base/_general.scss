@@ -488,6 +488,11 @@ section#contact {
             margin-bottom: 1.5rem;
             input, textarea {
                 padding: 1.25rem;
+                &::placeholder, &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
+                    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                    font-weight: 700;
+                    color: #ced4da;
+                }
             }
             input.form-control {
                 height: auto;
@@ -506,11 +511,6 @@ section#contact {
         .form-control:focus {
             border-color: var(--bs-secondary);
             box-shadow: none;
-        }
-        ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
-            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-weight: 700;
-            color: #ced4da;
         }
     }
 }
