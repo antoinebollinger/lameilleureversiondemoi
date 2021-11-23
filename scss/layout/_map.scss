@@ -2,7 +2,8 @@
     display: none;
     #map {
         position: relative;
-        min-height: 25vh !important;
+        min-height: 30vh !important;
+        border-radius: 5px;
     }
     img {
         filter: blur(0) !important;
