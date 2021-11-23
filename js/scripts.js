@@ -289,7 +289,6 @@ class Mappy {
     }
     _addLocateHandler() {
         this.#locate.addEventListener('click', () => {
-            console.log('hey');
             this.#map.flyTo(this.#homeCoords, this.#mapZoomLevel);
             this.#home.openPopup();
         })
