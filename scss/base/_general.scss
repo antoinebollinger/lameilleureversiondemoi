@@ -1,13 +1,5 @@
 // GENERAL
 
-a[x-apple-data-detectors] {
-    color: inherit !important;
-    text-decoration: none !important;
-    font-size: inherit !important;
-    font-family: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-  }
 
 html {
     scroll-padding-top: 4.5rem;
@@ -23,6 +15,21 @@ p {
     line-height: 1.75;
 }
 
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+a.link {
+    text-decoration: none !important;
+    color: rgba(var(--bs-secondary-rvb),0.8) !important;
+    &:hover {
+        color: rgba(var(--bs-secondary-rvb),1) !important;
+    }
+}
 .cursor-pointer {
     cursor: pointer !important;
 }
