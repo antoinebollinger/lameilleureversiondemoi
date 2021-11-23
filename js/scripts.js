@@ -16,6 +16,8 @@
 //     cookieBanner.style.display = 'none';
 // });
 
+'use strict';
+
 // Reveal sections
 const revealSections = async function (delay = 0) {
     const allSections = document.querySelectorAll('section');
@@ -252,3 +254,33 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 });
 
+// MAP
+class App {
+    #map;
+    #mapZoomLevel = 13;
+
+    constructor() {
+        this._getPosition();
+    }
+    _getPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this._loadMap.bind(this), function () {
+                alert(`Could not get your position`);
+            });
+        }
+    }
+    _loadMap(position) {
+        const { latitude, longitude } = position.coords;
+        const coords = [47.658236, -2.760847];
+        this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(this.#map);
+        L.marker(coords)
+            .addTo(this.#map)
+            .bindPopup('Sabrina Appriou')
+            .openPopup();
+    }
+};
+
+const app = new App();
