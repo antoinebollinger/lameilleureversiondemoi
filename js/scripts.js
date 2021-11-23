@@ -255,32 +255,45 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 // MAP
-class App {
+class Mappy {
     #map;
     #mapZoomLevel = 13;
+    #home;
+    #homeCoords = [47.658236, -2.760847];
+    #locate = document.getElementById('locate');
 
     constructor() {
-        this._getPosition();
+        this._loadMap(this.#homeCoords);
+        this._addLocateHandler();
     }
-    _getPosition() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(this._loadMap.bind(this), function () {
-                alert(`Could not get your position`);
-            });
-        }
-    }
-    _loadMap(position) {
-        const { latitude, longitude } = position.coords;
-        const coords = [47.658236, -2.760847];
+
+    _loadMap(coords) {
         this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
-        L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
         }).addTo(this.#map);
-        L.marker(coords)
+        this.#home = this._addMarker(this.#homeCoords, 'Sabrina Appriou');
+    }
+    _addMarker(coords, text) {
+        const newMarker = L.icon({
+            iconUrl: '../assets/img/marker.png',
+            iconSize: [48, 48]
+
+        });
+        return L.marker(coords, { icon: newMarker })
             .addTo(this.#map)
-            .bindPopup('Sabrina Appriou')
+            .bindPopup(L.popup({ offset: [0, -15], maxWidth: 250, minWidth: 100, autoClose: false, closeOnClick: false, className: 'custom-popup' }))
+            .setPopupContent(text)
             .openPopup();
+    }
+    _addLocateHandler() {
+        this.#locate.addEventListener('click', () => {
+            console.log('hey');
+            this.#map.flyTo(this.#homeCoords, this.#mapZoomLevel);
+            this.#home.openPopup();
+        })
     }
 };
 
-const app = new App();
+const newMap = new Mappy();

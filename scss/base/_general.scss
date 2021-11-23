@@ -14,6 +14,10 @@ p {
     line-height: 1.75;
 }
 
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
 img {
     transition: filter 0.5s;
     filter: blur(10px);
