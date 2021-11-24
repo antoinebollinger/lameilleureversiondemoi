@@ -271,7 +271,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([revealTeam(), revealSkills(), revealAbout(), revealSections()]);
 
     loadingImgs();
-    changeHeaderBg();
+    // changeHeaderBg();
 
     // Navbar shrink function
     var navbarShrink = function () {
