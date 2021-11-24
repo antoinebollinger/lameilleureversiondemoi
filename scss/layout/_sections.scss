@@ -310,8 +310,13 @@ section#contact {
     background-position: center;
     background-size: cover;
     background-attachment: scroll;
-    background-attachment: fixed;
     .section-heading {
         color: #fff;
+    }
+}
+
+@media (min-width: 992px) {
+    section#contact {
+        background-attachment: fixed;
     }
 }
