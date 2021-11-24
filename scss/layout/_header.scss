@@ -6,7 +6,7 @@ header.masthead {
     padding-bottom: 6rem;
     text-align: center;
     color: #fff;
-    background-image: url("../assets/img/header/bw/1.jpg");
+    background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb), 1), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 1)), url('../assets/img/header/bw/1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
