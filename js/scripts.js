@@ -259,10 +259,10 @@ const changeHeaderBg = function () {
     const newBg = () => {
         mastheader.style.backgroundImage = `linear-gradient(45deg, rgba(var(--bs-primary-rgb), 1), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 1)), url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
     };
-    newBg();
-    // setInterval(() => {
-    //     newBg();
-    // }, 5000);
+    //newBg();
+    setInterval(() => {
+        newBg();
+    }, 5000);
 }
 
 // EVENTLISTENER ON DOM LOADED
@@ -271,7 +271,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([revealTeam(), revealSkills(), revealAbout(), revealSections()]);
 
     loadingImgs();
-    // changeHeaderBg();
+    changeHeaderBg();
 
     // Navbar shrink function
     var navbarShrink = function () {
