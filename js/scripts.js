@@ -140,6 +140,8 @@ const revealTeam = async function () {
             "name": "Sabrina Appriou",
             "img": "sabrina.jfif",
             "function": "Coach en développement personnel",
+            "instagram": "https://www.instagram.com/sabs.app/",
+            "facebook": "https://www.facebook.com/sabrina.appriou",
             "linkedIn": "https://www.linkedin.com/in/sabrina-appriou-0138a8122/"
         },
         // {
@@ -156,9 +158,9 @@ const revealTeam = async function () {
                     <img class="mx-auto rounded-circle" src="assets/img/team/${ele.img}" alt="..." />
                     <h4>${ele.name}</h4>
                     <p class="text-muted">${ele.function}</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="${ele.linkedIn}"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-primary btn-social mx-2" href="${ele.instagram}"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-primary btn-social mx-2" href="${ele.facebook}"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-primary btn-social mx-2" href="${ele.linkedIn}"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         `);
