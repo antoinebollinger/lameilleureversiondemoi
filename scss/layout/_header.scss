@@ -6,27 +6,31 @@ header.masthead {
     padding-bottom: 6rem;
     text-align: center;
     color: #fff;
-    background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb), 1), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 1)), url('../assets/img/header/bw/1.jpg');
+    background-image: 
+        // linear-gradient(45deg, rgba(var(--bs-primary-rgb), 1), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 1)), 
+        url('../assets/img/header/bw/1.jpg');
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
+    background-attachment: 
+        // scroll, 
+        fixed;
+    background-position: center;
     background-size: cover;
     background-blend-mode: multiply;
     transition: background-image 1s;
-    // &:before {
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb),0.8), rgba(var(--bs-primary-rgb),0.2), rgba(var(--bs-primary-rgb),0.8));
-    //     background-repeat: no-repeat;
-    //     background-attachment: scroll;
-    //     background-position: center center;
-    //     background-size: cover;
-    //     z-index: 0;
-    // }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb),0.9), rgba(var(--bs-primary-rgb),0.5), rgba(var(--bs-primary-rgb),0.9));
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-position: center center;
+        background-size: cover;
+        z-index: 0;
+    }
     > div {
         position: relative;
     }
