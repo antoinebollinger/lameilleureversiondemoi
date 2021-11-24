@@ -254,7 +254,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // Header background changes
     const mastheader = document.querySelector('.masthead');
-    const myBgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+    const myBgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'];
     const newBg = () => mastheader.style.backgroundImage = `url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
     setInterval(() => {
         newBg();
