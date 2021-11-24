@@ -3,7 +3,7 @@
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
+    background-color: var(--bs-primary);
     .navbar-toggler {
         padding: 0.75rem;
         font-size: 0.75rem;
@@ -12,13 +12,13 @@
         font-weight: 700;
     }
     .navbar-brand {
-        color: #304543;
+        color: $primary-1;
         font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         font-weight: 700;
         letter-spacing: 0.0625em;
         text-transform: uppercase;
         &:hover {
-            color: #ffc800 !important;
+            color: var(--bs-yellow) !important;
         }
         img {
             height: 1.5rem;
@@ -30,7 +30,7 @@
         color: #fff;
         letter-spacing: 0.0625em;
         &.active, &:hover {
-            color: #ffc800;
+            color: var(--bs-yellow);
         }
     }
 }
@@ -53,7 +53,7 @@
         &.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
-            background-color: #304543;
+            background-color: var(--bs-primary);
             .navbar-brand {
                 font-size: 1.25em;
                 svg, img {
