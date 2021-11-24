@@ -166,6 +166,52 @@ const revealTeam = async function () {
 };
 // ABOUT
 const revealAbout = async function (delay = 0) {
+    const aboutContainer = document.querySelector('.timeline');
+    const myAbouts = [
+        {
+            'img': 'entreprise.jpg',
+            'date': '2007-2017',
+            'title': "L'entreprise",
+            'text': "J’ai intégré le monde de l’entreprise après ma licence à l’âge de 23 ans. Il s’agissait d’une opportunité dans une grande entreprise qu’à l’époque je ne pouvais pas refuser.<br>Arrivée à la trentaine, je ne parvenais plus à trouver ma place dans ce monde qui ne me correspondait pas du tout. Je me sentais en perpétuel conflit avec moi-même et surtout prisonnière de ma vie professionnelle. Je devais faire semblant que tout allait bien, trouver la motivation pour faire des choses qui n’avaient aucun sens pour moi… difficile.<br>Mais comment trouver une issue à cette situation qui, à tout point de vue, était pourtant « confortable » : salariée d’une grande entreprise depuis près de 10 ans, 13ème mois, CE, salaire ? Une bonne situation. Stable. Alors pourquoi chercher à changer ? Surtout avec cette ancienneté et des enfants en bas âge à charge !"
+        },
+        {
+            'img': 'sport.jpg',
+            'date': 'Depuis toujours',
+            'title': "Le sport",
+            'text': "À ce moment-là, le sport tient déjà une place importante dans ma vie. Je prends le temps, à la pause déjeuner, d’aller faire du footing. Pourtant, cela ne suffit pas à empêcher mon mal-être de grandir. La frustration s’installe. Une sensation terrible de ne pas être à sa place, tandis que la société et ses injonctions me pressent à ne pas faiblir. À être une femme épanouie. À être une maman dévouée. Bien dans ses baskets. Peu à peu, je m’éloigne de mon bien-être intérieur et je me sens complètement démotivée."
+        },
+        {
+            'img': 'declic.jpg',
+            'date': '2018',
+            'title': "Le déclic",
+            'text': "En 2018 je décide de retrouver la motivation et je me lance un défi : courir le marathon de Paris. Je mets toutes les chances de mon côté en suivant un plan d’entrainement strict et une préparation minutieuse. Et une semaine avant la course, patatras : grosse entorse à la cheville ! Qu’à cela ne tienne, je vais malgré tout relever ce challenge. Et je le fais. Je puise en moi toutes les ressources physiques et mentales et je parviens à franchir la ligne d’arrivée.<br>Cet accomplissement sportif a été un déclic : on a la force en nous de sortir de notre zone de confort et de relever d’immenses défis, malgré l’adversité !"
+        },
+        {
+            'img': 'vocation.jpg',
+            'date': '2018-aujourd\'hui',
+            'title': "La vocation",
+            'text': "Je décide alors de me prendre main. Cela passe par un accompagnement afin que l’on m’aide à donner un autre sens à ma vie professionnelle et, pourquoi pas, à s’engager dans un changement de vie.<br>Des idées émergent : une activité en lien avec ce qui m’anime le plus, l’alimentation, le sport, l’humain. Tout cela sonne comme une évidence pour moi. Je dois prendre un virage, suivre ma vocation, me tourner vers un métier d’accompagnement.<br>L’alimentation est un sujet qui me passionne depuis que je suis maman. Il fait partie de mon quotidien. « Bien manger ».<br>Le sport m’aide à me surpasser et à repousser mes limites.<br>Le développement personnel est un état d’esprit qui m’aide à mieux me connaitre et comprendre les autres.<br>À l’issue de cet accompagnement, j’ai compris que je pouvais faire de belle chose en étant moi-même et en étant à l’écoute de mes besoins. Je fonce alors, avec pour objectif de redonner un sens à ma vie !<br>Je me forme au métier de coaching, un métier d’accompagnement, c’est-à-dire accompagner les personnes dans le changement, la transition professionnelle ou personnelle. Je veux être plus proche de l’humain, aider ces personnes à se réaliser en allant puiser au fond d’elles toutes les ressources dont elles disposent déjà, à se libérer émotionnellement.<br>Je contribue ainsi, à mon niveau, au bien-être des autres. Je me sens alignée avec les valeurs qui me sont chères : authenticité, générosité, pugnacité, respect de soi.<br>En tant que coach, j’accompagne les personnes afin qu’elles apprennent à mieux se connaitre pour révéler tout leur potentiel."
+        }
+    ];
+
+    myAbouts.forEach((ele, index) => {
+        aboutContainer.insertAdjacentHTML('beforeend', `
+            <li${(index % 2 === 1 ? ' class="timeline-inverted"' : '')}>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/${ele.img}"
+                        alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>${ele.date}</h4>
+                        <h4 class="subheading">${ele.title}</h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">${ele.text}</p>
+                    </div>
+                </div>
+            </li >
+        `);
+    });
+
     const timeline = document.querySelector('.timeline').querySelectorAll('li');
     const reveal = function (entries, observer) {
         entries.forEach(entry => {
@@ -208,6 +254,7 @@ const loadingImgs = function (delay = 0) {
 window.addEventListener('DOMContentLoaded', async () => {
 
     await Promise.all([revealTeam(), revealSkills(), revealAbout(), revealSections()]);
+
     loadingImgs();
 
     // Navbar shrink function
@@ -255,11 +302,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     // Header background changes
     const mastheader = document.querySelector('.masthead');
     const myBgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
-    const newBg = () => mastheader.style.backgroundImage = `linear-gradient(45deg, rgba(var(--bs-primary-rgb),1), rgba(var(--bs-primary-rgb),0.5), rgba(var(--bs-primary-rgb),1)), url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
+    const newBg = () => mastheader.style.backgroundImage = `linear - gradient(45deg, rgba(var(--bs - primary - rgb), 1), rgba(var(--bs - primary - rgb), 0.5), rgba(var(--bs - primary - rgb), 1)), url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
     newBg();
-    // setInterval(() => {
-    //     newBg();
-    // }, 5000);
+    setInterval(() => {
+        newBg();
+    }, 5000);
 });
 
 // MAP
