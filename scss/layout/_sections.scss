@@ -110,7 +110,7 @@
         min-height: 50px;
         margin-bottom: 50px;
         transition: transform 0.5s;
-        transform: translateX(-50%);
+        transform: translateX(50%);
         &:before, &:after {
             display: table;
             content: " ";
@@ -156,7 +156,7 @@
             }
         }
         &.timeline-inverted {
-            transform: translateX(50%);
+            
             > .timeline-panel {
                 float: right;
                 padding: 0 20px 0 100px;
@@ -176,7 +176,7 @@
             }
         }
         &.in {
-            transform: translateX(0);
+            transform: translateX(0) !important;
         }
         &:last-child {
             margin-bottom: 0;
@@ -204,8 +204,12 @@
             left: 50%;
         }
         > li {
+            transform: translateX(-50%);
             min-height: 100px;
             margin-bottom: 100px;
+            &.timeline-inverted {
+                transform: translateX(50%);
+            }
             .timeline-panel {
                 float: left;
                 width: 41%;
@@ -261,7 +265,7 @@
     min-height: 170px;
   }
   .timeline > li .timeline-panel {
-    padding: 0 20px 20px 100px;
+    padding: 0 20px 20px;
   }
   .timeline > li .timeline-image {
     width: 170px;
@@ -272,7 +276,7 @@
     margin-top: 40px;
   }
   .timeline > li.timeline-inverted > .timeline-panel {
-    padding: 0 100px 20px 20px;
+    padding: 0 20px 20px;
   }
 }
 
