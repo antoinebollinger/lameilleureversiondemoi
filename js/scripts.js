@@ -254,11 +254,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // Header background changes
     const mastheader = document.querySelector('.masthead');
-    const myBgs = ['1.jpg', '2.jpg', '3.jpg'];
-    const newBg = () => mastheader.style.backgroundImage = `url('../assets/img/header/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
+    const myBgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+    const newBg = () => mastheader.style.backgroundImage = `url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
     setInterval(() => {
         newBg();
-    }, 5000);
+    }, 4000);
 });
 
 // MAP
