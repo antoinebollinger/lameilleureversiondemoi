@@ -42,6 +42,7 @@ header.masthead {
 
 @media (min-width: 992px) {
     header.masthead {
+        min-height: 100vh;
         padding-top: 17rem;
         padding-bottom: 12.5rem;
         background-attachment: fixed;
