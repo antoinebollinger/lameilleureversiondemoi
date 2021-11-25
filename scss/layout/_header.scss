@@ -6,15 +6,21 @@ header.masthead {
     padding-bottom: 6rem;
     text-align: center;
     color: #fff;
-    background-image: 
-        linear-gradient(45deg, rgba(var(--bs-primary-rgb), 1), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 1)), 
-        url('../assets/img/header/bw/1.jpg');
+    background-image: url('../assets/img/header/bw/1.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center;
-    background-size: 100%, cover;
-    background-blend-mode: multiply;
+    background-size: cover;
     transition: background-image 1s;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb), 0.9), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 0.9));
+    }
     > div {
         position: relative;
     }
@@ -38,7 +44,7 @@ header.masthead {
     header.masthead {
         padding-top: 17rem;
         padding-bottom: 12.5rem;
-        background-attachment: scroll, fixed;
+        background-attachment: fixed;
         .masthead-subheading {
             font-size: 2.25rem;
             font-style: italic;

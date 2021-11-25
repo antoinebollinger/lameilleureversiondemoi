@@ -257,9 +257,8 @@ const changeHeaderBg = function () {
     const mastheader = document.querySelector('.masthead');
     const myBgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
     const newBg = () => {
-        mastheader.style.backgroundImage = `linear-gradient(45deg, rgba(var(--bs-primary-rgb), 1), rgba(var(--bs-primary-rgb), 0.5), rgba(var(--bs-primary-rgb), 1)), url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
+        mastheader.style.backgroundImage = `url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
     };
-    //newBg();
     setInterval(() => {
         newBg();
     }, 5000);
@@ -271,7 +270,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([revealTeam(), revealSkills(), revealAbout(), revealSections()]);
 
     loadingImgs();
-    // changeHeaderBg();
+    changeHeaderBg();
 
     // Navbar shrink function
     var navbarShrink = function () {
