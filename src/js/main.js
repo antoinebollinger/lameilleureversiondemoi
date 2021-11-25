@@ -328,11 +328,12 @@ class Mappy {
     constructor() {
         this._loadMap(this.#homeCoords);
         this._addLocateHandler();
+        //console.log(process.env.MAPBOX_TOKEN);
     }
 
     _loadMap(coords) {
         this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
             maxZoom: 20,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.#map);
