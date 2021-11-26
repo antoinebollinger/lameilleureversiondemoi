@@ -79,7 +79,7 @@
         {
             "img": "at.jpg",
             "title": "Analyse transactionnelle",
-            "test": "L’analyse transactionnelle est une théorie et méthode qui s’appuie sur une philosophie optimiste dont le langage est accessible à tous. Son système de valeurs repose sur les bases du courant humaniste, avec pour postulat que la nature humaine est fondamentalement positive, capable de faire des choix et de les assumer."
+            "text": "L’analyse transactionnelle est une théorie et méthode qui s’appuie sur une philosophie optimiste dont le langage est accessible à tous. Son système de valeurs repose sur les bases du courant humaniste, avec pour postulat que la nature humaine est fondamentalement positive, capable de faire des choix et de les assumer."
         }
     ]
 }
