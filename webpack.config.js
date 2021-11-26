@@ -2,7 +2,7 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-    entry: './src/js/main.js',
+    entry: './src/js/index.js',
     optimization: {
         minimize: true
     },
