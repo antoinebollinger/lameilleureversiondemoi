@@ -7,6 +7,7 @@ export default class App {
     #aboutContainer = document.querySelector('.timeline');
     #skillsContainer = document.getElementById('expertise').querySelector('.row');
     #skillsModalsContainer = document.getElementById('skills-modals');
+    #backToTop = document.getElementById('btn-back-to-top');
     #sections;
     #images;
 
@@ -249,9 +250,12 @@ export default class App {
     }
     _navbarShrink() {
         if (window.scrollY === 0) {
-            this.#navbarCollapsible.classList.remove('navbar-shrink')
+            this.#navbarCollapsible.classList.remove('navbar-shrink');
+            this.#backToTop.style.display = 'none';
+
         } else {
-            this.#navbarCollapsible.classList.add('navbar-shrink')
+            this.#navbarCollapsible.classList.add('navbar-shrink');
+            this.#backToTop.style.display = 'block';
         }
     }
     _scrollSpy() {
