@@ -48,6 +48,11 @@ const revealSkills = async function () {
             "text": "Ma certification de Coach Consultate délivrée par l'organisme Linkup Coaching"
         },
         {
+            "img": "alimentation.jpg",
+            "title": "Alimentation consciente",
+            "text": "Chercher à créer une conscience totale de nos choix alimentaires sans jugement de soi. Il est important de vivre le moment présent pour observer l'expérience et les émotions tout en consommant des aliments."
+        },
+        {
             "img": "questions.jpg",
             "title": "Art du questionnement",
             "text": "Cette discipline a pour ambition d’éveiller notre intelligence à interroger de façon pertinente, dans le but de découvrir de nouveaux possibles."
