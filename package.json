@@ -11,6 +11,7 @@
   "dependencies": {},
   "devDependencies": {
     "dotenv-webpack": "^7.0.3",
+    "leaflet-gesture-handling": "^1.2.2",
     "webpack": "^5.64.3",
     "webpack-cli": "^4.9.1"
   }

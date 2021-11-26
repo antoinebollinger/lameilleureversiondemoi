@@ -39,44 +39,48 @@ const revealSections = async function (delay = 0) {
 
 // Skills
 const revealSkills = async function () {
-    const skillsContainer = document.getElementById('work').querySelector('.row');
+    const skillsContainer = document.getElementById('expertise').querySelector('.row');
     const skillsModalsContainer = document.getElementById('skills-modals');
     const mySkills = [
         {
-            "img": "01.jpg",
-            "lazy": "01_small.jpg",
-            "title": "Se développer",
-            "texte": "Apprendre à se développer"
+            "img": "coach.jpg",
+            "title": "Coach Consultante",
+            "text": "Ma certification de Coach Consultate délivrée par l'organisme Linkup Coaching"
         },
         {
-            "img": "02.jpg",
-            "lazy": "02_small.jpg",
-            "title": "Construction de soi",
-            "texte": "Apprendre à se développer"
+            "img": "questions.jpg",
+            "title": "Art du questionnement",
+            "text": "Cette discipline a pour ambition d’éveiller notre intelligence à interroger de façon pertinente, dans le but de découvrir de nouveaux possibles."
         },
         {
-            "img": "03.jpg",
-            "lazy": "03_small.jpg",
-            "title": "Se reconnecter",
-            "texte": "Apprendre à se développer"
+            "img": "identite.jpg",
+            "title": "Construction identitaire",
+            "text": "La construction identitaire est un processus hautement dynamique au cours duquel la personne se définit et se reconnaît par sa façon de réfléchir, d’agir et de vouloir dans les contextes sociaux et l’environnement naturel où elle évolue"
         },
         {
-            "img": "04.jpg",
-            "lazy": "04_small.jpg",
-            "title": "Motivation",
-            "texte": "Apprendre à se développer"
+            "img": "changement.jpg",
+            "title": "Changements & transitions",
+            "text": "Il n'est jamais facile de changer..."
         },
         {
-            "img": "05.jpg",
-            "lazy": "05_small.jpg",
-            "title": "Quête de sens",
-            "texte": "Apprendre à se développer"
+            "img": "stress.jpg",
+            "title": "Gestion du stress",
+            "text": "Apprendre à gérer son stress en toute situation"
         },
         {
-            "img": "06.jpg",
-            "lazy": "06_small.jpg",
-            "title": "Respect",
-            "texte": "Apprendre à se développer"
+            "img": "pnl.jpg",
+            "title": "Programmation Neuro-linguistique (PNL)",
+            "text": "Née suite à l'observation comportementale, la programmation neuro-linguistique (PNL) désigne tout un ensemble de techniques (dissociation, recadrage…) et de méthodes visant à favoriser le développement personnel de l’individu."
+        },
+        {
+            "img": "neuroscience.jpg",
+            "title": "Neuroscience",
+            "text": "Un coach spécialisé en neurosciences comprend de façon approfondie le fonctionnement du cerveau, les mécanismes de l’attention et leur utilisation en coaching."
+        },
+        {
+            "img": "at.jpg",
+            "title": "Analyse transactionnelle",
+            "test": "L’analyse transactionnelle est une théorie et méthode qui s’appuie sur une philosophie optimiste dont le langage est accessible à tous. Son système de valeurs repose sur les bases du courant humaniste, avec pour postulat que la nature humaine est fondamentalement positive, capable de faire des choix et de les assumer."
         }
     ];
 
@@ -89,7 +93,7 @@ const revealSkills = async function () {
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
-                    <img class="img-fluid" src="assets/img/portfolio/${ele.lazy}" data-src="assets/img/portfolio/${ele.img}" alt="${ele.title}" />
+                    <img class="img-fluid" src="assets/img/expertise/small/${ele.img}" data-src="assets/img/expertise/preview/${ele.img}" alt="${ele.title}" />
                 </a>
                 <div class="portfolio-caption">
                     <div class="portfolio-caption-heading">${ele.title}</div>
@@ -110,12 +114,9 @@ const revealSkills = async function () {
                                 <div class="modal-body">
                                     <!-- Project details-->
                                     <h2 class="text-uppercase">${ele.title}</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/${ele.img}" alt="${ele.title}" loading="lazy" />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                        adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                        repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                        nostrum, reiciendis facere nemo!</p>
+                                    <!-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> -->
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/expertise/${ele.img}" alt="${ele.title}" />
+                                    <p>${ele.text}</p>
                                   
                                     <!-- <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
                                         type="button">
