@@ -11,7 +11,7 @@ header.masthead {
     background-attachment: scroll;
     background-position: center;
     background-size: cover;
-    transition: background-image 1s;
+    transition: background-image 2s;
     &:before {
         content: "";
         position: absolute;
@@ -30,6 +30,7 @@ header.masthead {
         line-height: 1.5rem;
         margin-bottom: 25px;
         font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        text-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     .masthead-heading {
         font-size: 2rem;
@@ -37,6 +38,7 @@ header.masthead {
         line-height: 2rem;
         margin-bottom: 2rem;
         font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        text-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 }
 

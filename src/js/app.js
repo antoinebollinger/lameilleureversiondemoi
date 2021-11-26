@@ -162,9 +162,9 @@ export default class App {
 
     // Nav & Header functions
     _headerSlider(interval = 5000) {
-        const myBgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'];
+        const nbr = data.headerBackground.length;
         setInterval(() => {
-            this.#masthead.style.backgroundImage = `url('../assets/img/header/bw/${myBgs[Math.floor(Math.random() * myBgs.length)]}')`;
+            this.#masthead.style.backgroundImage = `url('../assets/img/header/bw/${data.headerBackground[Math.floor(Math.random() * nbr)]}')`;
         }, interval);
     }
 
