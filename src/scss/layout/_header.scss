@@ -45,7 +45,6 @@ header.masthead {
         min-height: 100vh;
         padding-top: 17rem;
         padding-bottom: 12.5rem;
-        background-attachment: fixed;
         .masthead-subheading {
             font-size: 2.25rem;
             font-style: italic;
@@ -58,5 +57,11 @@ header.masthead {
             line-height: 4.5rem;
             margin-bottom: 4rem;
         }
+    }
+}
+
+@media (min-width: 1200px) {
+    header.masthead {
+        background-attachment: fixed;
     }
 }
