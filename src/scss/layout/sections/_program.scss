@@ -8,6 +8,7 @@ $nbr_line: 2;
             -webkit-line-clamp: $nbr_line;
             overflow: hidden;
             margin-bottom: 0.5rem;
+            max-height: 3.5rem;
         }
     }
 }
