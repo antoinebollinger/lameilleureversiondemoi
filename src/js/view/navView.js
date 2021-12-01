@@ -24,16 +24,14 @@ class Nav extends View {
             this.navbarCollapsible.classList.remove('navbar-shrink');
             this.backToTop.classList.remove('show');
             this.backToTop.classList.add('hide');
-
-            //this.#backToTop.style.display = 'none';
-
         } else {
             this.navbarCollapsible.classList.add('navbar-shrink');
             this.backToTop.classList.add('show');
             this.backToTop.classList.remove('hide');
-
-            //this.#backToTop.style.display = 'block';
         }
+        // setTimeout(() => {
+        //     document.getElementsByTagName('html')[0].style.scrollPaddingTop = `${this.navbarCollapsible.offsetHeight}px`;
+        // }, 100);
     }
 
     _scrollSpy() {
