@@ -16,6 +16,7 @@
     &.show {
         animation-name: show;
     }
+    appearance: none;
 }
 
 @keyframes show {
