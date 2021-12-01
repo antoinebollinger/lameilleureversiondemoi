@@ -165,7 +165,7 @@ export default class App {
             program.description.forEach((card, index2) => {
                 cards += `
                     <div class="col-lg-6 mb-4">
-                        <div class="card">
+                        <div class="card shadow-sm">
                             <img class="card-img-top" src="assets/img/programs/${card.img}"
                                 alt="${card.title}">
                             <div class="card-body">
@@ -197,7 +197,7 @@ export default class App {
                 `;
             });
             this.#programsContainer.insertAdjacentHTML('beforeend', `
-                <div class="program bg-light mb-4">
+                <div class="program rounded shadow bg-light mb-4">
                     <div class="col-lg-8 mx-auto py-4">
                         <div class="text-center">
                             <h4>Programme <span class="text-uppercase text-primary">${program.title}</span></h4>
