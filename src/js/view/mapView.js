@@ -1,8 +1,8 @@
 'use strict';
 
-import App from "../app";
+import View from "./View";
 
-export default class Mappy extends App {
+class Mappy extends View {
     #map;
     #mapZoomLevel = 13;
     #home;
@@ -42,3 +42,5 @@ export default class Mappy extends App {
         })
     }
 };
+
+export default new Mappy();
