@@ -171,7 +171,7 @@ export default class App {
                             <img class="card-img-top" src="assets/img/programs/${card.img}"
                                 alt="${card.title}">
                             <div class="card-body">
-                                <h5 class="card-title">${card.title}</h5>
+                                <h5 class="card-title text-muted">${card.title}</h5>
                                 <div class="card-text">${card.text}</div>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#modal-${index1 + '-' + index2}">
@@ -180,12 +180,12 @@ export default class App {
                             </div>
                         </div>
                         <!-- Modal -->
-                        <div class="modal fade" id="modal-${index1 + '-' + index2}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="modal-${index1 + '-' + index2}" tabindex="-1" aria-labelledby="modalLabel-${index1 + '-' + index2}"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">${card.title}</h5>
+                                        <h5 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="text-uppercase text-primary">${program.title}</span><br><span class="text-muted">${card.title}</span></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
