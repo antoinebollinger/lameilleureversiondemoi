@@ -1,0 +1,13 @@
+$nbr_line: 2;
+
+.program {
+    .card {
+        .card-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: $nbr_line;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+    }
+}

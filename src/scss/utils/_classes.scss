@@ -3,3 +3,8 @@
 .shadow {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 8px !important;
 }
+
+.bg-primary-2 {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-primary-2-rgb), var(--bs-bg-opacity)) !important;
+}
