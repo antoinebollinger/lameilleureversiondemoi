@@ -198,7 +198,7 @@ export default class App {
             });
             this.#programsContainer.insertAdjacentHTML('beforeend', `
                 <div class="program rounded shadow bg-light mb-4">
-                    <div class="col-lg-8 mx-auto py-4">
+                    <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
                             <h4>Programme <span class="text-uppercase text-primary">${program.title}</span></h4>
                             <p class="text-muted">${program.subtitle ?? ''}</p>
