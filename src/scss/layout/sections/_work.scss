@@ -1,0 +1,14 @@
+section#work {
+    background-image: url('../assets/img/work/bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center;
+    background-size: cover;
+}
+
+
+@media (min-width: 1200px) {
+    section#work {
+        background-attachment: fixed;
+    }
+}
