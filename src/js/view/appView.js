@@ -26,7 +26,7 @@ class App extends View {
                 }, delay);
             });
         };
-        const sectionObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.15 });
+        const sectionObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.1 });
         this.#sections.forEach(function (section) {
             sectionObserver.observe(section);
             section.classList.add('section-hidden');
@@ -147,7 +147,7 @@ class App extends View {
         let buttons = '';
         this.#data.programs.forEach((program, index1) => {
             buttons += `
-                <li class="nav-item">
+                <li class="nav-item m-2">
                     <a class="nav-link${(index1 === 0 ? ' active' : '')}" data-href="pills-program${1 + index1}" href="#pills-program${1 + index1}">${program.title}</a>
                 </li>
             `;
@@ -224,8 +224,11 @@ class App extends View {
         ]);
         this.#sections = document.querySelectorAll('section');
         this.#images = document.querySelectorAll('img');
-        await Promise.all([this._revealSection(), this._revealImage(), this._revealAbout()]);
-
+        await Promise.all([
+            this._revealSection(),
+            this._revealImage(),
+            this._revealAbout()
+        ]);
     }
 };
 

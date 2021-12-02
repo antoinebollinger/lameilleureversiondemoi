@@ -1,21 +1,22 @@
 'use strict';
 
 import View from "./View";
-import data from "../json/data.json"
+import data from "../json/data.json";
 
 class Nav extends View {
-    #backgrounds;
+    #header;
     constructor(data) {
         super();
-        this.#backgrounds = data.headerBackground;
+        this.#header = data.header;
         this._init();
     }
 
     // Nav & Header functions
     _headerSlider(interval = 5000) {
-        const nbr = this.#backgrounds.length;
+        console.log(this.#header);
+        const nbr = this.#header.background.length;
         setInterval(() => {
-            this.masthead.style.backgroundImage = `url('../assets/img/header/bw/${this.#backgrounds[Math.floor(Math.random() * nbr)]}')`;
+            this.masthead.style.backgroundImage = `url('../assets/img/header/${this.#header.path}${this.#header.background[Math.floor(Math.random() * nbr)]}')`;
         }, interval);
     }
 
