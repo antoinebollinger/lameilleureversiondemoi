@@ -1,6 +1,9 @@
 $nbr_line: 2;
 
-#programsContainer {
+#programs {
+    .nav-link.active {
+        @include shadow;
+    }
     .program {
         animation-duration: 1s;
         animation-timing-function: ease;

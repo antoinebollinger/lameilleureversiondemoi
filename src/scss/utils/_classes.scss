@@ -1,7 +1,10 @@
 // Overwriting classes
+@mixin shadow {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 8px !important;
+}
 
 .shadow {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 8px !important;
+    @include shadow;
 }
 
 .bg-primary-2 {
