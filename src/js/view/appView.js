@@ -202,9 +202,26 @@ class App extends View {
         this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">${buttons}</ul>`);
     }
 
+    async _renderPrivacy() {
+        const html = await this._getHtml('src/html/privacy.html');
+        document.getElementById('modalPrivacy').querySelector('.modal-body').insertAdjacentHTML('beforeend', html);
+    }
+
+    async _renderTerms() {
+        const html = await this._getHtml('src/html/terms.html');
+        document.getElementById('modalCU').querySelector('.modal-body').insertAdjacentHTML('beforeend', html);
+    }
+
     //Initialisation
     async _init() {
-        await Promise.all([this._renderTeam(), this._renderAbout(), this._renderSkill(), this._renderProgram()]);
+        await Promise.all([
+            this._renderTeam(),
+            this._renderAbout(),
+            this._renderSkill(),
+            this._renderProgram(),
+            this._renderPrivacy(),
+            this._renderTerms()
+        ]);
         this.#sections = document.querySelectorAll('section');
         this.#images = document.querySelectorAll('img');
         await Promise.all([this._revealSection(), this._revealImage(), this._revealAbout()]);

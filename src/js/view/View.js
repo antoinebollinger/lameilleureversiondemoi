@@ -8,4 +8,11 @@ export default class View {
     skillsContainer = document.getElementById('expertise');
     programsContainer = document.getElementById('programsContainer');
     backToTop = document.getElementById('btn-back-to-top');
+
+    async _getHtml(url) {
+        const privacy = await fetch(url);
+        if (!privacy.ok) return;
+        const html = await privacy.text();
+        return html;
+    }
 };
