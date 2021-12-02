@@ -123,40 +123,34 @@ class App extends View {
                             <!-- <div class="portfolio-caption-subheading text-muted">Illustration</div> -->
                         </div>
                     </div>
-                    <div class="portfolio-modal modal fade" id="portfolioModal${1 + index}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
+                    <div class="modal fade" id="portfolioModal${1 + index}" tabindex="-1" aria-labelledby="modalLabel-${1 + index}"
+                    aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                             <div class="modal-content">
-                                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
-                                        alt="Fermer" /></div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project details-->
-                                                <h2 class="text-uppercase">${ele.title}</h2>
-                                                <!-- <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p> -->
-                                                <img class="img-fluid d-block mx-auto" src="assets/img/expertise/${ele.img}" alt="${ele.title}" />
-                                                <p>${ele.text}</p>
-                                            
-                                                <!-- <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
-                                                    type="button">
-                                                    <i class="fas fa-times me-1"></i>
-                                                    Close Project
-                                                </button> -->
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-${index}"><span class="text-uppercase text-primary">${ele.title}</span></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="text-center mb-4"><img src="assets/img/expertise/${ele.img}" alt="${ele.title}" class="w-50 rounded shadow"></div>
+                                    ${ele.text}
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             `);
         });
     }
 
     async _renderProgram() {
+        let buttons = '';
         this.#data.programs.forEach((program, index1) => {
+            buttons += `
+                <li class="nav-item">
+                    <a class="nav-link${(index1 === 0 ? ' active' : '')}" data-href="pills-program${1 + index1}" href="#pills-program${1 + index1}">${program.title}</a>
+                </li>
+            `;
             let cards = '';
             program.description.forEach((card, index2) => {
                 cards += `
@@ -164,10 +158,10 @@ class App extends View {
                         <div class="card shadow-sm">
                             <img class="card-img-top" src="assets/img/programs/${card.img}"
                                 alt="${card.title}">
-                            <div class="card-body">
+                            <div class="card-body bg-tertary-2">
                                 <h5 class="card-title text-muted">${card.title}</h5>
                                 <div class="card-text">${card.text}</div>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-tertary-2" data-bs-toggle="modal"
                                     data-bs-target="#modal-${index1 + '-' + index2}">
                                     Lire plus...
                                 </button>
@@ -179,7 +173,7 @@ class App extends View {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="text-uppercase text-primary">${program.title}</span><br><span class="text-muted">${card.title}</span></h5>
+                                        <h5 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="text-uppercase text-tertary-2">${program.title}</span><br><span class="text-muted">${card.title}</span></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -193,10 +187,10 @@ class App extends View {
                 `;
             });
             this.programsContainer.insertAdjacentHTML('beforeend', `
-                <div class="program rounded shadow bg-light mb-4">
+                <div class="program rounded shadow bg-white${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
-                            <h4>Programme <span class="text-uppercase text-primary">${program.title}</span></h4>
+                            <h4>Programme <span class="text-uppercase text-tertary-2">${program.title}</span></h4>
                             <p class="text-muted">${program.subtitle ?? ''}</p>
                         </div>
                         <p>${program.intro ?? ''}</p>
@@ -205,6 +199,7 @@ class App extends View {
                 </div>
             `);
         });
+        this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">${buttons}</ul>`);
     }
 
     //Initialisation

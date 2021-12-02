@@ -1,14 +1,52 @@
 $nbr_line: 2;
 
-.program {
-    .card {
-        .card-text {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: $nbr_line;
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-            max-height: 3.5rem;
+#programsContainer {
+    .program {
+        animation-duration: 1s;
+        animation-timing-function: ease;
+        animation-fill-mode: none;
+        &.show {
+            animation-name: showFadin;
         }
+        &.hide {
+            display: none;
+            animation-name: hideFadin;
+        }
+        .card {
+            .card-text {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: $nbr_line;
+                overflow: hidden;
+                margin-bottom: 0.5rem;
+                max-height: 3.5rem;
+            }
+        }
+    }
+}
+
+@keyframes showFadin {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    1% {
+        display: block;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hideFadin {
+    0% {
+        opacity: 1;
+        display: block;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        display: none;
     }
 }
