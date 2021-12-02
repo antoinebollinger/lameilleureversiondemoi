@@ -57,7 +57,7 @@ section {
         opacity: 0;
     }
     h2.section-heading, .section-heading.h2 {
-        font-size: 2.5rem;
+        font-size: 1.4rem;
         margin-top: 0;
         margin-bottom: 1rem;
         color: var(--bs-primary);
@@ -75,6 +75,9 @@ section {
     section {
         padding: 9rem 0;
         min-height: 100vh;
+        h2.section-heading, .section-heading.h2 {
+            font-size: 2.5rem;
+        }
     }
 }
 
