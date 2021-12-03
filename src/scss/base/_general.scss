@@ -24,9 +24,10 @@ a[x-apple-data-detectors] {
 
 a.link {
     text-decoration: none !important;
-    color: rgba(var(--bs-secondary-rvb),0.8) !important;
+    transition: color 0.2s;
+    color: var(--bs-secondary-rgb) !important;
     &:hover {
-        color: rgba(var(--bs-secondary-rvb),1) !important;
+        color: var(--bs-yellow) !important;
     }
 }
 
