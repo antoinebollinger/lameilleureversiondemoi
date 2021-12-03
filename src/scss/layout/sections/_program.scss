@@ -1,8 +1,11 @@
 $nbr_line: 2;
 
 #programs {
-    .nav-link.active {
-        @include shadow;
+    .nav-link {
+        text-transform: uppercase;
+        &.active {
+            font-weight: bold;
+        }
     }
     .program {
         animation-duration: 1s;

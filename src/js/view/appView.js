@@ -147,7 +147,7 @@ class App extends View {
         let buttons = '';
         this.#data.programs.forEach((program, index1) => {
             buttons += `
-                <li class="nav-item m-2">
+                <li class="nav-item">
                     <a class="nav-link${(index1 === 0 ? ' active' : '')}" data-href="pills-program${1 + index1}" href="#pills-program${1 + index1}">${program.title}</a>
                 </li>
             `;
@@ -187,7 +187,7 @@ class App extends View {
                 `;
             });
             this.programsContainer.insertAdjacentHTML('beforeend', `
-                <div class="program rounded shadow bg-white${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
+                <div class="program bg-white${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
                             <h4>Programme <span class="text-uppercase text-tertary-2">${program.title}</span></h4>
@@ -199,7 +199,7 @@ class App extends View {
                 </div>
             `);
         });
-        this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">${buttons}</ul>`);
+        this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">${buttons}</ul>`);
     }
 
     async _renderPrivacy() {
