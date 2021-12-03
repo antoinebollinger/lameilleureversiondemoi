@@ -13,7 +13,6 @@ class Nav extends View {
 
     // Nav & Header functions
     _headerSlider(interval = 5000) {
-        console.log(this.#header);
         const nbr = this.#header.background.length;
         setInterval(() => {
             this.masthead.style.backgroundImage = `url('../assets/img/header/${this.#header.path}${this.#header.background[Math.floor(Math.random() * nbr)]}')`;
