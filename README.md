@@ -35,13 +35,15 @@
 
 ### Build with
 
-The project is based on a free template from [Start Boostrap](https://startbootstrap.com/).
+The project is based on a free template from [Start Boostrap](https://startbootstrap.com/), which use the CSS framework [Bootstrap v5](https://getbootstrap.com/docs/5.0/getting-started/introduction/). The **CSS** has been customized with the help of [SASS](https://sass-lang.com/).
 
-I used the [Webpack](https://webpack.js.org/) package to manage my **JS** code. This allowed me to work with modules and classes.
+I used the [Webpack](https://webpack.js.org/) package to manage my **JS** code. This allowed me to work with modules which make it easier to maintain.
 
 The website is currently tested on a [Netlify](https://www.netlify.com/) deployment. You can see the result at [Sabrina Coaching](https://sabrinaappriou.netlify.app/).
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f49d62bd-6859-4abe-a465-306d84627c4a/deploy-status)](https://app.netlify.com/sites/sabrinaappriou/deploys)
+
+Soon it will have its own domain 😎 !
 
 <!-- CONTACT -->
 
