@@ -1,5 +1,4 @@
 <!-- PROJECT LOGO -->
-<br />
 <p align="center">
   <h3 align="center">Sabrina Coaching website project</h3>
 
