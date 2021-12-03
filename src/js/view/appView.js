@@ -94,7 +94,7 @@ class App extends View {
                             alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>${ele.date}</h4>
+                            <h4 class="text-muted">${ele.date}</h4>
                             <h4 class="subheading">${ele.title}</h4>
                         </div>
                         <div class="timeline-body">
