@@ -17,6 +17,10 @@
         animation-name: show;
     }
     appearance: none;
+    overflow: hidden;
+    span {
+        display: none;
+    }
 }
 
 @keyframes show {
