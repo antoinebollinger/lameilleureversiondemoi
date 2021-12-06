@@ -16,7 +16,18 @@ class Mappy extends View {
 
     constructor() {
         super();
-        this._getCurrentCoords();
+        this._launchMap();
+    }
+
+    _launchMap() {
+        const callback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                this._getCurrentCoords();
+            });
+        };
+        const contactObserver = new IntersectionObserver(callback, { root: null, threshold: 0.1 });
+        contactObserver.observe(this.contactContainer);
     }
 
     _loadMap(current = false) {

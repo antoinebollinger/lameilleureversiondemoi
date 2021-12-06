@@ -1,13 +1,15 @@
 'use strict';
 
 export default class View {
-    masthead = document.querySelector('.masthead');
     navbarCollapsible = document.getElementById('mainNav');
+    masthead = document.querySelector('.masthead');
+    programsContainer = document.getElementById('programsContainer');
     teamContainer = document.getElementById('team').querySelector('.row');
     aboutContainer = document.querySelector('.timeline');
     skillsContainer = document.getElementById('expertise');
-    programsContainer = document.getElementById('programsContainer');
+    contactContainer = document.getElementById('contact');
     backToTop = document.getElementById('btn-back-to-top');
+
 
     async _getHtml(url) {
         const privacy = await fetch(url);

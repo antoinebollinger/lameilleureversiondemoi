@@ -173,7 +173,7 @@ class App extends View {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="text-uppercase text-tertary-2">${program.title}</span><br><span class="text-muted">${card.title}</span></h5>
+                                        <h4 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="text-uppercase text-tertary-2">${program.title}</span><br><span class="text-muted">${card.title}</span></h4>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
