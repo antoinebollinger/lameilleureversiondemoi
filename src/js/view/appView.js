@@ -199,7 +199,7 @@ class App extends View {
                 </div>
             `);
         });
-        this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">${buttons}</ul>`);
+        this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab">${buttons}</ul>`);
     }
 
     async _renderPrivacy() {
