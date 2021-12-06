@@ -21,10 +21,10 @@ class Mappy extends View {
 
     _launchMap() {
         const callback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                this._getCurrentCoords();
-            });
+            const [entry] = entries;
+            if (!entry.isIntersecting) return;
+            this._getCurrentCoords();
+            observer.unobserve(entry.target);
         };
         const contactObserver = new IntersectionObserver(callback, { root: null, threshold: 0.1 });
         contactObserver.observe(this.contactContainer);
