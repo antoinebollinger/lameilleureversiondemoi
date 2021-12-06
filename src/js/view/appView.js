@@ -77,9 +77,9 @@ class App extends View {
                         <img class="mx-auto rounded-circle" src="assets/img/team/${ele.img}" alt="..." />
                         <h4>${ele.name}</h4>
                         <p class="text-muted">${ele.function}</p>
-                        <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.facebook}"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.linkedIn}"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}" title="Instagram><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.facebook}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.linkedIn}" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             `);
