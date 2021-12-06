@@ -18,7 +18,7 @@ class Nav extends View {
             this.masthead.style.backgroundImage = `url('../assets/img/header/${this.#header.path}${this.#header.background[Math.floor(Math.random() * nbr)]}')`;
         }, interval);
         const before = window.getComputedStyle(this.masthead, ':before');
-        console.log(before.getPropertyValue('background'));
+        //console.log(before.getPropertyValue('background'));
     }
 
     _navbarShrink() {
