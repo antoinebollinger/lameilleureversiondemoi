@@ -75,7 +75,7 @@ class App extends View {
                 <div class="col-lg-${12 / team.length}">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="assets/img/team/${ele.img}" alt="..." />
-                        <h4>${ele.name}</h4>
+                        <h3>${ele.name}</h3>
                         <p class="text-muted">${ele.function}</p>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}" title="Instagram><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.facebook}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -190,7 +190,7 @@ class App extends View {
                 <div class="program bg-white py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
-                            <h4>Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span></h4>
+                            <h3>Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span></h3>
                             <p class="text-muted">${program.subtitle ?? ''}</p>
                         </div>
                         <p>${program.intro ?? ''}</p>
