@@ -6,6 +6,7 @@ class Mappy extends View {
     #goToHome = document.getElementById('goToHome');
     #goToCurrent = document.getElementById('goToCurrent');
     #distance = document.getElementById('distance');
+    #goDistance = document.getElementById('goDistance');
     #mapZoomLevel = 15;
     #map;
     #home;
@@ -27,11 +28,12 @@ class Mappy extends View {
         this.#home = this._addMarker(this.#homeCoords, 'Sabrina Appriou', 'tertary');
         if (!current) return;
         this.#current = this._addMarker(this.#currentCoords, 'Vous');
-        let group = new L.featureGroup([this.#home, this.#current]);
-        this.#map.fitBounds(group.getBounds(), { padding: [50, 50] });
-        this._addLocateHandler({ button: this.#goToHome, marker: this.#home, coords: this.#homeCoords });
-        this._addLocateHandler({ button: this.#goToCurrent, marker: this.#current, coords: this.#currentCoords });
-        this.#distance.insertAdjacentHTML('afterbegin', `<i class="fas fa-people-arrows"></i> Distance estimée : ${this._calculateDistance(this.#current.getLatLng(), this.#home.getLatLng())} km`)
+        const group = [this.#home, this.#current];
+        this.#distance.insertAdjacentHTML('afterbegin', `${this._calculateDistance(this.#current.getLatLng(), this.#home.getLatLng())} km`)
+        this._goDistance(group);
+        this._goFocusHandler(this.#goToHome, { marker: this.#home, coords: this.#homeCoords });
+        this._goFocusHandler(this.#goToCurrent, { marker: this.#current, coords: this.#currentCoords });
+        this._goDistanceHandler(this.#goDistance, group);
     }
 
     _addMarker(coords, text, customStyle = 'primary') {
@@ -54,16 +56,32 @@ class Mappy extends View {
         }, () => { this._loadMap() });
     }
 
-    _calculateDistance(from, to) {
-        return ((from.distanceTo(to)).toFixed(0) / 1000).toFixed(0);
+    _goFocusHandler(button, ele) {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            this._goFocus(ele);
+        });
     }
 
-    _addLocateHandler(ele) {
-        ele.button.addEventListener('click', (e) => {
+    _goDistanceHandler(button, array) {
+        button.addEventListener('click', (e) => {
             e.preventDefault();
-            this.#map.flyTo(ele.coords, this.#mapZoomLevel);
-            ele.marker.openPopup();
-        })
+            this._goDistance(array);
+        });
+    }
+
+    _goFocus(ele) {
+        this.#map.flyTo(ele.coords, this.#mapZoomLevel);
+        ele.marker.openPopup();
+    }
+
+    _goDistance(array) {
+        let group = new L.featureGroup(array)
+        this.#map.fitBounds(group.getBounds(), { padding: [50, 50] });
+    }
+
+    _calculateDistance(from, to) {
+        return ((from.distanceTo(to)).toFixed(0) / 1000).toFixed(0);
     }
 };
 
