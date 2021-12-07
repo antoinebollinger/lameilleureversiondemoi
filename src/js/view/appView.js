@@ -8,6 +8,8 @@ class App extends View {
     #sections;
     #images;
     #data;
+    #programs;
+    #programsNav;
 
     constructor(data) {
         super();
@@ -153,10 +155,10 @@ class App extends View {
 
     async _renderProgram() {
         let buttons = '';
-        this.#data.programs.forEach(async (program, index1) => {
+        await this.#data.programs.forEach(async (program, index1) => {
             buttons += `
                 <li class="nav-item">
-                    <a class="nav-link${(index1 === 0 ? ' active' : '')}" data-href="pills-program${1 + index1}" href="#pills-program${1 + index1}">${program.title}</a>
+                    <a class="nav-link${(index1 === 0 ? ' active' : '')}" data-href="pills-program${1 + index1}" href="#">${program.title}</a>
                 </li>
             `;
             let cards = '';
@@ -221,6 +223,31 @@ class App extends View {
         document.getElementById('modalCU').querySelector('.modal-body').insertAdjacentHTML('beforeend', html);
     }
 
+    async _programsNavHandler() {
+        this.#programsNav.addEventListener('click', (e) => {
+            e.preventDefault();
+            const btn = e.target.closest('.nav-link');
+            if (!btn) return;
+            //Buttons
+            this.#programsNav.querySelectorAll('.nav-link').forEach(ele => ele.classList.remove('active'));
+            btn.classList.add('active');
+            //Tabs
+            const tab = document.getElementById(btn.dataset.href);
+            console.log(this.#programs);
+            this.#programs.forEach(ele => {
+                if (ele === tab) {
+                    ele.classList.remove('hide');
+                    ele.classList.add('show');
+                } else {
+                    ele.classList.remove('show');
+                    ele.classList.add('hide');
+
+                }
+            });
+
+        });
+    }
+
     //Initialisation
     async _init() {
         await Promise.all([
@@ -234,10 +261,14 @@ class App extends View {
         ]);
         this.#sections = document.querySelectorAll('section');
         this.#images = document.querySelectorAll('img');
+        this.#programs = document.querySelectorAll('.program');
+        this.#programsNav = document.getElementById('pills-tab');
+
         await Promise.all([
             this._revealSection(),
             this._revealImage(),
-            this._revealAbout()
+            this._revealAbout(),
+            this._programsNavHandler()
         ]);
     }
 };
