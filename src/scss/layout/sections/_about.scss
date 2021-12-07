@@ -17,7 +17,8 @@
         position: relative;
         min-height: 50px;
         margin-bottom: 50px;
-       
+        max-height: 1px;
+        overflow: hidden;
         &:before, &:after {
             display: table;
             content: " ";
@@ -86,6 +87,7 @@
             }
         }
         &.in {
+            max-height: unset;
             .timeline-panel {
                 transform: translateX(0) !important;
             }
@@ -119,7 +121,6 @@
             left: 50%;
         }
         > li {
-            
             min-height: 100px;
             margin-bottom: 100px;
             .timeline-panel {
