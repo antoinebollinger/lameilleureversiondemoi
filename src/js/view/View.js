@@ -1,4 +1,5 @@
 'use strict';
+import { HTML_FOLDER } from "../config";
 
 export default class View {
     navbarCollapsible = document.getElementById('mainNav');
@@ -14,7 +15,7 @@ export default class View {
 
 
     async _getHtml(url) {
-        const privacy = await fetch(url);
+        const privacy = await fetch(HTML_FOLDER + url);
         if (!privacy.ok) return;
         const html = await privacy.text();
         return html;

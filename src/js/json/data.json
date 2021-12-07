@@ -18,7 +18,7 @@
             "instagram": "https://www.instagram.com/sabs.app/",
             "facebook": "https://www.facebook.com/sabrina.appriou",
             "linkedIn": "https://www.linkedin.com/in/sabrina-appriou-0138a8122/",
-            "text": "team.html"
+            "html": "sabrina.html"
         }
     ],
     "about": [
@@ -116,53 +116,47 @@
         {
             "title": "Coaching de vie",
             "subtitle": "Personnel et/ou professionnel",
+            "folder": "vie/",
             "description": [
                 {
                     "title": "C'est quoi&nbsp;?",
-                    "text": "<p>Le coaching de vie consiste à vous accompagner dans une situation de changement dans le domaine personnel et/ou professionnel.</p>",
-                    "img": "change.jpg"
+                    "name": "what"
                 },
                 {
                     "title": "A qui s'adresse-t-il&nbsp;?",
-                    "text": "<p>Votre situation actuelle&nbsp;: vous êtes dans une situation qui ne vous convient plus, vous vous remettez en question sur vos choix de vie, sur votre état actuel, vous n'arrivez pas à trouver les clés de votre sérénité et vous êtes en quête de sens.</p>",
-                    "img": "who1.jpg"
+                    "name": "who"
                 },
                 {
                     "title": "Comment ça se passe&nbsp;?",
-                    "text": "<p>Le processus de coaching se déroule sur 4 mois environ. Les séances peuvent se faire en face à face ou à distance (par téléphone ou visio), selon votre situation géographique. Cela vous donne la possibilité de les planifier en fonction de vos disponibilités.</p><p>Généralement il faut compter une séance de 1h à 1h15 tous les 10 jours, pour un total de 10 séances. Cela peut varier en fonction de l'objectif visé.</p><p>Déroulement&nbsp;:</p><ol><li><span class=\"fw-bold\">Entretien préalable (sans engagement)</span>&nbsp;: vous souhaitez en savoir davantage et m'exposer votre demande. Ce premier entretien a pour but de vous présenter le coaching et ce que je peux vous apporter. La durée de l'entretien préalable est d'environ 45 min. Il fait l'objet d'une prise de rendez-vous.</li><li><span class=\"fw-bold\">Exploration de votre demande</span>&nbsp;: cette étape est nécessaire pour clarifier votre demande. Nous nous concentrons sur ce que vous souhaitez vraiment.</li><li><span class=\"fw-bold\">Définition de l'objectif</span>&nbsp;: je vous accompagne dans votre réflexion et dans la définition de votre objectif qui fait sens pour vous - à la fois atteignable et challengeant.</li><li><span class=\"fw-bold\">Alignement </span>&nbsp;: Tout au long du processus de coaching, nous menons ensemble un travail identitaire qui repose sur vos croyances, vos valeurs, vos limites et vos besoins. Nous levons les freins si nécessaire et puisons dans vos ressources.</li><li><span class=\"fw-bold\">Action et autonomie</span>&nbsp;: ensemble, nous élaborons une stratégie d'action jusqu'à ce que vous développiez votre autonomie et qui soit source de motivation.</li></ol>",
-                    "img": "how1.jpg"
+                    "name": "how"
                 },
                 {
                     "title": "Qu'est ce que ça m'apporte&nbsp;?",
-                    "text": "<p>Je vous accompagne vers une meilleure connaissance de soi grâce à un travail d'introspection.</p><p>Je vous propose une autre façon de percevoir votre environnement, dans un cadre de vie épanouissant.</p><p>Vous agissez en cohérence avec vos valeurs et vos besoins. Vous donnez ainsi du sens à vos actions.</p>",
-                    "img": "yes.jpg"
+                    "name": "why"
                 }
             ]
         },
         {
             "title": "Coaching bien-être",
             "subtitle": "Bien-être mental et physique",
+            "folder": "bienetre/",
             "intro": "Passionnée du bien-être sur le plan emotionnel et physique, j'ai souhaité étendre mes services de coaching dans ce sens. D'ailleurs, le mémoire que j'ai présenté dans le cadre de ma certification portait sur <q> Le coaching et la perte de poids </q>.",
             "description": [
                 {
                     "title": "C'est quoi&nbsp;?",
-                    "text": "<p>Le coaching bien-être consiste à vous accompagner vers un équilibre émotionnel et physique.</p>",
-                    "img": "bem-estar.jpg"
+                    "name": "what"
                 },
                 {
                     "title": "A qui s'adresse-t-il&nbsp;?",
-                    "text": "<p>Cet accompagnement s'adresse à toutes les personnes qui ont connu des échecs à répétition à cause des régimes amaigrissants et qui souhaitent obtenir des résultats sans générer de frustration.</p><p>Ne vous est-il jamais arrivé de faire des régimes amaigrissants, des rééquilibrages alimentaires, qui n'ont pas tenu sur la durée, qui vous ont fait baisser les bras face à l'adversité&nbsp;?</p><p>Alors vous stoppez ce que vous avez entrepris alors que vous vous étiez engagé dans ce challenge en pensant que, cette fois-ci, c'est la bonne&nbsp;!</p><p>Cet énième échec génère chez vous du stress, de la frustration, du mal-être (émotionnel et physique).</p><p>Cet accompagnement s'adresse également aux personnes souhaitant se sentir en adéquation avec leur tête et leur corps.</p>",
-                    "img": "who2.jpg"
+                    "name": "who"
                 },
                 {
                     "title": "Comment ça se passe&nbsp;?",
-                    "text": "<p>Cet accompagnement inclut un processus de coaching spécifique. Ensemble nous travaillons sur différents axes&nbsp;: le mental, l'alimentation, la motivation et la mise en mouvement.</p><p>Le lâcher prise, l'alimentation émotionnelle, la motivation intrinsèque (celle qui nous anime et nous stimule intérieurement), l'acceptation et l'accueil des émotions seront des axes de travail vers une symbiose du corps et de la tête.</p>",
-                    "img": "how2.jpg"
+                    "name": "how"
                 },
                 {
                     "title": "Qu'est ce que ça m'apporte&nbsp;?",
-                    "text": "<ul><li>Une meilleure connaissance de moi</li><li>Trouver les ressources pour améliorer mon état physique</li><li>Une meilleure estime de moi</li><li>Une renforcement de ma motivation grâce à la mise en mouvement</li></ul>",
-                    "img": "serenity.jpg"
+                    "name": "why"
                 }
             ]
         }

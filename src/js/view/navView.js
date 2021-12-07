@@ -2,6 +2,7 @@
 
 import View from "./View";
 import data from "../json/data.json";
+import { IMG_FOLDER } from "../config";
 
 class Nav extends View {
     #header;
@@ -15,7 +16,7 @@ class Nav extends View {
     _headerSlider(interval = 5000) {
         const nbr = this.#header.background.length;
         setInterval(() => {
-            this.masthead.style.backgroundImage = `url('../assets/img/header/${this.#header.path}${this.#header.background[Math.floor(Math.random() * nbr)]}')`;
+            this.masthead.style.backgroundImage = `url('../${IMG_FOLDER}header/${this.#header.path}${this.#header.background[Math.floor(Math.random() * nbr)]}')`;
         }, interval);
         const before = window.getComputedStyle(this.masthead, ':before');
         //console.log(before.getPropertyValue('background'));

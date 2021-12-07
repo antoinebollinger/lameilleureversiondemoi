@@ -1,6 +1,7 @@
 'use strict';
 
 import View from "./View";
+import { IMG_FOLDER } from "../config";
 
 class Mappy extends View {
     #goToHome = document.getElementById('goToHome');
@@ -49,7 +50,7 @@ class Mappy extends View {
 
     _addMarker(coords, text, customStyle = 'primary') {
         const newMarker = L.icon({
-            iconUrl: `../assets/img/markers/${customStyle}.png`,
+            iconUrl: `../${IMG_FOLDER}markers/${customStyle}.png`,
             iconSize: [48, 48]
         });
         return L.marker(coords, { icon: newMarker })
