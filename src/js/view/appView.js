@@ -96,8 +96,8 @@ class App extends View {
                             alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4 class="text-muted">${ele.date}</h4>
-                            <h4 class="subheading">${ele.title}</h4>
+                            <h4 class="">${ele.title}</h4>
+                            <h5 class="subheading text-muted">${ele.subtitle}</h5>
                         </div>
                         <div class="timeline-body">
                             <p class="text-muted">${ele.text}</p>
@@ -134,7 +134,7 @@ class App extends View {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="text-center mb-4"><img src="assets/img/expertise/${ele.img}" alt="${ele.title}" class="w-50 rounded shadow"></div>
+                                    <div class="text-center mb-4"><img src="assets/img/expertise/${ele.img}" alt="${ele.title}" class="w-100 rounded shadow"></div>
                                     ${ele.text}
                                 </div>
                             </div>
