@@ -69,6 +69,11 @@ class App extends View {
         });
     }
 
+    async _renderWork() {
+        const html = await this._getHtml('src/html/work.html');
+        this.workContainer.insertAdjacentHTML('beforeend', html);
+    }
+
     async _renderTeam() {
         this.#data.team.forEach(async (ele) => {
             const html = await this._getHtml(`src/html/${ele.text}`);
@@ -217,6 +222,7 @@ class App extends View {
     //Initialisation
     async _init() {
         await Promise.all([
+            this._renderWork(),
             this._renderTeam(),
             this._renderAbout(),
             this._renderSkill(),

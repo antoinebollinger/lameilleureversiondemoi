@@ -3,6 +3,7 @@
 export default class View {
     navbarCollapsible = document.getElementById('mainNav');
     masthead = document.querySelector('.masthead');
+    workContainer = document.getElementById('myWork')
     programsContainer = document.getElementById('programsContainer');
     teamContainer = document.getElementById('team').querySelector('.row');
     aboutContainer = document.querySelector('.timeline');
