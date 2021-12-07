@@ -48,14 +48,14 @@ class Mappy extends View {
         this._goDistanceHandler(this.#goDistance, group);
     }
 
-    _addMarker(coords, text, customStyle = 'primary') {
+    _addMarker(coords, text, style = 'primary', marker = 'neutral') {
         const newMarker = L.icon({
-            iconUrl: `../${IMG_FOLDER}markers/${customStyle}.png`,
+            iconUrl: `../${IMG_FOLDER}markers/${marker}.png`,
             iconSize: [48, 48]
         });
         return L.marker(coords, { icon: newMarker })
             .addTo(this.#map)
-            .bindPopup(L.popup({ offset: [0, 0], maxWidth: 250, minWidth: 100, autoClose: false, closeOnClick: false, className: customStyle }))
+            .bindPopup(L.popup({ offset: [0, 0], maxWidth: 250, minWidth: 100, autoClose: false, closeOnClick: false, className: style }))
             .setPopupContent(text)
             .openPopup();
     }
