@@ -165,7 +165,7 @@ class App extends View {
             await Promise.all(program.description.map(async (card, index2) => {
                 const html = await this._getHtml(`programs/${program.folder + card.name}.html`);
                 cards += `
-                    <div class="col-lg-6 mb-4">
+                    <div class="col-lg-6 mb-4" style="order:${1 + index2};">
                         <div class="card shadow-sm">
                             <img class="card-img-top" src="${IMG_FOLDER}programs/${program.folder + card.name}.jpg"
                                 alt="${card.title}">
@@ -184,7 +184,7 @@ class App extends View {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="text-uppercase text-tertary-2">${program.title}</span><br><span class="text-muted">${card.title}</span></h4>
+                                        <h4 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span><br><span class="text-muted">${card.title}</span></h4>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -233,7 +233,6 @@ class App extends View {
             btn.classList.add('active');
             //Tabs
             const tab = document.getElementById(btn.dataset.href);
-            console.log(this.#programs);
             this.#programs.forEach(ele => {
                 if (ele === tab) {
                     ele.classList.remove('hide');
@@ -263,12 +262,11 @@ class App extends View {
         this.#images = document.querySelectorAll('img');
         this.#programs = document.querySelectorAll('.program');
         this.#programsNav = document.getElementById('pills-tab');
-
         await Promise.all([
+            this._programsNavHandler(),
             this._revealSection(),
             this._revealImage(),
             this._revealAbout(),
-            this._programsNavHandler()
         ]);
     }
 };
