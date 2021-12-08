@@ -262,8 +262,9 @@ class App extends View {
         this.#images = document.querySelectorAll('img');
         this.#programs = document.querySelectorAll('.program');
         this.#programsNav = document.getElementById('pills-tab');
+        console.log(this);
+        this._programsNavHandler();
         await Promise.all([
-            this._programsNavHandler(),
             this._revealSection(),
             this._revealImage(),
             this._revealAbout(),
