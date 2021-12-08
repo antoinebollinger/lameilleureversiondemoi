@@ -18,10 +18,10 @@ class Settings extends View {
     }
 
     async _renderColorSettings() {
-        const footer = document.querySelector('footer div.text-lg-start');
+        const footer = document.querySelector('footer div.col');
 
         footer.insertAdjacentHTML('beforeend', `
-            <p class="link-primary text-decoration-none me-3 cursor-pointer d-inline" data-bs-toggle="modal" data-bs-target="#settingsModal" href="#">Paramètres</p>
+            |<p class="link-primary text-decoration-none mx-3 cursor-pointer d-inline" data-bs-toggle="modal" data-bs-target="#settingsModal" href="#">Paramètres</p>
             <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">

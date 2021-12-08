@@ -247,6 +247,31 @@ class App extends View {
         });
     }
 
+    async _aboutReader() {
+        const progressBar = document.querySelector('.progress');
+        const callback = (entries, observer) => {
+            const myElement = window;
+            const [entry] = entries;
+            if (entry.isIntersecting) {
+                myElement.myparams = entry;
+                myElement.addEventListener(...scroller);
+                progressBar.classList.add('show');
+            } else {
+                myElement.removeEventListener(...scroller);
+                progressBar.classList.remove('show');
+            }
+        };
+        const scroller = ['scroll', (e) => {
+            const target = e.currentTarget.myparams.target;
+            const vh = window.innerHeight;
+            const h = target.getBoundingClientRect().height;
+            const t = target.getBoundingClientRect().top;
+            progressBar.querySelector('.progress-bar').style.width = `${(100 / h) * (vh - t)}%`;
+        }];
+        const contactObserver = new IntersectionObserver(callback, { root: null, threshold: 0 });
+        contactObserver.observe(this.about);
+    }
+
     //Initialisation
     async _init() {
         await Promise.all([
@@ -268,6 +293,7 @@ class App extends View {
             this._revealImage(),
             this._revealAbout(),
         ]);
+        this._aboutReader();
     }
 };
 

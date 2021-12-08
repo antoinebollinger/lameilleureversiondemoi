@@ -7,6 +7,7 @@ export default class View {
     workContainer = document.getElementById('myWork')
     programsContainer = document.getElementById('programsContainer');
     teamContainer = document.getElementById('team').querySelector('.row');
+    about = document.getElementById('about');
     aboutContainer = document.querySelector('.timeline');
     skillsContainer = document.getElementById('expertise');
     contactContainer = document.getElementById('contact');

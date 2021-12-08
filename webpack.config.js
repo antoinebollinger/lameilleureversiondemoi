@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './src/js/index.js',
     optimization: {
-        minimize: true
+        minimize: false
     },
     output: {
         path: path.resolve(__dirname, 'js'),
