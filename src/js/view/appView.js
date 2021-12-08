@@ -261,7 +261,7 @@ class App extends View {
         this.#sections = document.querySelectorAll('section');
         this.#images = document.querySelectorAll('img');
         this.#programs = document.querySelectorAll('.program');
-        this.#programsNav = document.getElementById('pills-tab'); s
+        this.#programsNav = document.getElementById('pills-tab');
         this._programsNavHandler();
         await Promise.all([
             this._revealSection(),
