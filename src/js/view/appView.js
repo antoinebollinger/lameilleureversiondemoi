@@ -287,12 +287,12 @@ class App extends View {
         this.#images = document.querySelectorAll('img');
         this.#programs = document.querySelectorAll('.program');
         this.#programsNav = document.getElementById('pills-tab');
-        this._programsNavHandler();
         await Promise.all([
             this._revealSection(),
             this._revealImage(),
             this._revealAbout(),
         ]);
+        this._programsNavHandler();
         this._aboutReader();
     }
 };
