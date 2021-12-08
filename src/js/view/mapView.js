@@ -32,7 +32,7 @@ class Mappy extends View {
     }
 
     _loadMap(current = false) {
-        this.#map = L.map('map', { scrollWheelZoom: true }).setView(this.#homeCoords, this.#mapZoomLevel);
+        this.#map = L.map('map', { scrollWheelZoom: false }).setView(this.#homeCoords, this.#mapZoomLevel);
         L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
             maxZoom: 20,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
