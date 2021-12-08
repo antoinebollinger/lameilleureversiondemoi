@@ -198,7 +198,7 @@ class App extends View {
                 `;
             }));
             this.programsContainer.insertAdjacentHTML('beforeend', `
-                <div class="program bg-white py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
+                <div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
                             <h3>Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span></h3>
