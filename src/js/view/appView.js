@@ -255,7 +255,6 @@ class App extends View {
     }
 
     async _reader(section) {
-        let progression;
         const progressBar = document.querySelector('.progress');
         const callback = (entries, observer) => {
             const myElement = window;
@@ -270,14 +269,11 @@ class App extends View {
             }
         };
         const scroller = ['scroll', (e) => {
-            const targetDims = e.currentTarget.myparams.target.getBoundingClientRect();
+            const target = e.currentTarget.myparams.target;
             const vh = window.innerHeight;
-            const h = targetDims.height;
-            const t = targetDims.top;
-            const b = targetDims.bottom;
-            progression = (100 / h) * (vh - t);
-            progressBar.querySelector('.progress-bar').style.width = `${progression}%`;
-            console.log(b < vh);
+            const h = target.getBoundingClientRect().height;
+            const t = target.getBoundingClientRect().top;
+            progressBar.querySelector('.progress-bar').style.width = `${(100 / h) * (vh - t)}%`;
         }];
         const contactObserver = new IntersectionObserver(callback, { root: null, threshold: 0 });
         contactObserver.observe(section);
