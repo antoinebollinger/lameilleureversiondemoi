@@ -116,7 +116,7 @@ class App extends View {
                 }, delay);
             });
         };
-        const timelineObserver = new IntersectionObserver(reveal, { root: null, threshold: 0, rootMargin: '55px' });
+        const timelineObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.1 });
         this.aboutContainer.querySelectorAll('li').forEach(function (li) {
             timelineObserver.observe(li);
         });
