@@ -29,7 +29,7 @@ class App extends View {
                 }, delay);
             });
         };
-        const sectionObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.1 });
+        const sectionObserver = new IntersectionObserver(reveal, { root: null, threshold: 0 });
         this.#sections.forEach(function (section) {
             sectionObserver.observe(section);
             section.classList.add('section-hidden');
@@ -300,7 +300,7 @@ class App extends View {
             this._revealAbout(),
         ]);
         this._programsNavHandler();
-        this._reader(this.team);
+        this._reader(this.team.querySelector('.container'));
     }
 };
 
