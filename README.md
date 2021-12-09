@@ -39,7 +39,7 @@ The project is based on a free template from [Start Boostrap](https://startboots
 
 I used the [Webpack](https://webpack.js.org/) package to manage my **JS** code. This allowed me to work with modules which make it easier to maintain.
 
-The website is currently tested on a [Netlify](https://www.netlify.com/) deployment. You can see the result at [SAB Coaching](https://sabcoaching.netlify.app/).
+The website is currently tested on a [Netlify](https://www.netlify.com/) deployment. You can see the result at [SAB Coaching](https://sabrinacoaching.netlify.app/).
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f49d62bd-6859-4abe-a465-306d84627c4a/deploy-status)](https://app.netlify.com/sites/sabrinaappriou/deploys)
 
