@@ -36,9 +36,10 @@ a.link {
 }
 
 img {
+    filter: blur(0);
     transition: filter 0.25s;
     &.toReveal {
-        filter: blur(10px);
+        filter: blur(5px);
     }
     &.img-fluid {
         width: 100% !important;
