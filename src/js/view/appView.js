@@ -36,17 +36,15 @@ class App extends View {
         });
     }
 
-    async _revealImage(delay = 0) {
+    async _revealImage() {
         const reveal = function (entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                setTimeout(() => {
-                    entry.target.src = (!entry.target.dataset.src) ? entry.target.src : entry.target.dataset.src;
-                    entry.target.addEventListener('load', function () {
-                        this.classList.remove('toReveal');
-                    })
-                    observer.unobserve(entry.target);
-                }, delay);
+                entry.target.src = (!entry.target.dataset.src) ? entry.target.src : entry.target.dataset.src;
+                entry.target.addEventListener('load', function () {
+                    this.classList.remove('toReveal');
+                })
+                observer.unobserve(entry.target);
             });
         }
         const imageObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.5 });
