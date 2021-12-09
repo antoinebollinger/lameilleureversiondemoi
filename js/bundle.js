@@ -148,7 +148,7 @@ class App extends View {
         this.#data.about.forEach((ele, index) => {
             this.aboutContainer.insertAdjacentHTML('beforeend', `
                 <li${(index % 2 === 1 ? ' class="timeline-inverted"' : '')}>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid toReveal" src="${IMG_FOLDER}about/${ele.img}"
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="${IMG_FOLDER}about/${ele.img}"
                             alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -175,7 +175,7 @@ class App extends View {
                             <div class="card-hover primary">
                                 <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="card-img-top toReveal" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
+                            <img class="card-img-top" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
                         </a>
                         <div class="card-body bg-light">
                             <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
