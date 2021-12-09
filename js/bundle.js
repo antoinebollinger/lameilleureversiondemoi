@@ -180,7 +180,7 @@ class App extends View {
                             <img class="card-img-top toReveal" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
                         </a>
                         <div class="card-body bg-light">
-                            <h5 class="card-title text-muted">${ele.title}</h5>
+                            <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
                             <div class="card-text">${html}</div>
                         </div>
                      
