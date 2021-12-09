@@ -120,20 +120,21 @@ class App extends View {
         this.#data.skill.forEach((ele, index) => {
             this.skillsContainer.insertAdjacentHTML('beforeend', `
                 <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item ${1 + index} -->
-                    <div class="portfolio-item shadow">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal${1 + index}">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                    <!-- Skill item ${1 + index} -->
+                    <div class="card shadow-sm">
+                        <a class="card-link" data-bs-toggle="modal" href="#skillModal${1 + index}">
+                            <div class="card-hover primary">
+                                <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="${IMG_FOLDER}expertise/small/${ele.img}" data-src="${IMG_FOLDER}expertise/preview/${ele.img}" alt="${ele.title}" />
+                            <img class="card-img-top toReveal" src="${IMG_FOLDER}expertise/small/${ele.img}" data-src="${IMG_FOLDER}expertise/preview/${ele.img}" alt="${ele.title}" />
                         </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">${ele.title}</div>
-                            <!-- <div class="portfolio-caption-subheading text-muted">Illustration</div> -->
+                        <div class="card-body bg-light">
+                            <h5 class="card-title text-muted">${ele.title}</h5>
+                            <div class="card-text">${ele.text}</div>
                         </div>
+                     
                     </div>
-                    <div class="modal fade" id="portfolioModal${1 + index}" tabindex="-1" aria-labelledby="modalLabel-${1 + index}"
+                    <div class="modal fade" id="skillModal${1 + index}" tabindex="-1" aria-labelledby="modalLabel-${1 + index}"
                     aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                             <div class="modal-content">
@@ -142,7 +143,7 @@ class App extends View {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.img}" alt="${ele.title}" class="w-100 rounded shadow"></div>
+                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.img}" alt="${ele.title}" class="w-100 rounded shadow toReveal"></div>
                                     ${ele.text}
                                 </div>
                             </div>
@@ -167,8 +168,13 @@ class App extends View {
                 cards += `
                     <div class="col-lg-6 mb-4" style="order:${1 + index2};">
                         <div class="card shadow-sm">
-                            <img class="card-img-top" src="${IMG_FOLDER}programs/${program.folder + card.name}.jpg"
+                            <a class="card-link" data-bs-toggle="modal" data-bs-target="#modal-${index1 + '-' + index2}" href="#modal-${index1 + '-' + index2}">
+                                <div class="card-hover tertary">
+                                    <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="card-img-top" src="${IMG_FOLDER}programs/${program.folder + card.name}.jpg"
                                 alt="${card.title}">
+                            </a>
                             <div class="card-body bg-tertary-2">
                                 <h5 class="card-title text-muted">${card.title}</h5>
                                 <div class="card-text">${html}</div>
@@ -247,7 +253,7 @@ class App extends View {
         });
     }
 
-    async _aboutReader() {
+    async _reader(section) {
         const progressBar = document.querySelector('.progress');
         const callback = (entries, observer) => {
             const myElement = window;
@@ -269,7 +275,7 @@ class App extends View {
             progressBar.querySelector('.progress-bar').style.width = `${(100 / h) * (vh - t)}%`;
         }];
         const contactObserver = new IntersectionObserver(callback, { root: null, threshold: 0 });
-        contactObserver.observe(this.about);
+        contactObserver.observe(section);
     }
 
     //Initialisation
@@ -284,7 +290,7 @@ class App extends View {
             this._renderTerms()
         ]);
         this.#sections = document.querySelectorAll('section');
-        this.#images = document.querySelectorAll('img');
+        this.#images = document.querySelectorAll('.toReveal');
         this.#programs = document.querySelectorAll('.program');
         this.#programsNav = document.getElementById('pills-tab');
         await Promise.all([
@@ -293,7 +299,7 @@ class App extends View {
             this._revealAbout(),
         ]);
         this._programsNavHandler();
-        this._aboutReader();
+        this._reader(this.team);
     }
 };
 

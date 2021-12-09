@@ -6,9 +6,9 @@ export default class View {
     masthead = document.querySelector('.masthead');
     workContainer = document.getElementById('myWork')
     programsContainer = document.getElementById('programsContainer');
+    team = document.getElementById('team');
     teamContainer = document.getElementById('team').querySelector('.row');
-    about = document.getElementById('about');
-    aboutContainer = document.querySelector('.timeline');
+    aboutContainer = document.getElementById('team').querySelector('.timeline');
     skillsContainer = document.getElementById('expertise');
     contactContainer = document.getElementById('contact');
     mapDiv = document.getElementById('mapDiv');

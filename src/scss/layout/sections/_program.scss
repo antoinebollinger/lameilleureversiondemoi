@@ -1,5 +1,3 @@
-$nbr_line: 2;
-
 #programs {
     .nav-link {
         text-transform: uppercase;
@@ -17,16 +15,6 @@ $nbr_line: 2;
         &.hide {
             display: none;
             animation-name: hideFadin;
-        }
-        .card {
-            .card-text {
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: $nbr_line;
-                overflow: hidden;
-                margin-bottom: 0.5rem;
-                max-height: 3.5rem;
-            }
         }
     }
 }
