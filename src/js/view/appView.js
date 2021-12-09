@@ -97,7 +97,7 @@ class App extends View {
         this.#data.about.forEach((ele, index) => {
             this.aboutContainer.insertAdjacentHTML('beforeend', `
                 <li${(index % 2 === 1 ? ' class="timeline-inverted"' : '')}>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="${IMG_FOLDER}about/${ele.img}"
+                    <div class="timeline-image"><img class="rounded-circle img-fluid toReveal" src="${IMG_FOLDER}about/${ele.img}"
                             alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
