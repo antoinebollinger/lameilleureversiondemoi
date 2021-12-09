@@ -43,14 +43,13 @@ class App extends View {
                 setTimeout(() => {
                     entry.target.src = (!entry.target.dataset.src) ? entry.target.src : entry.target.dataset.src;
                     entry.target.addEventListener('load', function () {
-                        this.classList.add('reveal');
-
+                        this.classList.remove('toReveal');
                     })
                     observer.unobserve(entry.target);
                 }, delay);
             });
         }
-        const imageObserver = new IntersectionObserver(reveal, { root: null, threshold: 0, rootMargin: '55px' });
+        const imageObserver = new IntersectionObserver(reveal, { root: null, threshold: 0.5 });
         this.#images.forEach(function (image) {
             imageObserver.observe(image);
         });
@@ -123,7 +122,7 @@ class App extends View {
                 <div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
                     <!-- Skill item ${1 + index} -->
                     <div class="card shadow-sm">
-                        <a class="card-link" data-bs-toggle="modal" href="#skillModal${1 + index}">
+                        <a class="card-link w-100" data-bs-toggle="modal" href="#skillModal${1 + index}">
                             <div class="card-hover primary">
                                 <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -144,7 +143,7 @@ class App extends View {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.name}.jpg" alt="${ele.title}" class="w-100 rounded shadow toReveal"></div>
+                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.name}.jpg" alt="${ele.title}" class="w-100"></div>
                                     ${html}
                                 </div>
                             </div>
