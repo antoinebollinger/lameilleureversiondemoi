@@ -67,49 +67,40 @@
     ],
     "skill": [
         {
-            "img": "coach.jpg",
             "title": "Coach Consultante",
-            "text": "Ma certification de Coach Consultate délivrée par l'organisme Linkup Coaching.<br>Dans le cadre de cette certification, j'ai présenté un mémoire ayant pour titre :<br>«&nbsp;Le coaching et la perte de poids : l'accompagnement par le coaching allié à un suivi diététique&nbsp;».<br><a href=\"assets/doc/memoire.pdf\" target=\"_blank\">Télécharger le mémoire</a>"
+            "name": "coach"
         },
         {
-            "img": "alimentation.jpg",
-            "title": "Alimentation consciente & émotionnelle",
-            "text": "Chercher à créer une conscience totale de nos choix alimentaires sans jugement de soi. Il est important de vivre le moment présent pour observer l'expérience et les émotions tout en consommant des aliments."
-        },
-        {
-            "img": "questions.jpg",
-            "title": "Art du questionnement",
-            "text": "Cette discipline a pour ambition d’éveiller notre intelligence à interroger de façon pertinente, dans le but de découvrir de nouveaux possibles."
-        },
-        {
-            "img": "identite.jpg",
-            "title": "Construction identitaire",
-            "text": "La construction identitaire est un processus hautement dynamique au cours duquel la personne se définit et se reconnaît par sa façon de réfléchir, d’agir et de vouloir dans les contextes sociaux et l’environnement naturel où elle évolue"
-        },
-        {
-            "img": "changement.jpg",
-            "title": "Changements & transitions",
-            "text": "Il n'est jamais facile de changer..."
-        },
-        {
-            "img": "stress.jpg",
-            "title": "Gestion du stress",
-            "text": "Apprendre à gérer son stress en toute situation"
-        },
-        {
-            "img": "pnl.jpg",
             "title": "Programmation Neuro-linguistique (PNL)",
-            "text": "Née suite à l'observation comportementale, la programmation neuro-linguistique (PNL) désigne tout un ensemble de techniques (dissociation, recadrage…) et de méthodes visant à favoriser le développement personnel de l’individu."
+            "name": "pnl"
         },
         {
-            "img": "neuroscience.jpg",
             "title": "Neuroscience",
-            "text": "Un coach spécialisé en neurosciences comprend de façon approfondie le fonctionnement du cerveau, les mécanismes de l’attention et leur utilisation en coaching."
+            "name": "neuroscience"
         },
         {
-            "img": "at.jpg",
             "title": "Analyse transactionnelle",
-            "text": "L’analyse transactionnelle est une théorie et méthode qui s’appuie sur une philosophie optimiste dont le langage est accessible à tous. Son système de valeurs repose sur les bases du courant humaniste, avec pour postulat que la nature humaine est fondamentalement positive, capable de faire des choix et de les assumer."
+            "name": "at"
+        },
+        {
+            "title": "Alimentation consciente & émotionnelle",
+            "name": "alimentation"
+        },
+        {
+            "title": "Art du questionnement",
+            "name": "questions"
+        },
+        {
+            "title": "Construction identitaire",
+            "name": "identite"
+        },
+        {
+            "title": "Gestion du stress",
+            "name": "stress"
+        },
+        {
+            "title": "Changements & transitions",
+            "name": "changement"
         }
     ],
     "programs": [

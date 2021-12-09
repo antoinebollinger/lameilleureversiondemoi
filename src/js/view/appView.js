@@ -117,20 +117,21 @@ class App extends View {
     }
 
     async _renderSkill() {
-        this.#data.skill.forEach((ele, index) => {
+        this.#data.skill.forEach(async (ele, index) => {
+            const html = await this._getHtml(`skills/${ele.name}.html`)
             this.skillsContainer.insertAdjacentHTML('beforeend', `
-                <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
                     <!-- Skill item ${1 + index} -->
                     <div class="card shadow-sm">
                         <a class="card-link" data-bs-toggle="modal" href="#skillModal${1 + index}">
                             <div class="card-hover primary">
                                 <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="card-img-top toReveal" src="${IMG_FOLDER}expertise/small/${ele.img}" data-src="${IMG_FOLDER}expertise/preview/${ele.img}" alt="${ele.title}" />
+                            <img class="card-img-top toReveal" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
                         </a>
                         <div class="card-body bg-light">
                             <h5 class="card-title text-muted">${ele.title}</h5>
-                            <div class="card-text">${ele.text}</div>
+                            <div class="card-text">${html}</div>
                         </div>
                      
                     </div>
@@ -143,8 +144,8 @@ class App extends View {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.img}" alt="${ele.title}" class="w-100 rounded shadow toReveal"></div>
-                                    ${ele.text}
+                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.name}.jpg" alt="${ele.title}" class="w-100 rounded shadow toReveal"></div>
+                                    ${html}
                                 </div>
                             </div>
                         </div>
