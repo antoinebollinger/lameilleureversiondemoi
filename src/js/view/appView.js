@@ -8,7 +8,7 @@ class App extends View {
     #sections;
     #images;
     #data;
-    #programs;
+    #programs = [];
     #programsNav;
 
     constructor(data) {
@@ -124,7 +124,7 @@ class App extends View {
                             <div class="card-hover primary">
                                 <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="card-img-top toReveal" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
+                            <img class="card-img-top" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
                         </a>
                         <div class="card-body bg-light">
                             <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
@@ -153,6 +153,7 @@ class App extends View {
     }
 
     async _renderProgram() {
+        const parser = new DOMParser();
         let buttons = '';
         await this.#data.programs.forEach(async (program, index1) => {
             buttons += `
@@ -201,8 +202,7 @@ class App extends View {
                     </div>
                 `;
             }));
-            this.programsContainer.insertAdjacentHTML('beforeend', `
-                <div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
+            const newProgram = parser.parseFromString(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
                             <h3>Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span></h3>
@@ -212,7 +212,9 @@ class App extends View {
                     </div>
                     <div class="row col-lg-8 mx-auto py-4">${cards}</div>
                 </div>
-            `);
+            `, 'text/html').body.childNodes[0];
+            this.programsContainer.appendChild(newProgram);
+            this.#programs.push(newProgram);
         });
         this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab">${buttons}</ul>`);
     }
@@ -233,6 +235,7 @@ class App extends View {
             const btn = e.target.closest('.nav-link');
             if (!btn) return;
             //Buttons
+            console.log(this);
             this.#programsNav.querySelectorAll('.nav-link').forEach(ele => ele.classList.remove('active'));
             btn.classList.add('active');
             //Tabs
@@ -289,14 +292,13 @@ class App extends View {
         ]);
         this.#sections = document.querySelectorAll('section');
         this.#images = document.querySelectorAll('.toReveal');
-        this.#programs = document.querySelectorAll('.program');
         this.#programsNav = document.getElementById('pills-tab');
         await Promise.all([
             this._revealSection(),
             this._revealImage(),
             this._revealAbout(),
+            this._programsNavHandler()
         ]);
-        this._programsNavHandler();
         this._reader(this.team.querySelector('.container'));
     }
 };
