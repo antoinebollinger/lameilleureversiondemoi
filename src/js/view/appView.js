@@ -124,7 +124,7 @@ class App extends View {
                             <div class="card-hover primary">
                                 <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="card-img-top" src="${IMG_FOLDER}expertise/small/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
+                            <img class="card-img-top" src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
                         </a>
                         <div class="card-body bg-light">
                             <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
@@ -202,7 +202,7 @@ class App extends View {
                     </div>
                 `;
             }));
-            const newProgram = parser.parseFromString(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
+            const newProgram = this._toNode(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
                             <h3>Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span></h3>
@@ -212,8 +212,8 @@ class App extends View {
                     </div>
                     <div class="row col-lg-8 mx-auto py-4">${cards}</div>
                 </div>
-            `, 'text/html').body.childNodes[0];
-            this.programsContainer.appendChild(newProgram);
+            `, 'text/html');
+            this.programsContainer.insertAdjacentElement('afterbegin', newProgram);
             this.#programs.push(newProgram);
         });
         this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab">${buttons}</ul>`);

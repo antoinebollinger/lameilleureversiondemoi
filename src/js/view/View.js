@@ -33,4 +33,8 @@ export default class View {
         navigator.clipboard.writeText(text);
         alert(`Le texte : \n\n${text}\n\n a bien été copié dans le presse-papier.`);
     }
+
+    _toNode(html) {
+        return new DOMParser().parseFromString(html, 'text/html').body.childNodes[0];
+    }
 };
