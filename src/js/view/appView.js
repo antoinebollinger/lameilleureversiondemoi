@@ -115,41 +115,42 @@ class App extends View {
 
     async _renderSkill() {
         this.#data.skill.forEach(async (ele, index) => {
-            const html = await this._getHtml(`skills/${ele.name}.html`)
-            this.skillsContainer.insertAdjacentHTML('beforeend', `
-                <div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
-                    <!-- Skill item ${1 + index} -->
-                    <div class="card shadow-sm">
-                        <a class="card-link w-100" data-bs-toggle="modal" href="#skillModal${1 + index}">
-                            <div class="card-hover primary">
-                                <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="card-img-top" src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
-                        </a>
-                        <div class="card-body bg-light">
-                            <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
-                            <div class="card-text">${html}</div>
-                        </div>
-                     
-                    </div>
-                    <div class="modal fade" id="skillModal${1 + index}" tabindex="-1" aria-labelledby="modalLabel-${1 + index}"
-                    aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalLabel-${index}"><span class="text-uppercase text-primary">${ele.title}</span></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            const html = await this._getHtml(`skills/${ele.name}.html`);
+            const newSkill = this._toNode(`<div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
+                        <!-- Skill item ${1 + index} -->
+                        <div class="card shadow-sm">
+                            <a class="card-link w-100" data-bs-toggle="modal" href="#skillModal${1 + index}">
+                                <div class="card-hover primary">
+                                    <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <div class="modal-body">
-                                    <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.name}.jpg" alt="${ele.title}" class="w-100"></div>
-                                    ${html}
+                                <img class="card-img-top" src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" data-src="${IMG_FOLDER}expertise/preview/${ele.name}.jpg" alt="${ele.title}" />
+                            </a>
+                            <div class="card-body bg-light">
+                                <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
+                                <div class="card-text">${html}</div>
+                            </div>
+                        
+                        </div>
+                        <div class="modal fade" id="skillModal${1 + index}" tabindex="-1" aria-labelledby="modalLabel-${1 + index}"
+                        aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabel-${index}"><span class="text-uppercase text-primary">${ele.title}</span></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="text-center mb-4"><img src="${IMG_FOLDER}expertise/${ele.name}.jpg" alt="${ele.title}" class="w-100"></div>
+                                        ${html}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            `);
+                `);
+            this.skillsContainer.insertAdjacentElement('beforeend', newSkill);
         });
+
     }
 
     async _renderProgram() {
