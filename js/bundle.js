@@ -628,7 +628,7 @@ class Nav extends View {
 
     _init() {
         window.addEventListener('DOMContentLoaded', async () => {
-            this._headerSlider();
+            // this._headerSlider();
             this._navbarShrink();
             document.addEventListener('scroll', () => {
                 this._navbarShrink();

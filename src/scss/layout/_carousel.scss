@@ -1,0 +1,71 @@
+#myCarousel {
+    height: 80vh;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb), 0.8), rgba(var(--bs-primary-rgb), 0.4), rgba(var(--bs-primary-rgb), 0.8));
+    }
+    .carousel-inner {
+        height: 100%;
+        z-index: -1;
+        .carousel-item {
+            height: 100%;
+        }
+        img {
+            filter: sepia(30%) grayscale(30%);
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .container {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #fff;
+        text-align: center;
+        .masthead-subheading {
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.5rem;
+            margin-bottom: 25px;
+            font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .masthead-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 2rem;
+            margin-bottom: 2rem;
+            font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    #myCarousel {
+        height: 100vh;
+        .container {
+            .masthead-subheading {
+                font-size: 2.25rem;
+                font-style: italic;
+                line-height: 2.25rem;
+                margin-bottom: 2rem;
+            }
+            .masthead-heading {
+                font-size: 4.5rem;
+                font-weight: 700;
+                line-height: 4.5rem;
+                margin-bottom: 4rem;
+            }
+        }
+    }
+}
