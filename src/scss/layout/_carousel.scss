@@ -22,6 +22,9 @@
             width: 100%;
         }
     }
+    .carousel-control-prev, .carousel-control-next {
+        visibility: hidden;
+    }
     .container {
         position: absolute;
         inset: 0;
@@ -53,6 +56,9 @@
 @media (min-width: 992px) {
     #myCarousel {
         height: 100vh;
+        .carousel-control-prev, .carousel-control-next {
+            visibility: visible;
+        }
         .container {
             .masthead-subheading {
                 font-size: 2.25rem;
