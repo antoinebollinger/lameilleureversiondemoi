@@ -196,7 +196,7 @@ class App extends View {
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="text-center mb-4"><img src="${IMG_FOLDER}programs/${program.folder + card.name}.jpg" alt="${card.title}" class="w-50 rounded shadow"></div>
+                                        <div class="text-center mb-4"><img src="${IMG_FOLDER}programs/${program.folder + card.name}.avif" alt="${card.title}" class="w-50 rounded shadow"></div>
                                         ${html}
                                     </div>
                                 </div>
