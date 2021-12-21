@@ -106,7 +106,8 @@
     "programs": [
         {
             "title": "Coaching de vie",
-            "subtitle": "Personnel et/ou professionnel",
+            "subtitle": "Professionnelle ou personnelle",
+            "intro": "Je vous propose un processus coaching de 10 séances pour vous accompagner dans un changement, une transition, une transformation de vie perso ou pro.",
             "folder": "vie/",
             "description": [
                 {
@@ -128,10 +129,10 @@
             ]
         },
         {
-            "title": "Coaching esprit sain dans corps sain",
-            "subtitle": "Bien-être mental et physique",
+            "title": "Coaching bien-être",
+            "subtitle": "Physique et mental",
+            "intro": "Il s'agit d'un accompagnement spécifique vers le bien-être physique et mental, basé sur ma méthode Esprit sain Corps sain reposant sur quatre axes : le mental, la motivation, la mise en mouvement et l'alimentation consciente.",
             "folder": "bienetre/",
-            "intro": "Passionnée du bien-être sur le plan emotionnel et physique, j'ai souhaité étendre mes services de coaching dans ce sens. D'ailleurs, le mémoire que j'ai présenté dans le cadre de ma certification portait sur <q> Le coaching et la perte de poids </q>.",
             "description": [
                 {
                     "title": "C'est quoi&nbsp;?",

@@ -208,7 +208,7 @@ class App extends View {
             const newProgram = this._toNode(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4">
                         <div class="text-center">
-                            <h3>Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span></h3>
+                            <h3 class="kalam text-uppercase text-tertary-2">${program.title}</h3>
                             <p class="text-muted">${program.subtitle ?? ''}</p>
                         </div>
                         <p>${program.intro ?? ''}</p>
