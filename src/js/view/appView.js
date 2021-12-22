@@ -168,7 +168,7 @@ class App extends View {
             await Promise.all(program.description.map(async (card, index2) => {
                 const html = await this._getHtml(`programs/${program.folder + card.name}.html`);
                 cards += `
-                    <div class="col-lg-6 mb-4" style="order:${1 + index2};">
+                    <div class="col-lg-4 mb-4" style="order:${1 + index2};">
                         <div class="card shadow-sm">
                             <a class="card-link" data-bs-toggle="modal" data-bs-target="#modal-${index1 + '-' + index2}" href="#modal-${index1 + '-' + index2}">
                                 <div class="card-hover tertary">
@@ -213,7 +213,7 @@ class App extends View {
                         </div>
                         <p>${program.intro ?? ''}</p>
                     </div>
-                    <div class="row col-lg-8 mx-auto py-4">${cards}</div>
+                    <div class="row col p-lg-2">${cards}</div>
                 </div>
             `, 'text/html');
             this.programsContainer.insertAdjacentElement('afterbegin', newProgram);

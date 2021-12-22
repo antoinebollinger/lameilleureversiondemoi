@@ -107,7 +107,7 @@
         {
             "title": "Coaching de vie",
             "subtitle": "Professionnelle ou personnelle",
-            "intro": "Je vous propose un processus coaching de 10 séances pour vous accompagner dans un changement, une transition, une transformation de vie perso ou pro.",
+            "intro": "Je vous propose un processus coaching par séances pour vous accompagner dans un <b>changement</b>, une <b>transition</b>, une <b>transformation de vie</b> perso ou pro.",
             "folder": "vie/",
             "description": [
                 {
@@ -115,23 +115,19 @@
                     "name": "what"
                 },
                 {
-                    "title": "A qui s'adresse-t-il&nbsp;?",
+                    "title": "Pour qui&nbsp;?",
                     "name": "who"
                 },
                 {
-                    "title": "Comment ça se passe&nbsp;?",
+                    "title": "Ma méthode",
                     "name": "how"
-                },
-                {
-                    "title": "Qu'est ce que ça m'apporte&nbsp;?",
-                    "name": "why"
                 }
             ]
         },
         {
             "title": "Coaching bien-être",
             "subtitle": "Physique et mental",
-            "intro": "Il s'agit d'un accompagnement spécifique vers le bien-être physique et mental, basé sur ma méthode Esprit sain Corps sain reposant sur quatre axes : le mental, la motivation, la mise en mouvement et l'alimentation consciente.",
+            "intro": "Il s'agit d'un accompagnement spécifique vers le <b>bien-être physique et mental</b>, basé sur ma méthode <b>Etat d'esprit gagnant & Corps sain</b> qui repose sur trois fondements : le <b>mental</b>, la <b>mise en mouvement</b> et l'<b>alimentation consciente & émotionnelle</b>.",
             "folder": "bienetre/",
             "description": [
                 {
@@ -139,16 +135,12 @@
                     "name": "what"
                 },
                 {
-                    "title": "A qui s'adresse-t-il&nbsp;?",
+                    "title": "Pour qui&nbsp;?",
                     "name": "who"
                 },
                 {
                     "title": "Comment ça se passe&nbsp;?",
                     "name": "how"
-                },
-                {
-                    "title": "Qu'est ce que ça m'apporte&nbsp;?",
-                    "name": "why"
                 }
             ]
         }
