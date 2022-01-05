@@ -76,11 +76,11 @@ class App extends View {
 
     async _renderTeam() {
         this.#data.team.forEach(async (ele) => {
-            const html = await this._getHtml(`team/${ele.html}`);
+            const html = await this._getHtml(`team/${ele.id}.html`);
             this.teamContainer.insertAdjacentHTML('beforeend', `
                 <div class="col-lg-${12 / this.#data.team.length}">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="${IMG_FOLDER}team/${ele.img}" alt="..." />
+                        <img class="mx-auto rounded-circle" src="${IMG_FOLDER}team/${ele.id}.webp" alt="..." />
                         <h3>${ele.name}</h3>
                         <p class="text-muted">${ele.function}</p>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -90,6 +90,9 @@ class App extends View {
                 </div>
                 ${html}
             `);
+            const myAge = document.getElementById(`${ele.id}-age`);
+            myAge.innerHTML = this._getAge(ele.birthDate);
+            myAge.classList.remove('spinner-border');
         });
     }
 

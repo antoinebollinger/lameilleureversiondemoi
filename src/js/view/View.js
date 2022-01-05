@@ -37,4 +37,8 @@ export default class View {
     _toNode(html) {
         return new DOMParser().parseFromString(html, 'text/html').body.childNodes[0];
     }
+
+    _getAge(birthDate = '1984-08-24') {
+        return Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
+    }
 };
