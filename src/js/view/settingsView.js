@@ -14,7 +14,7 @@ class Settings extends View {
 
     constructor() {
         super();
-        this._init();
+        //this._init();
     }
 
     async _renderColorSettings() {
