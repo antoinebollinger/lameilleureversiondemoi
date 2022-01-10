@@ -21,20 +21,20 @@
         
         &.primary {
             .leaflet-popup-content-wrapper {
-               background-color: var(--bs-primary);
-               border-left: 5px solid var(--bs-primary-2);
+               background-color: var(--bs-gray-dark);
+               border-left: 5px solid var(--bs-primary);
             }
             .leaflet-popup-tip {
-                background-color: var(--bs-primary);
+                background-color: var(--bs-gray-dark);
             }
         }
         &.tertary {
             .leaflet-popup-content-wrapper {
-                background-color: var(--bs-tertary-2);
-                border-left: 5px solid var(--bs-tertary-1);
+                background-color: var(--bs-gray-dark);
+                border-left: 5px solid var(--bs-tertary-2);
             }
             .leaflet-popup-tip {
-                background-color: var(--bs-tertary-2);
+                background-color: var(--bs-gray-dark);
             }
         }
     }
