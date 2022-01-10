@@ -3,7 +3,7 @@
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: rgba(var(--bs-primary-rgb),0.95);
+    background-color: rgba(var(--bs-primary-2-rgb),0.95);
     width: 100%;
     .navbar-toggler {
         padding: 0.75rem;
@@ -55,7 +55,7 @@
         &.navbar-shrink {
             padding-top: 1rem;
             padding-bottom: 1rem;
-            background-color: rgba(var(--bs-primary-rgb),0.95);
+            background-color: rgba(var(--bs-primary-2-rgb),0.95);
             .navbar-brand {
                 font-size: 1.8em;
                 svg, img {
