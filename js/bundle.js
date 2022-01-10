@@ -364,7 +364,7 @@ class App extends View {
             this._revealAbout(),
             this._programsNavHandler()
         ]);
-        this._reader(this.team.querySelector('.container'));
+        // this._reader(this.team.querySelector('.container'));
     }
 };
 
