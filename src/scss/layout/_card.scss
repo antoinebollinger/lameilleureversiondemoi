@@ -1,4 +1,4 @@
-$nbr_line: 2;
+$nbr_line: 3;
 
 .card {
     .card-link {
@@ -42,6 +42,6 @@ $nbr_line: 2;
         -webkit-line-clamp: $nbr_line;
         overflow: hidden;
         margin-bottom: 0.5rem;
-        max-height: 3.5rem;
+        max-height: $nbr_line * 1.75rem;
     }
 }
