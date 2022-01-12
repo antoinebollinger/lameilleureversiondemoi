@@ -1,23 +1,30 @@
-#myCarousel {
-    height: 80vh;
-    &:before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: rgba(var(--bs-primary-rgb),0.5);
-        // background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb), 0.9), rgba(var(--bs-black-rgb), 0.2), rgba(var(--bs-primary-rgb), 0.9));
-    }
+.carousel {
+    height: $carouselHeight;
     .carousel-inner {
         height: 100%;
         z-index: -1;
         .carousel-item {
             height: 100%;
-        }
-        img {
-            filter: sepia(30%) grayscale(30%);
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
+            position: relative;
+            img {
+                filter: sepia(30%) grayscale(30%);
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                // background-color: rgba(0,0,0,0.5);
+                background-color: rgba(var(--bs-primary-rgb),0.5);
+                // background-image: linear-gradient(45deg, rgba(var(--bs-primary-rgb), 0.9), rgba(var(--bs-black-rgb), 0.2), rgba(var(--bs-primary-rgb), 0.9));
+                z-index: 1;
+            }
+            .carousel-caption {
+                z-index: 2;
+                text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            }
         }
     }
     .carousel-control-prev, .carousel-control-next {
@@ -32,7 +39,7 @@
         flex-direction: column;
         color: #fff;
         text-align: center;
-        .masthead-subheading {
+        .carousel-subheading {
             font-size: 1.5rem;
             font-style: italic;
             line-height: 1.5rem;
@@ -40,7 +47,7 @@
             font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             text-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
-        .masthead-heading {
+        .carousel-heading {
             font-size: 2rem;
             font-weight: 700;
             line-height: 2rem;
@@ -52,22 +59,21 @@
 }
 
 @media (min-width: 992px) {
-    #myCarousel {
-        height: 80vh;
+    .carousel {
         .carousel-control-prev, .carousel-control-next {
             visibility: visible;
         }
         .container {
-            .masthead-subheading {
-                font-size: 2.25rem;
+            .carousel-subheading {
+                font-size: 2rem;
                 font-style: italic;
-                line-height: 2.25rem;
+                line-height: 2rem;
                 margin-bottom: 2rem;
             }
-            .masthead-heading {
-                font-size: 4.5rem;
+            .carousel-heading {
+                font-size: 4rem;
                 font-weight: 700;
-                line-height: 4.5rem;
+                line-height: 4rem;
                 margin-bottom: 4rem;
             }
         }
