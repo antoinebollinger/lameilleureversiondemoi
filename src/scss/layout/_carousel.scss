@@ -39,6 +39,9 @@
         flex-direction: column;
         color: #fff;
         text-align: center;
+        img {
+            height: 40%;
+        }
         .carousel-subheading {
             font-size: 1.5rem;
             font-style: italic;
@@ -64,6 +67,9 @@
             visibility: visible;
         }
         .container {
+            img {
+                height: 40%;
+            }
             .carousel-subheading {
                 font-size: 2rem;
                 font-style: italic;
@@ -71,10 +77,10 @@
                 margin-bottom: 2rem;
             }
             .carousel-heading {
-                font-size: 4rem;
+                font-size: 3.5rem;
                 font-weight: 700;
-                line-height: 4rem;
-                margin-bottom: 4rem;
+                line-height: 3.5rem;
+                margin-bottom: 3rem;
             }
         }
     }
