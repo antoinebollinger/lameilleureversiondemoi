@@ -23,7 +23,7 @@
             color: var(--bs-yellow) !important;
         }
         img {
-            height: 1.5rem;
+            height: 2rem;
         }
     }
     .navbar-nav .nav-item .nav-link {
@@ -47,8 +47,8 @@
         .navbar-brand {
             font-size: 2em;
             transition: font-size 0.3s ease-in-out, color 0.15s;
-            img {
-                height: 2rem;
+            svg, img {
+                height: 3rem;
                 transition: height 0.3s ease-in-out;
             }
         }
@@ -59,7 +59,7 @@
             .navbar-brand {
                 font-size: 1.8em;
                 svg, img {
-                    height: 1.5rem;
+                    height: 2.5rem;
                 }
             }
         }
