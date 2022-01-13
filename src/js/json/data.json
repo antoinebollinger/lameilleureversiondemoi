@@ -144,5 +144,35 @@
                 }
             ]
         }
+    ],
+    "contact": [
+        {
+            "question": "Tout d'abord, comment vous appelez-vous ?",
+            "type": "text",
+            "name": "subject",
+            "placeholder": "Répondez ici...",
+            "required": true
+        },
+        {
+            "question": "Enchantée ! Dites-moi ce que je peux faire pour vous ?",
+            "type": "text",
+            "name": "text",
+            "placeholder": "Répondez ici...",
+            "required": true
+        },
+        {
+            "question": "Parfait. Merci de bien vouliir entrer votre adresse email.",
+            "type": "email",
+            "name": "to",
+            "placeholder": "nom@exemple.com",
+            "required": true
+        },
+        {
+            "question": "Si vous le préférez, laissez-moi votre numéro de téléphone et je vous recontacterai.",
+            "type": "phone",
+            "name": "phone",
+            "placeholder": "06 12 34 56 78",
+            "required": false
+        }
     ]
 }

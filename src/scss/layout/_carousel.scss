@@ -1,4 +1,4 @@
-.carousel {
+#headerCarousel {
     height: $carouselHeight;
     .carousel-inner {
         height: 100%;
@@ -65,7 +65,7 @@
 }
 
 @media (min-width: 992px) {
-    .carousel {
+    #headerCarousel {
         .carousel-control-prev, .carousel-control-next {
             visibility: visible;
         }

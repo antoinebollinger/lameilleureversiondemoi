@@ -1,0 +1,50 @@
+.modal-form {
+    .modal-content {
+        height: 75vh;
+        background-image: url("../assets/img/map.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        small {
+            color: rgba(255,255,255,0.6);
+        }
+        .modal-header, .modal-footer {
+            border: none;
+        }
+        .modal-body {
+            @include flex();
+            > div {
+                width: 75%;
+            }
+            .form-control {
+                font-family: 'Montserrat', sans-serif;
+                border: none;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.6);
+                color: #fff;
+                background-color: rgba(var(--bs-primary-rgb),0.5);
+                &:focus {
+                    border-bottom: 2px solid #fff;
+                }
+                &::placeholder {
+                    font-family: 'Montserrat', sans-serif;
+                    color: rgba(255,255,255,0.6) !important;
+                }
+            }
+            .carousel-item {
+                transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out !important;
+            }
+        }
+        .modal-footer {
+            button {
+                min-width: 100px;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    #mapDiv {
+        display: block;
+    }
+}

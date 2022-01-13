@@ -59,16 +59,18 @@
     <!-- Header -->
     <header>
         <!-- Carousel -->
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover">
+        <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-current="true"
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="3" aria-current="true"
                     aria-label="Slide 4"></button>
-                <!-- <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button> -->
+                <!-- <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#headerCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button> -->
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -114,11 +116,11 @@
                     </div>
                 </div> -->
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#headerCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Précédent</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#headerCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Suivant</span>
             </button>
@@ -279,8 +281,12 @@
                 </div>
                 <div class="col-md-6 px-md-5 text-lg-start text-center">
                     <p class="text-light">Ou bien laissez-vous guider par le formulaire :</p>
-                    <button class="btn btn-primary btn-xl text-uppercase shadow" data-tf-popup="RqS2tftY">Lancer le
-                        formulaire</button>
+                    <button class="btn btn-primary btn-xl text-uppercase shadow" data-tf-popup="RqS2tftY">
+                        Lancer le formulaire
+                    </button>
+                    <!-- <button class="btn btn-primary btn-xl text-uppercase shadow" id="initForm">
+                        Lancer le formulaire
+                    </button> -->
                 </div>
             </div>
             <div id="mapDiv">

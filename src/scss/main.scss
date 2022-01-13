@@ -2,6 +2,7 @@
 @import './utils/variables';
 @import './utils/colors';
 @import './utils/fonts';
+@import './utils/mixins';
 // BASE
 @import './vendors/bootstrap';
 @import './base/general';
@@ -17,3 +18,4 @@
 @import './layout/backToTop';
 @import './layout/card';
 @import './layout/progress';
+@import './layout/form';
