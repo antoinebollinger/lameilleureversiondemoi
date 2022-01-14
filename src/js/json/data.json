@@ -163,7 +163,7 @@
             "required": true
         },
         {
-            "question": "Parfait. Merci de bien vouliir entrer votre adresse email.",
+            "question": "Parfait. Merci de bien vouloir entrer votre adresse email.",
             "type": "email",
             "name": "email",
             "placeholder": "nom@exemple.com",
