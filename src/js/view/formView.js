@@ -96,7 +96,7 @@ class Form extends View {
             <p>Malheureusement il y a eu un problème à l'envoi du message. Veuillez réessayer ultérieurement.</p>
             <p>Si le problème persiste, n'hésiter pas à me contacter :</p>
                 <ul>
-                    <li>Par mail : sabrina.appriou@hotmail.com</li>
+                    <li>Par mail : sabrina.appriou@hotmail.fr</li>
                     <li>Par téléphone : 06 61 79 46 99</li>
                 </li>
         `

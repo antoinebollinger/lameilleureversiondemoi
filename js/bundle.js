@@ -431,7 +431,7 @@ class Mappy extends View {
             maxZoom: 20,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.#map);
-        this.#home = this._addMarker(this.#homeCoords, '<img src="/assets/img/logos/svg/Sabrina Coaching-long-rose.svg" class="h-100" alt="Sabrina Coaching" />', 'neutral');
+        this.#home = this._addMarker(this.#homeCoords, '<img src="/assets/img/logos/svg/Sabrina Coaching-long-rose.svg" class="h-100 logo" alt="Sabrina Coaching" />', 'neutral');
         if (!current) return;
         this.#current = this._addMarker(this.#currentCoords, 'Vous', 'tertary');
         const group = [this.#home, this.#current];
@@ -770,11 +770,11 @@ class Form extends View {
             <p>Malheureusement il y a eu un problème à l'envoi du message. Veuillez réessayer ultérieurement.</p>
             <p>Si le problème persiste, n'hésiter pas à me contacter :</p>
                 <ul>
-                    <li>Par mail : sabrina.appriou@hotmail.com</li>
+                    <li>Par mail : sabrina.appriou@hotmail.fr</li>
                     <li>Par téléphone : 06 61 79 46 99</li>
                 </li>
         `
-        fetch(`${"https://sabrina-mailer.herokuapp.com"}/text-mail`, {
+        fetch(`${"http://localhost:3000"}/text-mail`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

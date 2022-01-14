@@ -116,3 +116,7 @@ button {
         box-shadow: none !important;
     }
 }
+
+img.logo {
+    filter: drop-shadow(1px 1px 0 black);
+}
