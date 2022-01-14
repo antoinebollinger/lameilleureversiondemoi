@@ -20,16 +20,25 @@
                 font-family: 'Montserrat', sans-serif;
                 border: none;
                 border-radius: 0;
-                border-bottom: 1px solid rgba(255,255,255,0.6);
+                box-shadow: 0 1px 0 rgba(255,255,255,0.6);
+                // border-bottom: 1px solid rgba(255,255,255,0.6);
                 color: #fff;
                 background-color: rgba(var(--bs-primary-rgb),0.5);
                 &:focus {
-                    border-bottom: 2px solid #fff;
+                    // border-bottom: 2px solid #fff;
+                    box-shadow: 0 2px 0 #fff;
                 }
                 &::placeholder {
                     font-family: 'Montserrat', sans-serif;
                     color: rgba(255,255,255,0.6) !important;
                 }
+            }
+            textarea {
+                min-height: 200px;
+            }
+            .invalid-tooltip {
+                background-color: var(--bs-secondary);
+                color: rgba(220,53,69,0.9);
             }
             .carousel-item {
                 transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out !important;

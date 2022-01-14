@@ -6,9 +6,12 @@ import { IMG_FOLDER } from "../config";
 
 class Form extends View {
     #initForm = document.getElementById('initForm');
+    #inputsSrc;
+    #form;
     #inputs;
     #modal;
     #carousel;
+    #formCarousel;
     #initContent;
     #goBtn;
     #slideNbr;
@@ -19,7 +22,7 @@ class Form extends View {
 
     constructor(data) {
         super();
-        this.#inputs = data.contact;
+        this.#inputsSrc = data.contact;
         this._initForm();
     }
 
@@ -46,41 +49,50 @@ class Form extends View {
         this.#nextBtn = this.#carousel.controler.querySelector('button[data-bs-slide="next"]');
         this.#okBtn = this.#carousel.container.querySelectorAll('.ok');
         this.#sendBtn = this.#carousel.container.querySelector('.valid');
+        this.#form = document.forms.contactForm;
+        this.#inputs = Array.from(this.#form.elements).filter(ele => ele.hasAttribute('name'));
+        this.#formCarousel = new bootstrap.Carousel(this.#carousel.container, { pause: true });
     }
 
     _addHandlers() {
-        const formCarousel = new bootstrap.Carousel(this.#carousel.container, { pause: true });
+        this.#inputs.forEach(ele => ele.addEventListener('keyup', (e) => {
+            Array.from(document.querySelectorAll(`span.${e.target.name}`)).forEach(span => span.innerHTML = e.target.value);
+        }));
+
         this.#carousel.container.addEventListener('slide.bs.carousel', (e) => {
             this.#prevBtn.disabled = (e.to === 0);
             this.#nextBtn.disabled = (e.to === this.#slideNbr - 1);
+            e.relatedTarget.querySelector('input, textarea').focus();
         });
+
         Array.from(this.#okBtn).forEach(ele => {
             ele.addEventListener('click', (e) => {
                 const item = e.target.closest('.carousel-item');
                 item.classList.add('was-validated');
-                if (!item.querySelector('input').validity.valid || +ele.dataset.to === this.#slideNbr) return;
-                formCarousel.next();
+                if (!item.querySelector('input, textarea').validity.valid || +ele.dataset.to === this.#slideNbr) return;
+                this.#formCarousel.next();
             })
         });
-        this.#sendBtn.addEventListener('click', (e) => {
+
+        this.#sendBtn.addEventListener('click', () => {
+            let invalid = this.#inputs.find(ele => !ele.validity.valid);
+            if (invalid !== undefined) {
+                this.#form.classList.add('was-validated');
+                this.#formCarousel.to(invalid.dataset.to);
+                return;
+            }
             this._sendEmail();
         });
     }
 
     _sendEmail() {
-        console.log('send Email');
-        const form = document.forms.contactForm;
-        let valid = Array.from(form.elements).some(ele => ele.validity.valid === false);
-        console.log(valid);
-
-        return
         fetch(`https://sabrina-mailer.herokuapp.com/text-mail`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: new URLSearchParams((new FormData(form)))
+            body: new URLSearchParams((new FormData(this.#form)))
         })
             .then(res => res.json())
             .then(res => console.log(res))
@@ -128,7 +140,7 @@ class Form extends View {
 
     _renderCarousel(id = "formCarousel") {
         const carouselContainer = document.createElement('div');
-        const html = this.#inputs.map((ele, index) => `
+        const html = this.#inputsSrc.map((ele, index) => `
             <div class="carousel-item${index === 0 ? ' active' : ''}">
                 ${this._renderInput(Object.assign(ele, { id: index }))}
             </div>
@@ -161,14 +173,16 @@ class Form extends View {
         </p >
 
         <div class="input-group input-group-lg mb-5 position-relative">
-            <input class="form-control" type="${data.type}" name="${data.name}" placeholder="${data.placeholder}" ${data.required ? 'required ' : ''} />
-            <div class="invalid-tooltip">
-                Ce champ est obligatoire
-            </div>
+            ${data.type === 'textarea' ? `
+            <textarea class="form-control" name="${data.name}" placeholder="${data.placeholder}" data-to=${data.id} ${data.required ? 'required ' : ''}></textarea>
+            ` : `
+            <input class="form-control" type="${data.type}" name="${data.name}" placeholder="${data.placeholder}" data-to="${data.id}" ${data.required ? 'required ' : ''}/>
+            `}
+            <div class="invalid-tooltip">${data.invalid}</div>
         </div>
         <div class="text-end">
-            <button type="button" class="btn btn-primary ok${(1 + data.id === this.#inputs.length) ? ' valid' : ''}" data-to="${1 + data.id}">
-                ${(1 + data.id === this.#inputs.length) ? 'Envoyer' : 'OK <i class="fas fa-check"></i>'}
+            <button type="button" class="btn btn-primary ok${(1 + data.id === this.#inputsSrc.length) ? ' valid' : ''}" data-to="${1 + data.id}">
+                ${(1 + data.id === this.#inputsSrc.length) ? 'Envoyer' : 'OK <i class="fas fa-check"></i>'}
             </button>
         </div>
         `;

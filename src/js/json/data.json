@@ -149,22 +149,25 @@
         {
             "question": "Tout d'abord, comment vous appelez-vous ?",
             "type": "text",
-            "name": "subject",
+            "name": "name",
             "placeholder": "Répondez ici...",
+            "invalid": "Ce champs est obligatoire",
             "required": true
         },
         {
-            "question": "Enchantée ! Dites-moi ce que je peux faire pour vous ?",
-            "type": "text",
-            "name": "text",
+            "question": "Enchantée <span class=\"name\"></span>. Dites-moi ce que je peux faire pour vous ?",
+            "type": "textarea",
+            "name": "message",
             "placeholder": "Répondez ici...",
+            "invalid": "Ce champs est obligatoire",
             "required": true
         },
         {
             "question": "Parfait. Merci de bien vouliir entrer votre adresse email.",
             "type": "email",
-            "name": "to",
+            "name": "email",
             "placeholder": "nom@exemple.com",
+            "invalid": "Hum... cette adresse email ne semble pas valide.",
             "required": true
         },
         {
@@ -172,6 +175,7 @@
             "type": "phone",
             "name": "phone",
             "placeholder": "06 12 34 56 78",
+            "invalid": "",
             "required": false
         }
     ]

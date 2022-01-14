@@ -110,3 +110,9 @@ section {
 .badge {
     font-size: 1em !important;
 }
+
+button {
+    &:active, &:focus {
+        box-shadow: none !important;
+    }
+}
