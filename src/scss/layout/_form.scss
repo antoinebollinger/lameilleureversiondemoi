@@ -43,6 +43,26 @@
             .carousel-item {
                 transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out !important;
             }
+            .valid {
+                min-width: 300px;
+                .spinner-border {
+                    visibility: hidden;
+                }
+                .sending {
+                    display: none;
+                }
+                &:disabled {
+                    .spinner-border {
+                        visibility: visible;
+                    }
+                    .sending {
+                        display: inline;
+                    }
+                    .send {
+                        display: none;
+                    }
+                }
+            }
         }
         .modal-footer {
             button {

@@ -10,8 +10,9 @@ class Form extends View {
     #form;
     #inputs;
     #modal;
+    #modalBsObj;
     #carousel;
-    #formCarousel;
+    #carouselBsObj;
     #initContent;
     #goBtn;
     #slideNbr;
@@ -29,8 +30,8 @@ class Form extends View {
     _initForm() {
         this.#initForm.addEventListener('click', async () => {
             this.#modal = this._renderModal("Formulaire de contact");
-            const formModal = new bootstrap.Modal(this.#modal);
-            formModal.show();
+            this.#modalBsObj = new bootstrap.Modal(this.#modal);
+            this.#modalBsObj.show();
             this.#goBtn = this.#modal.querySelector('.modal-footer button');
             this.#initContent = this.#modal.querySelector('.form-content');
             this.#goBtn.addEventListener('click', (e) => {
@@ -42,21 +43,33 @@ class Form extends View {
 
     _initCarousel() {
         this.#carousel = this._renderCarousel();
+        this.#carouselBsObj = new bootstrap.Carousel(this.#carousel.container, { pause: true });
         this.#modal.querySelector('.modal-body').replaceChild(this.#carousel.container, this.#initContent);
         this.#modal.querySelector('.modal-footer').replaceChild(this.#carousel.controler, this.#goBtn);
         this.#slideNbr = this.#carousel.container.querySelectorAll('.carousel-item').length;
         this.#prevBtn = this.#carousel.controler.querySelector('button[data-bs-slide="prev"]');
         this.#nextBtn = this.#carousel.controler.querySelector('button[data-bs-slide="next"]');
-        this.#okBtn = this.#carousel.container.querySelectorAll('.ok');
+        this.#okBtn = Array.from(this.#carousel.container.querySelectorAll('.ok'));
         this.#sendBtn = this.#carousel.container.querySelector('.valid');
         this.#form = document.forms.contactForm;
         this.#inputs = Array.from(this.#form.elements).filter(ele => ele.hasAttribute('name'));
-        this.#formCarousel = new bootstrap.Carousel(this.#carousel.container, { pause: true });
     }
 
     _addHandlers() {
+        const validNgo = (e, ele) => {
+            const item = e.target.closest('.carousel-item');
+            item.classList.add('was-validated');
+            if (!item.querySelector('input, textarea').validity.valid || +ele.dataset.to === this.#slideNbr) return;
+            this.#carouselBsObj.next();
+        };
+
         this.#inputs.forEach(ele => ele.addEventListener('keyup', (e) => {
+            if (e.code === 'Enter' && e.target.tagName !== 'TEXTAREA') { validNgo(e, document.querySelector(`button[data-input="${e.target.name}"]`)); return; }
             Array.from(document.querySelectorAll(`span.${e.target.name}`)).forEach(span => span.innerHTML = e.target.value);
+        }));
+
+        this.#okBtn.forEach(ele => ele.addEventListener('click', (e) => {
+            validNgo(e, ele);
         }));
 
         this.#carousel.container.addEventListener('slide.bs.carousel', (e) => {
@@ -65,20 +78,13 @@ class Form extends View {
             e.relatedTarget.querySelector('input, textarea').focus();
         });
 
-        Array.from(this.#okBtn).forEach(ele => {
-            ele.addEventListener('click', (e) => {
-                const item = e.target.closest('.carousel-item');
-                item.classList.add('was-validated');
-                if (!item.querySelector('input, textarea').validity.valid || +ele.dataset.to === this.#slideNbr) return;
-                this.#formCarousel.next();
-            })
-        });
-
-        this.#sendBtn.addEventListener('click', () => {
+        this.#sendBtn.addEventListener('click', (e) => {
+            e.target.closest('button').disabled = true;
             let invalid = this.#inputs.find(ele => !ele.validity.valid);
             if (invalid !== undefined) {
                 this.#form.classList.add('was-validated');
-                this.#formCarousel.to(invalid.dataset.to);
+                this.#carouselBsObj.to(invalid.dataset.to);
+                e.target.closest('button').disabled = false;
                 return;
             }
             this._sendEmail();
@@ -86,6 +92,13 @@ class Form extends View {
     }
 
     _sendEmail() {
+        const errMessage = `
+            Malheureusement il y a eu un problème à l'envoi du message. Veuillez réessayer ultérieurement. Si le problème persiste, n'hésiter pas à me contacter :<br>
+                <ul>
+                    <li>Par mail : sabrina.appriou@hotmail.com</li>
+                    <li>Par téléphone : 06 61 79 46 99</li>
+                </li>
+        `
         fetch(`https://sabrina-mailer.herokuapp.com/text-mail`, {
             method: 'POST',
             headers: {
@@ -95,8 +108,24 @@ class Form extends View {
             body: new URLSearchParams((new FormData(this.#form)))
         })
             .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .then(res => {
+                console.log(res);
+                this.#modalBsObj.hide();
+                const newMessage = `
+                    Merci d'avoir pris le temps de me contacter !<br>
+                    ${res.send ? `
+                    Votre message a bien été envoyé. Je reviendrai vers vous le plus rapidement possible.<br>
+                    Récapitulatif de votre message :<br>${res.message}
+                    ` : errMessage}
+                `;
+                const resModal = this.renderModal(newMessage);
+                resModal.show();
+            })
+            .catch(err => {
+                console.log(err);
+                const resModal = this.renderModal(errMessage);
+                resModal.show();
+            });
     }
 
     _renderModal(title) {
@@ -180,10 +209,11 @@ class Form extends View {
             `}
             <div class="invalid-tooltip">${data.invalid}</div>
         </div>
-        <div class="text-end">
-            <button type="button" class="btn btn-primary ok${(1 + data.id === this.#inputsSrc.length) ? ' valid' : ''}" data-to="${1 + data.id}">
-                ${(1 + data.id === this.#inputsSrc.length) ? 'Envoyer' : 'OK <i class="fas fa-check"></i>'}
+        <div>
+            <button type="button" class="btn btn-lg btn-primary ok${(1 + data.id === this.#inputsSrc.length) ? ' valid' : ''}" data-to="${1 + data.id}" data-input="${data.name}">
+                ${(1 + data.id === this.#inputsSrc.length) ? `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="send">Envoyer ma demande</span> <span class="sending">Envoi en cours</span>` : 'OK <i class="fas fa-check"></i>'}
             </button>
+            ${(1 + data.id === this.#inputsSrc.length || data.type === 'textarea') ? '' : ' (appuyez sur Entrée ↵)'}
         </div>
         `;
     }

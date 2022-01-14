@@ -53,6 +53,28 @@ class View {
     _getAge(birthDate = '1984-08-24') {
         return Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
     }
+
+    renderModal(message = '', title = 'Sabrina Coaching indique :') {
+        const modalContainer = document.createElement('div');
+        modalContainer.insertAdjacentHTML('afterbegin', `
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">${title}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>${message}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+            </div>
+        `);
+        modalContainer.className = 'modal fade';
+        return new bootstrap.Modal(modalContainer);
+    }
 };
 ;// CONCATENATED MODULE: ./src/js/json/data.json
 const data_namespaceObject = JSON.parse('{"header":{"path":"bw/","background":["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg"]},"team":[{"id":"01","name":"Sabrina Appriou","birthDate":"1984-08-24","function":"Coach en développement personnel","instagram":"https://www.instagram.com/sabs.app/","facebook":"https://www.facebook.com/sabrina.appriou","linkedIn":"https://www.linkedin.com/in/sabrina-appriou-0138a8122/"}],"about":[{"img":"entreprise.webp","title":"L\'entreprise","subtitle":"Mes débuts, ma carrière","text":"J’ai intégré le monde de l’entreprise après mes études à l’âge de 23 ans. Il s’agissait d’une opportunité dans une grande entreprise qu’à l’époque je ne pouvais pas refuser.<br>Tous les 3-4 ans je changeais de poste. J’ai pu travailler dans différents domaines&nbsp;: marketing, back-office, service commercial, gestion de la ressource. Une opportunité pour moi d’évoluer dans différents environnements, d’aller à la rencontre de différentes personnes, de développer ma capacité d’adaptation. Je voyais ces changements comme autant de nouveaux défis et également de nouvelles opportunités d’évolution de ma carrière. Je me projetais dans un poste à responsabilités, dans une belle carrière, même si le domaine professionnel dans lequel j’évoluais ne me passionnait pas. Je devais poursuivre mes efforts pour atteindre mon objectif d’alors&nbsp;: gravir les échelons pour atteindre une situation financière confortable.<br>Cela passait toutefois par des concessions&nbsp;: je passais notamment beaucoup de temps dans les transports. J’étais rarement à la maison, prise par les temps de trajet et le temps passé au travail. Mais je ne voyais pas cela comme une contrainte mais plutôt comme un sacrifice à court terme. J’étais persuadée que je devais passer par cette étape pour obtenir un confort de vie."},{"img":"carriere.webp","title":"Vie pro / Vie perso","subtitle":"Comment les concilier&nbsp;?","text":"Mais ce rythme de vie commençait à m’épuiser. Mon travail prenait une place importante dans ma vie, j’étais de moins en moins présente pour ma famille. À l’époque, maman de 2 enfants en bas âge, je devais concilier ma vie professionnelle et ma vie de famille. Et progressivement, je me suis sentie tiraillée entre mon envie de réussir ma carrière et celle de voir grandir mes enfants.<br>Ma charge mentale s’accroissait et j’ai commencé à remettre en question mes choix professionnels.<br>Très vite, j’ai dû faire face à l’épuisement, à la lassitude, à l’incompréhension. Désillusion dans mes projets professionnels, contraintes qui se faisaient de plus en plus ressentir, et le sentiment que je subissais cette vie. Peu à peu, je comprends que cette situation n\'est plus tenable. Je me rends donc à l\'évidence que je dois trouver une solution plus pérenne.<br>Mon premier pas vers un rééquilibrage a été d’intégrer un poste plus proche de mon domicile. Ce rapprochement m’a permis de passer moins de temps dans les transports et plus de temps avec ma famille. Moins de trajet, du télétravail&nbsp;: sur le papier, cela semblait être une belle amélioration, un nouvel équilibre. La motivation revient. Mais s’essouffle aussi vite&nbsp;: dans ma tête une petite voix qui revient sans cesse&nbsp;: «&nbsp;Mais qu’est-ce que tu fous là&nbsp;?&nbsp;»."},{"img":"doutes.webp","title":"La trentaine","subtitle":"Remise en question, nouveau cap","text":"Arrivée à la trentaine, je ne parvenais plus à trouver ma place dans ces choix de vie qui ne me correspondait pas du tout. Je me sentais en perpétuel conflit avec moi-même et surtout prisonnière de ma vie professionnelle. Je devais faire semblant que tout allait bien, trouver la motivation pour faire des choses qui n’avaient aucun sens pour moi… difficile.<br>Mais à qui en parler&nbsp;? Avais-je vraiment envie d’entendre l’avis des autres&nbsp;? De personnes qui ne savaient pas ce que je ressentais au fond de moi&nbsp;? Pour entendre des «&nbsp;tu te plains alors que tu as une situation confortable&nbsp;!&nbsp;» ou des «&nbsp;Démissionne et trouve autre chose&nbsp;!&nbsp;»&nbsp;? Facile à dire&nbsp;!<br>Alors comment trouver une issue à cette situation qui, effectivement, était à tout point de vue pourtant «&nbsp;confortable&nbsp;»&nbsp;: salariée d’une grande entreprise depuis près de 10 ans, 13ème mois, CE, salaire&nbsp;? Une bonne situation. Stable. Alors pourquoi chercher à changer&nbsp;? Surtout avec cette ancienneté et des enfants en bas âge à charge&nbsp;!"},{"img":"sport.webp","title":"Le sport","subtitle":"Un pilier","text":"À ce moment-là, le sport tient déjà une place importante dans ma vie. Je prends le temps, à la pause déjeuner, d’aller faire du footing. Pourtant, cela ne suffit pas à empêcher mon mal-être de grandir. La frustration s’installe. Une sensation terrible de ne pas être à ma place, tandis que la société et ses injonctions me pressent à ne pas faiblir. À être une femme épanouie. À être une maman dévouée. Bien dans ses baskets. Peu à peu, je m’éloigne de mon bien-être intérieur et je me sens complètement démotivée."},{"img":"declic.webp","title":"Le déclic","subtitle":"","text":"En 2018 je décide de retrouver la motivation et je me lance un défi&nbsp;: courir le marathon de Paris. Je mets toutes les chances de mon côté en suivant un plan d’entrainement strict et une préparation minutieuse. Et une semaine avant la course, patatras&nbsp;: grosse entorse à la cheville&nbsp;! Qu’à cela ne tienne, je vais malgré tout relever ce challenge. Et je le fais. Je puise en moi toutes les ressources physiques et mentales et je parviens à franchir la ligne d’arrivée.<br>Cet accomplissement sportif a été un déclic&nbsp;: on a la force en nous de sortir de notre zone de confort et de relever d’immenses défis face à l’adversité&nbsp;!"},{"img":"vocation.webp","title":"La vocation","subtitle":"","text":"Je décide alors de me prendre main. Cela passe par un accompagnement afin que l’on m’aide à donner un autre sens à ma vie professionnelle et, pourquoi pas, à s’engager dans un changement de vie.<br>Des idées émergent&nbsp;: une activité en lien avec ce qui m’anime le plus, l’alimentation, le sport, l’humain. J’ai toujours pris du plaisir à accompagner mon entourage à se dépasser&nbsp;: amener les gens à sortir de leur zone de confort, par un défi sportif ou personnel. Je le faisais de façon spontanée, avec à chaque fois le sentiment d’avoir accompli MA mission.<br>Tout cela sonne comme une évidence pour moi. Je dois prendre un virage, suivre ma vocation, me tourner vers un métier d’accompagnement.<br>L’alimentation est un sujet qui me passionne depuis que je suis maman. Il fait partie de mon quotidien. «&nbsp;Bien manger&nbsp;».<br>Le sport m’aide à me surpasser et à repousser mes limites.<br>Le développement personnel est un état d’esprit qui m’aide à mieux me connaitre et comprendre les autres.<br>À l’issue de cet accompagnement, j’ai compris que je pouvais faire de belle chose en étant moi-même et en étant à l’écoute de mes besoins. Je fonce alors, avec pour objectif de redonner un sens à ma vie&nbsp;!"},{"img":"vie.webp","title":"Concrétisation de mon projet","subtitle":"Ma nouvelle vie","text":"J’ai évidemment des moments de doutes. «&nbsp;Vais-je y arriver&nbsp;?&nbsp;», «&nbsp;Est-ce que ce n’est pas trop risqué&nbsp;?&nbsp;». Mais finalement, je me dis&nbsp;: «&nbsp;Qu’est-ce que je risque&nbsp;?&nbsp;».<br>Plusieurs sentiments se mêlent. L’excitation de ce changement de vie, la peur d’échouer, que cela ne fonctionne pas. Car j’ai tout de même besoin de me sentir en sécurité. Mais finalement, à ce moment-là de ma vie, je ne l’étais pas. Je ne me sentais plus en sécurité intérieurement. Je réalise donc que je suis prête pour le changement.<br>Je forge mon mental, bien décidée à trouver le chemin de la sérénité&nbsp;:<br>«&nbsp;Je ne perds jamais. Soit je gagne, soit j’apprends&nbsp;»<br>(Nelson Mandela)<br>Je me forme au métier de coaching, un métier d’accompagnement, c’est-à-dire aider les personnes dans le changement, la transition professionnelle ou personnelle. Je veux être plus proche de l’humain, aider ces personnes à se réaliser en allant puiser au fond d’elles toutes les ressources dont elles disposent déjà, à se libérer émotionnellement.<br>Je contribue ainsi, à mon niveau, au bien-être des autres. Je me sens alignée avec les valeurs qui me sont chères&nbsp;: authenticité, intégrité, générosité, pugnacité, respect de soi.<br>En tant que coach, j’accompagne aujourd\'hui les personnes afin qu’elles apprennent à mieux se connaitre pour révéler tout leur potentiel."}],"skill":[{"title":"Coach Consultante","name":"coach"},{"title":"Programmation Neuro-linguistique","name":"pnl"},{"title":"Neuroscience","name":"neuroscience"},{"title":"Analyse transactionnelle","name":"at"},{"title":"Alimentation consciente & émotionnelle","name":"alimentation"},{"title":"Art du questionnement","name":"questions"},{"title":"Construction identitaire","name":"identite"},{"title":"Gestion du stress","name":"stress"},{"title":"Changements & transitions","name":"changement"}],"programs":[{"title":"Coaching de vie","subtitle":"Professionnelle ou personnelle","intro":"Je vous propose un processus de coaching pour vous accompagner dans un <b>changement</b>, une <b>transition</b>, une <b>transformation de vie</b> perso ou pro.","folder":"vie/","description":[{"title":"C\'est quoi&nbsp;?","name":"what"},{"title":"Pour qui&nbsp;?","name":"who"},{"title":"Ma méthode","name":"how"}]},{"title":"Coaching bien-être","subtitle":"Physique et mental","intro":"Il s\'agit d\'un accompagnement spécifique vers le <b>bien-être physique et mental</b>, basé sur ma méthode <b>Etat d\'esprit gagnant & Corps sain</b> qui repose sur trois fondements : le <b>mental</b>, la <b>mise en mouvement</b> et l\'<b>alimentation consciente & émotionnelle</b>.","folder":"bienetre/","description":[{"title":"C\'est quoi&nbsp;?","name":"what"},{"title":"Pour qui&nbsp;?","name":"who"},{"title":"Comment ça se passe&nbsp;?","name":"how"}]}],"contact":[{"question":"Tout d\'abord, comment vous appelez-vous ?","type":"text","name":"name","placeholder":"Répondez ici...","invalid":"Ce champs est obligatoire","required":true},{"question":"Enchantée <span class=\\"name\\"></span>. Dites-moi ce que je peux faire pour vous ?","type":"textarea","name":"message","placeholder":"Répondez ici...","invalid":"Ce champs est obligatoire","required":true},{"question":"Parfait. Merci de bien vouliir entrer votre adresse email.","type":"email","name":"email","placeholder":"nom@exemple.com","invalid":"Hum... cette adresse email ne semble pas valide.","required":true},{"question":"Si vous le préférez, laissez-moi votre numéro de téléphone et je vous recontacterai.","type":"phone","name":"phone","placeholder":"06 12 34 56 78","invalid":"","required":false}]}');
@@ -662,8 +684,9 @@ class Form extends View {
     #form;
     #inputs;
     #modal;
+    #modalBsObj;
     #carousel;
-    #formCarousel;
+    #carouselBsObj;
     #initContent;
     #goBtn;
     #slideNbr;
@@ -681,8 +704,8 @@ class Form extends View {
     _initForm() {
         this.#initForm.addEventListener('click', async () => {
             this.#modal = this._renderModal("Formulaire de contact");
-            const formModal = new bootstrap.Modal(this.#modal);
-            formModal.show();
+            this.#modalBsObj = new bootstrap.Modal(this.#modal);
+            this.#modalBsObj.show();
             this.#goBtn = this.#modal.querySelector('.modal-footer button');
             this.#initContent = this.#modal.querySelector('.form-content');
             this.#goBtn.addEventListener('click', (e) => {
@@ -694,21 +717,33 @@ class Form extends View {
 
     _initCarousel() {
         this.#carousel = this._renderCarousel();
+        this.#carouselBsObj = new bootstrap.Carousel(this.#carousel.container, { pause: true });
         this.#modal.querySelector('.modal-body').replaceChild(this.#carousel.container, this.#initContent);
         this.#modal.querySelector('.modal-footer').replaceChild(this.#carousel.controler, this.#goBtn);
         this.#slideNbr = this.#carousel.container.querySelectorAll('.carousel-item').length;
         this.#prevBtn = this.#carousel.controler.querySelector('button[data-bs-slide="prev"]');
         this.#nextBtn = this.#carousel.controler.querySelector('button[data-bs-slide="next"]');
-        this.#okBtn = this.#carousel.container.querySelectorAll('.ok');
+        this.#okBtn = Array.from(this.#carousel.container.querySelectorAll('.ok'));
         this.#sendBtn = this.#carousel.container.querySelector('.valid');
         this.#form = document.forms.contactForm;
         this.#inputs = Array.from(this.#form.elements).filter(ele => ele.hasAttribute('name'));
-        this.#formCarousel = new bootstrap.Carousel(this.#carousel.container, { pause: true });
     }
 
     _addHandlers() {
+        const validNgo = (e, ele) => {
+            const item = e.target.closest('.carousel-item');
+            item.classList.add('was-validated');
+            if (!item.querySelector('input, textarea').validity.valid || +ele.dataset.to === this.#slideNbr) return;
+            this.#carouselBsObj.next();
+        };
+
         this.#inputs.forEach(ele => ele.addEventListener('keyup', (e) => {
+            if (e.code === 'Enter' && e.target.tagName !== 'TEXTAREA') { validNgo(e, document.querySelector(`button[data-input="${e.target.name}"]`)); return; }
             Array.from(document.querySelectorAll(`span.${e.target.name}`)).forEach(span => span.innerHTML = e.target.value);
+        }));
+
+        this.#okBtn.forEach(ele => ele.addEventListener('click', (e) => {
+            validNgo(e, ele);
         }));
 
         this.#carousel.container.addEventListener('slide.bs.carousel', (e) => {
@@ -717,20 +752,13 @@ class Form extends View {
             e.relatedTarget.querySelector('input, textarea').focus();
         });
 
-        Array.from(this.#okBtn).forEach(ele => {
-            ele.addEventListener('click', (e) => {
-                const item = e.target.closest('.carousel-item');
-                item.classList.add('was-validated');
-                if (!item.querySelector('input, textarea').validity.valid || +ele.dataset.to === this.#slideNbr) return;
-                this.#formCarousel.next();
-            })
-        });
-
-        this.#sendBtn.addEventListener('click', () => {
+        this.#sendBtn.addEventListener('click', (e) => {
+            e.target.closest('button').disabled = true;
             let invalid = this.#inputs.find(ele => !ele.validity.valid);
             if (invalid !== undefined) {
                 this.#form.classList.add('was-validated');
-                this.#formCarousel.to(invalid.dataset.to);
+                this.#carouselBsObj.to(invalid.dataset.to);
+                e.target.closest('button').disabled = false;
                 return;
             }
             this._sendEmail();
@@ -738,6 +766,13 @@ class Form extends View {
     }
 
     _sendEmail() {
+        const errMessage = `
+            Malheureusement il y a eu un problème à l'envoi du message. Veuillez réessayer ultérieurement. Si le problème persiste, n'hésiter pas à me contacter :<br>
+                <ul>
+                    <li>Par mail : sabrina.appriou@hotmail.com</li>
+                    <li>Par téléphone : 06 61 79 46 99</li>
+                </li>
+        `
         fetch(`https://sabrina-mailer.herokuapp.com/text-mail`, {
             method: 'POST',
             headers: {
@@ -747,8 +782,24 @@ class Form extends View {
             body: new URLSearchParams((new FormData(this.#form)))
         })
             .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .then(res => {
+                console.log(res);
+                this.#modalBsObj.hide();
+                const newMessage = `
+                    Merci d'avoir pris le temps de me contacter !<br>
+                    ${res.send ? `
+                    Votre message a bien été envoyé. Je reviendrai vers vous le plus rapidement possible.<br>
+                    Récapitulatif de votre message :<br>${res.message}
+                    ` : errMessage}
+                `;
+                const resModal = this.renderModal(newMessage);
+                resModal.show();
+            })
+            .catch(err => {
+                console.log(err);
+                const resModal = this.renderModal(errMessage);
+                resModal.show();
+            });
     }
 
     _renderModal(title) {
@@ -832,10 +883,11 @@ class Form extends View {
             `}
             <div class="invalid-tooltip">${data.invalid}</div>
         </div>
-        <div class="text-end">
-            <button type="button" class="btn btn-primary ok${(1 + data.id === this.#inputsSrc.length) ? ' valid' : ''}" data-to="${1 + data.id}">
-                ${(1 + data.id === this.#inputsSrc.length) ? 'Envoyer' : 'OK <i class="fas fa-check"></i>'}
+        <div>
+            <button type="button" class="btn btn-lg btn-primary ok${(1 + data.id === this.#inputsSrc.length) ? ' valid' : ''}" data-to="${1 + data.id}" data-input="${data.name}">
+                ${(1 + data.id === this.#inputsSrc.length) ? `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class="send">Envoyer ma demande</span> <span class="sending">Envoi en cours</span>` : 'OK <i class="fas fa-check"></i>'}
             </button>
+            ${(1 + data.id === this.#inputsSrc.length || data.type === 'textarea') ? '' : ' (appuyez sur Entrée ↵)'}
         </div>
         `;
     }

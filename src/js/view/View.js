@@ -41,4 +41,26 @@ export default class View {
     _getAge(birthDate = '1984-08-24') {
         return Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
     }
+
+    renderModal(message = '', title = 'Sabrina Coaching indique :') {
+        const modalContainer = document.createElement('div');
+        modalContainer.insertAdjacentHTML('afterbegin', `
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">${title}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>${message}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+            </div>
+        `);
+        modalContainer.className = 'modal fade';
+        return new bootstrap.Modal(modalContainer);
+    }
 };
