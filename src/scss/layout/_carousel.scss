@@ -37,8 +37,8 @@
     .container {
         position: absolute;
         inset: 0;
+        top: 100px;
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
         color: #fff;
@@ -73,14 +73,16 @@
             visibility: visible;
         }
         .container {
+            top: 0;
+            justify-content: center;
             img {
                 height: 25%;
                 margin-bottom: 2rem;
             }
             .carousel-subheading {
-                font-size: 2rem;
+                font-size: 1.8rem;
                 font-style: italic;
-                line-height: 2rem;
+                line-height: 1.8rem;
                 margin-bottom: 2rem;
             }
             .carousel-heading {
