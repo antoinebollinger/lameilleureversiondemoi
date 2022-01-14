@@ -100,7 +100,7 @@ class Form extends View {
                     <li>Par téléphone : 06 61 79 46 99</li>
                 </li>
         `
-        fetch(`https://sabrina-mailer.herokuapp.com/text-mail`, {
+        fetch(`${process.env.MAILER}/text-mail`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
