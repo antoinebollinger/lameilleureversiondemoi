@@ -767,7 +767,8 @@ class Form extends View {
 
     _sendEmail() {
         const errMessage = `
-            Malheureusement il y a eu un problème à l'envoi du message. Veuillez réessayer ultérieurement. Si le problème persiste, n'hésiter pas à me contacter :<br>
+            <p>Malheureusement il y a eu un problème à l'envoi du message. Veuillez réessayer ultérieurement.</p>
+            <p>Si le problème persiste, n'hésiter pas à me contacter :</p>
                 <ul>
                     <li>Par mail : sabrina.appriou@hotmail.com</li>
                     <li>Par téléphone : 06 61 79 46 99</li>
@@ -786,10 +787,9 @@ class Form extends View {
                 console.log(res);
                 this.#modalBsObj.hide();
                 const newMessage = `
-                    Merci d'avoir pris le temps de me contacter !<br>
+                    <p>Merci d'avoir pris le temps de me contacter !<p>
                     ${res.send ? `
-                    Votre message a bien été envoyé. Je reviendrai vers vous le plus rapidement possible.<br>
-                    Récapitulatif de votre message :<br>${res.message}
+                    <p>Votre message a bien été envoyé. Je reviendrai vers vous le plus rapidement possible.</p>
                     ` : errMessage}
                 `;
                 const resModal = this.renderModal(newMessage);
