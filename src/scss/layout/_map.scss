@@ -18,7 +18,16 @@
         .leaflet-popup-content {
             font-size: 1rem;
         }
-        
+        &.neutral {
+            .leaflet-popup-content-wrapper {
+                background-color: var(--bs-secondary);
+                border-left: 5px solid var(--bs-primary);
+             }
+             .leaflet-popup-tip {
+                 background-color: var(--bs-secondary);
+             }
+ 
+        }
         &.primary {
             .leaflet-popup-content-wrapper {
                background-color: var(--bs-gray-dark);
