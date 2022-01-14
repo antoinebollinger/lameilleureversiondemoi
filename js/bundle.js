@@ -784,7 +784,6 @@ class Form extends View {
         })
             .then(res => res.json())
             .then(res => {
-                console.log(res);
                 this.#modalBsObj.hide();
                 const newMessage = `
                     <p>Merci d'avoir pris le temps de me contacter !<p>
