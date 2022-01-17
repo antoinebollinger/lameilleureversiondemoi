@@ -25,6 +25,7 @@ class Form extends View {
         super();
         this.#inputsSrc = data.contact;
         this._initForm();
+        console.log(process.env.MAILER);
     }
 
     _initForm() {

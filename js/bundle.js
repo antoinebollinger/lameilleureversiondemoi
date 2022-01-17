@@ -699,6 +699,7 @@ class Form extends View {
         super();
         this.#inputsSrc = data.contact;
         this._initForm();
+        console.log("http://localhost:3000");
     }
 
     _initForm() {
