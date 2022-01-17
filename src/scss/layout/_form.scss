@@ -13,9 +13,6 @@
         }
         .modal-body {
             @include flex();
-            > div {
-                width: 75%;
-            }
             .form-control {
                 font-family: 'Montserrat', sans-serif;
                 border: none;
@@ -32,9 +29,6 @@
                     font-family: 'Montserrat', sans-serif;
                     color: rgba(255,255,255,0.6) !important;
                 }
-            }
-            textarea {
-                min-height: 200px;
             }
             .invalid-tooltip {
                 background-color: var(--bs-secondary);
@@ -73,7 +67,14 @@
 }
 
 @media (min-width: 992px) {
-    #mapDiv {
-        display: block;
+    .modal-form {
+        textarea {
+            min-height: 200px;
+       }
+       .modal-body {
+            > div {
+                width: 75%;
+            }
+       }
     }
 }
