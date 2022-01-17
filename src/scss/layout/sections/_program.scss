@@ -1,4 +1,7 @@
 #programs {
+    .nav {
+        flex-wrap: nowrap;
+    }
     .nav-link {
         text-transform: uppercase;
         &.active {
