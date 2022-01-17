@@ -172,7 +172,7 @@
         },
         {
             "question": "Si vous le préférez, laissez-moi votre numéro de téléphone et je vous recontacterai.",
-            "type": "phone",
+            "type": "tel",
             "name": "phone",
             "placeholder": "06 12 34 56 78",
             "invalid": "",
