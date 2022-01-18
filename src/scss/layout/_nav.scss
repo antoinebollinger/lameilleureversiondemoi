@@ -13,7 +13,7 @@
         font-weight: 700;
     }
     .navbar-brand {
-        height: 3.5rem;
+        height: 3rem;
         color: $primary-1;
         padding-top: 0;
         padding-bottom: 0;
@@ -44,7 +44,7 @@
         background-color: transparent;
         transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
         .navbar-brand {
-            height: 3rem;
+            height: 4rem;
             transition: height 0.3s ease-in-out, color 0.15s;
         }
         &.navbar-shrink {
@@ -52,7 +52,7 @@
             padding-bottom: 1rem;
             background-color: rgba(var(--bs-primary-2-rgb),0.95);
             .navbar-brand {
-                height: 2.5rem;
+                height: 3.5rem;
             }
         }
         .navbar-nav .nav-item {
