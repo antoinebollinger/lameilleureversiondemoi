@@ -80,9 +80,12 @@ class App extends View {
             this.teamContainer.insertAdjacentHTML('beforeend', `
                 <div class="col-lg-${12 / this.#data.team.length}">
                     <div class="team-member">
-                        <img class="mx-auto rounded-circle" src="${IMG_FOLDER}team/${ele.id}.webp" alt="..." />
+                        <img class="team-portrait mx-auto rounded-circle" src="${IMG_FOLDER}team/${ele.id}.webp" alt="${ele.name}" />
                         <h3>${ele.name}</h3>
                         <p class="text-muted">${ele.function}</p>
+                        <div class="text-center mb-4">
+                            <img src="assets/img/logos/svg/Sabrina Coaching-long-2-rose.svg" class="w-25" />
+                        </div>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}" title="Instagram"><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.facebook}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.linkedIn}" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
