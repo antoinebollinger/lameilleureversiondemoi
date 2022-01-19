@@ -157,8 +157,9 @@ class Form extends View {
                             </p>
                         </div>
                     </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-lg btn-primary">Démarrer</button>
+                    <div class="modal-footer ">
+                    <img src="assets/img/logos/svg/Sabrina Coaching-long-2-violet.svg" class="w-25 d-none d-lg-block" />
+                    <button type="button" class="btn btn-lg btn-primary">Démarrer</button>
                   </div>
                 </div>
             </div>
