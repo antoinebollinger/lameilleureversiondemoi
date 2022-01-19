@@ -85,7 +85,7 @@ class App extends View {
                         <p class="text-muted mb-0">${ele.function}</p>
                         <div class="row align-items-center justify-content-center mb-5">
                             <div class="col-lg-4">
-                                <img src="assets/img/logos/svg/Sabrina Coaching-long-2-rose.svg" class="w-100" />
+                                <img src="assets/img/logos/svg/Sabrina Coaching-long-2-rose.svg" class="w-100" alt="La Meilleure Version de Moi" />
                             </div>
                         </div>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}" title="Instagram"><i class="fab fa-instagram"></i></a>
