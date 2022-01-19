@@ -82,9 +82,9 @@ class App extends View {
                     <div class="team-member">
                         <img class="team-portrait mx-auto rounded-circle" src="${IMG_FOLDER}team/${ele.id}.webp" alt="${ele.name}" />
                         <h3>${ele.name}</h3>
-                        <p class="text-muted">${ele.function}</p>
-                        <div class="row align-items-center justify-content-center mb-4">
-                            <div class="col-lg-4 mb-4">
+                        <p class="text-muted mb-0">${ele.function}</p>
+                        <div class="row align-items-center justify-content-center mb-5">
+                            <div class="col-lg-4">
                                 <img src="assets/img/logos/svg/Sabrina Coaching-long-2-rose.svg" class="w-100" />
                             </div>
                         </div>
