@@ -84,7 +84,7 @@ class App extends View {
                         <h3>${ele.name}</h3>
                         <p class="text-muted">${ele.function}</p>
                         <div class="row align-items-center justify-content-center mb-4">
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <img src="assets/img/logos/svg/LMVDM.svg" class="w-100" alt="La Meilleure Version de Moi" />
                             </div>
                         </div>
