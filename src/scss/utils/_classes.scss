@@ -37,6 +37,17 @@
     color: rgba(var(--bs-tertary-2-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.btn-primary-2 {
+    color: #fff;
+    background-color: rgba(var(--bs-primary-rgb), 0.9);
+    border-color: rgba(var(--bs-primary-rgb), 0.9);
+    &:hover {
+        color: var(--bs-secondary);
+        background-color: rgba(var(--bs-primary-rgb), 1);
+        border-color: rgba(var(--bs-primary-rgb), 1);
+    }
+}
+
 .btn-tertary-1 {
     color: #fff;
     background-color: rgba(var(--bs-tertary-1-rgb), 0.9);
