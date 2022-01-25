@@ -180,16 +180,16 @@ class App extends View {
                     <div class="col-lg-4 mb-4" style="order:${1 + index2};">
                         <div class="card shadow-sm">
                             <a class="card-link" data-bs-toggle="modal" data-bs-target="#modal-${index1 + '-' + index2}" href="#modal-${index1 + '-' + index2}">
-                                <div class="card-hover tertary">
+                                <div class="card-hover primary">
                                     <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
                                 <img class="card-img-top" src="${IMG_FOLDER}programs/${program.folder + card.name}.webp"
                                 alt="${card.title}">
                             </a>
-                            <div class="card-body bg-tertary-2">
-                                <h5 class="card-title kalam text-uppercase text-tertary-2">${card.title}</h5>
+                            <div class="card-body bg-light">
+                                <h5 class="card-title kalam text-uppercase text-primary-2">${card.title}</h5>
                                 <div class="card-text">${html}</div>
-                                <button type="button" class="btn btn-tertary-2" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#modal-${index1 + '-' + index2}">
                                     Lire plus...
                                 </button>
@@ -201,7 +201,7 @@ class App extends View {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title kalam text-uppercase text-tertary-2" id="modalLabel-${index1 + '-' + index2}">
+                                        <h4 class="modal-title kalam text-uppercase text-primary-2" id="modalLabel-${index1 + '-' + index2}">
                                             ${card.title}
                                         </h4>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
