@@ -134,7 +134,7 @@ class App extends View {
                                 <img class="card-img-top" src="${IMG_FOLDER}expertise/preview/${ele.name}.webp" alt="${ele.title}" />
                             </a>
                             <div class="card-body bg-light">
-                                <h5 class="card-title text-muted textNoWrap">${ele.title}</h5>
+                                <h5 class="card-title kalam text-uppercase text-primary-2 textNoWrap">${ele.title}</h5>
                                 <div class="card-text">${html}</div>
                             </div>
                         
@@ -144,7 +144,9 @@ class App extends View {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modalLabel-${index}"><span class="text-uppercase text-primary">${ele.title}</span></h5>
+                                        <h5 class="modal-title kalam text-uppercase text-primary-2" id="modalLabel-${index}">
+                                            ${ele.title}
+                                        </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
