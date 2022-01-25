@@ -164,9 +164,10 @@ class App extends View {
     }
 
     async _renderProgram() {
-        const parser = new DOMParser();
+        // const parser = new DOMParser();
         let buttons = '';
         await this.#data.programs.forEach(async (program, index1) => {
+            if (!program.active) return;
             buttons += `
                 <li class="nav-item">
                     <a class="nav-link${(index1 === 0 ? ' active' : '')}" data-href="pills-program${1 + index1}" href="#">${program.title}</a>
@@ -186,7 +187,7 @@ class App extends View {
                                 alt="${card.title}">
                             </a>
                             <div class="card-body bg-tertary-2">
-                                <h5 class="card-title text-muted">${card.title}</h5>
+                                <h5 class="card-title kalam text-uppercase text-tertary-2">${card.title}</h5>
                                 <div class="card-text">${html}</div>
                                 <button type="button" class="btn btn-tertary-2" data-bs-toggle="modal"
                                     data-bs-target="#modal-${index1 + '-' + index2}">
@@ -200,7 +201,9 @@ class App extends View {
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="modalLabel-${index1 + '-' + index2}">Programme <span class="kalam text-uppercase text-tertary-2">${program.title}</span><br><span class="text-muted">${card.title}</span></h4>
+                                        <h4 class="modal-title kalam text-uppercase text-tertary-2" id="modalLabel-${index1 + '-' + index2}">
+                                            ${card.title}
+                                        </h4>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -214,7 +217,7 @@ class App extends View {
                 `;
             }));
             const newProgram = this._toNode(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
-                    <div class="col-lg-8 mx-auto p-4">
+                    <div class="col-lg-8 mx-auto p-4 d-none">
                         <div class="text-center">
                             <h3 class="kalam text-uppercase text-tertary-2">${program.title}</h3>
                             <p class="text-muted">${program.subtitle ?? ''}</p>
@@ -227,7 +230,9 @@ class App extends View {
             this.programsContainer.insertAdjacentElement('afterbegin', newProgram);
             this.#programs.push(newProgram);
         });
+        if (this.#data.programs.filter(program => program.active).length <= 1) return;
         this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab">${buttons}</ul>`);
+        this.programsContainer.className = 'bg-white border border-top-0';
     }
 
     async _renderPrivacy() {
@@ -241,12 +246,11 @@ class App extends View {
     }
 
     async _programsNavHandler() {
-        this.#programsNav.addEventListener('click', (e) => {
+        this.#programsNav?.addEventListener('click', (e) => {
             e.preventDefault();
             const btn = e.target.closest('.nav-link');
             if (!btn) return;
             //Buttons
-            console.log(this);
             this.#programsNav.querySelectorAll('.nav-link').forEach(ele => ele.classList.remove('active'));
             btn.classList.add('active');
             //Tabs

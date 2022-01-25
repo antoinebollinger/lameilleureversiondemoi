@@ -105,6 +105,28 @@
     ],
     "programs": [
         {
+            "active": true,
+            "title": "Coaching",
+            "subtitle": "LaMeilleureVersionDeMoi",
+            "intro": "",
+            "folder": "main/",
+            "description": [
+                {
+                    "title": "Pour qui&nbsp;?",
+                    "name": "who"
+                },
+                {
+                    "title": "C'est quoi&nbsp;?",
+                    "name": "what"
+                },
+                {
+                    "title": "Ma méthode",
+                    "name": "how"
+                }
+            ]
+        },
+        {
+            "active": false,
             "title": "Coaching de vie",
             "subtitle": "Professionnelle ou personnelle",
             "intro": "Je vous propose un processus de coaching pour vous accompagner dans un <b>changement</b>, une <b>transition</b>, une <b>transformation de vie</b> perso ou pro.",
@@ -125,6 +147,7 @@
             ]
         },
         {
+            "active": false,
             "title": "Coaching bien-être",
             "subtitle": "Physique et mental",
             "intro": "Il s'agit d'un accompagnement spécifique vers le <b>bien-être physique et mental</b>, basé sur ma méthode <b>Etat d'esprit gagnant & Corps sain</b> qui repose sur trois fondements : le <b>mental</b>, la <b>mise en mouvement</b> et l'<b>alimentation consciente & émotionnelle</b>.",
