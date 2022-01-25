@@ -4,7 +4,7 @@ import { HTML_FOLDER } from "../config";
 export default class View {
     navbarCollapsible = document.getElementById('mainNav');
     masthead = document.querySelector('.masthead');
-    workContainer = document.getElementById('myWork')
+    workContainer = document.getElementById('myWork');
     programsContainer = document.getElementById('programsContainer');
     team = document.getElementById('team');
     teamContainer = document.getElementById('team').querySelector('.row');

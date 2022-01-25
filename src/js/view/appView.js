@@ -67,6 +67,9 @@ class App extends View {
         this.aboutContainer.querySelectorAll('li').forEach(function (li) {
             timelineObserver.observe(li);
         });
+        this.workContainer.querySelectorAll('li').forEach(function (li) {
+            timelineObserver.observe(li);
+        })
     }
 
     async _renderWork() {
