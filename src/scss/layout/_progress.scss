@@ -1,11 +1,10 @@
 .progress {
-    position: fixed;
-    bottom: -5px;
-    height: 5px;
+    bottom: 0;
+    height: 0px;
     width: 100%;
     border-radius: 0;
     transition: bottom 0.15s;
     &.show {
-        bottom: 0;
+        height: 5px;
     }
 }

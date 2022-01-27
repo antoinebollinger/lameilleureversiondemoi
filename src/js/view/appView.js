@@ -144,7 +144,7 @@ class App extends View {
                         </div>
                         <div class="modal fade" id="skillModal${1 + index}" tabindex="-1" aria-labelledby="modalLabel-${1 + index}"
                         aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title kalam text-uppercase text-primary-2" id="modalLabel-${index}">
@@ -165,11 +165,9 @@ class App extends View {
                 `);
             this.skillsContainer.insertAdjacentElement('beforeend', newSkill);
         });
-
     }
 
     async _renderProgram() {
-        // const parser = new DOMParser();
         let buttons = '';
         await this.#data.programs.forEach(async (program, index1) => {
             if (!program.active) return;
@@ -231,7 +229,7 @@ class App extends View {
                     </div>
                     <div class="row col p-lg-2">${cards}</div>
                 </div>
-            `, 'text/html');
+            `);
             this.programsContainer.insertAdjacentElement('afterbegin', newProgram);
             this.#programs.push(newProgram);
         });
@@ -275,10 +273,25 @@ class App extends View {
     }
 
     async _reader(section) {
-        const progressBar = document.querySelector('.progress');
+        const progressBar = this._toNode(`
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="25" aria-valuemin="0"
+                aria-valuemax="100"></div>
+            </div>
+        `, );
         const callback = (entries, observer) => {
-            const myElement = window;
+            let myElement;
             const [entry] = entries;
+            const DOMElement = entry.target;
+            if (DOMElement.classList.contains('modal')) {
+                myElement = DOMElement.querySelector('.modal-body')
+                progressBar.classList.add('position-absolute');
+                DOMElement.insertAdjacentElement('beforeend', progressBar);
+            } else {
+                myElement = window;
+                progressBar.classList.add('position-fixed');
+                document.body.insertAdjacentElement('beforeend', progressBar);
+            }
             if (entry.isIntersecting) {
                 myElement.myparams = entry;
                 myElement.addEventListener(...scroller);
@@ -319,7 +332,8 @@ class App extends View {
             this._revealAbout(),
             this._programsNavHandler()
         ]);
-        // this._reader(this.team.querySelector('.container'));
+        // this._reader(document.getElementById('monParcours'));
+        // this._reader(this.team);
     }
 };
 
