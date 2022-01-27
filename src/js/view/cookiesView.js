@@ -8,7 +8,6 @@ class Cookies extends View {
 
     constructor() {
         super();
-        console.log(this);
     }
 
     _renderBanner() {

@@ -203,7 +203,7 @@ class App extends View {
                         <!-- Modal -->
                         <div class="modal fade" id="modal-${index1 + '-' + index2}" tabindex="-1" aria-labelledby="modalLabel-${index1 + '-' + index2}"
                             aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title kalam text-uppercase text-primary-2" id="modalLabel-${index1 + '-' + index2}">
