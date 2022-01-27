@@ -37,14 +37,14 @@
     .container {
         position: absolute;
         inset: 0;
-        top: 100px;
+        top: 200px;
         display: flex;
         align-items: center;
         flex-direction: column;
         color: #fff;
         text-align: center;
         img {
-            height: 30%;
+            width: 100%;
             filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
             margin-bottom: 2rem;
         }
@@ -76,7 +76,7 @@
             top: 0;
             justify-content: center;
             img {
-                height: 25%;
+                width: 50%;
                 margin-bottom: 2rem;
             }
             .carousel-heading {
