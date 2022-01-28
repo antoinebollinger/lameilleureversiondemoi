@@ -64,6 +64,7 @@ class Form extends View {
         };
 
         this.#inputs.forEach(ele => ele.addEventListener('keyup', (e) => {
+            console.log(e);
             if (e.code === 'Enter' && e.target.tagName !== 'TEXTAREA') { validNgo(e, document.querySelector(`button[data-input="${e.target.name}"]`)); return; }
             Array.from(document.querySelectorAll(`span.${e.target.name}`)).forEach(span => span.innerHTML = e.target.value);
         }));
