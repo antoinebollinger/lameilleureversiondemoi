@@ -7,6 +7,7 @@ import { IMG_FOLDER } from "../config";
 class Nav extends View {
     #header;
     #navbarImg = this.navbarCollapsible.querySelector('img');
+    #navbarButton = this.navbarCollapsible.querySelector('.navbar-toggler');
 
     constructor(data) {
         super();
@@ -25,6 +26,7 @@ class Nav extends View {
     }
 
     _navbarShrink() {
+        console.log(this.#navbarButton.style.display === 'none');
         if (window.scrollY === 0) {
             this.navbarCollapsible.classList.remove('navbar-shrink');
             this.#navbarImg.src = this.#navbarImg.dataset.base;
