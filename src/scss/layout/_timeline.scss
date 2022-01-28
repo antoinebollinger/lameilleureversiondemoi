@@ -17,7 +17,7 @@ $image-diameter: ("xl": 170px, "lg": 150px, "md": 100px, "sm": 80px);
     }
     > li {
         position: relative;
-        min-height: 50px;
+        min-height: map-get($image-diameter, "sm");
         margin-bottom: 50px;
         overflow: hidden;
         &:before, &:after {
@@ -132,6 +132,7 @@ $image-diameter: ("xl": 170px, "lg": 150px, "md": 100px, "sm": 80px);
         }
         > li {
             margin-bottom: 100px;
+            min-height: map-get($image-diameter, "md");
             .timeline-panel {
                 float: left;
                 width: 41%;
@@ -167,6 +168,7 @@ $image-diameter: ("xl": 170px, "lg": 150px, "md": 100px, "sm": 80px);
 @media (min-width: 992px) {
     .timeline {
         > li {
+            min-height: map-get($image-diameter, "lg");
             .timeline-panel {
                 padding: 0 20px 20px;
             }
@@ -197,7 +199,7 @@ $image-diameter: ("xl": 170px, "lg": 150px, "md": 100px, "sm": 80px);
                     margin-top: 20px;
                 }
             }
-            min-height: 170px;
+            min-height: map-get($image-diameter, "xl");
             .timeline-image {
                 width: map-get($image-diameter, "xl");
                 height: map-get($image-diameter, "xl");

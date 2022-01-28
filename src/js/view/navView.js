@@ -6,6 +6,8 @@ import { IMG_FOLDER } from "../config";
 
 class Nav extends View {
     #header;
+    #navbarImg = this.navbarCollapsible.querySelector('img');
+
     constructor(data) {
         super();
         this.#header = data.header;
@@ -25,10 +27,12 @@ class Nav extends View {
     _navbarShrink() {
         if (window.scrollY === 0) {
             this.navbarCollapsible.classList.remove('navbar-shrink');
+            this.#navbarImg.src = this.#navbarImg.dataset.base;
             this.backToTop.classList.remove('show');
             this.backToTop.classList.add('hide');
         } else {
             this.navbarCollapsible.classList.add('navbar-shrink');
+            this.#navbarImg.src = this.#navbarImg.dataset.shrink;
             this.backToTop.classList.add('show');
             this.backToTop.classList.remove('hide');
         }

@@ -37,7 +37,7 @@ class Mappy extends View {
             maxZoom: 20,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.#map);
-        this.#home = this._addMarker(this.#homeCoords, '<img src="assets/img/logos/LMVDM-2.svg" class="h-100 logo" alt="Sabrina Coaching" />', 'neutral');
+        this.#home = this._addMarker(this.#homeCoords, '<img src="assets/img/logos/LMVDM-3.svg" class="h-100 logo" alt="Sabrina Coaching" />', 'neutral');
         if (!current) return;
         this.#current = this._addMarker(this.#currentCoords, 'Vous', 'tertary');
         const group = [this.#home, this.#current];
