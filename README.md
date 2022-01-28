@@ -1,11 +1,11 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <h3 align="center">Sabrina Coaching website project</h3>
+  <h3 align="center">LaMeilleureVersionDeMoi website project</h3>
 
   <p align="center">
-    A website that presents the activity of Sabrina Appriou, personal development coach.
+    A website that presents the activity of Sabrina Appriou, personal development coach, founder of LaMeilleureVersionDeMoi.
     <br />
-    <a href="https://github.com/antoinebollinger/sabrinaappriou.com/issues">🐛 Report Bug</a>
+    <a href="https://github.com/antoinebollinger/lameilleureversiondemoi/issues">🐛 Report Bug</a>
   </p>
 </p>
 
@@ -31,7 +31,7 @@
 
 ### Preview
 
-![Preview](assets/img/preview/preview.jpg)
+![Preview](assets/img/preview/preview.webp)
 
 ### Build with
 
@@ -39,9 +39,9 @@ The project is based on a free template from [Start Boostrap](https://startboots
 
 I used the [Webpack](https://webpack.js.org/) package to manage my **JS** code. This allowed me to work with modules which make it easier to maintain.
 
-The website is currently tested on a [Netlify](https://www.netlify.com/) deployment. You can see the result at [Sabrina Coaching](https://sabrinacoaching.netlify.app/).
+The website is currently tested on a [Netlify](https://www.netlify.com/) deployment. You can see the result at [LaMeilleureVersionDeMoi](https://sabrinacoaching.netlify.app/).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f49d62bd-6859-4abe-a465-306d84627c4a/deploy-status)](https://app.netlify.com/sites/sabrinaappriou/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f49d62bd-6859-4abe-a465-306d84627c4a/deploy-status)](https://app.netlify.com/sites/lameilleureversiondemoi/deploys)
 
 Soon it will have its own domain 😎 !
 
