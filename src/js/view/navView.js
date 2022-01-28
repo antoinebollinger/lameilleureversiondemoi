@@ -26,7 +26,6 @@ class Nav extends View {
     }
 
     _navbarShrink() {
-        console.log(this.#navbarButton.style.display === 'none');
         if (window.scrollY === 0) {
             this.navbarCollapsible.classList.remove('navbar-shrink');
             this.#navbarImg.src = this.#navbarImg.dataset.base;
