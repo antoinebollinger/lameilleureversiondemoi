@@ -112,12 +112,12 @@
             "folder": "main/",
             "description": [
                 {
-                    "title": "Pour qui&nbsp;?",
-                    "name": "who"
-                },
-                {
                     "title": "C'est quoi&nbsp;?",
                     "name": "what"
+                },
+                {
+                    "title": "Pour qui&nbsp;?",
+                    "name": "who"
                 },
                 {
                     "title": "Mes outils & méthodes de coaching",

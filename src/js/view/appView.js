@@ -129,7 +129,7 @@ class App extends View {
             const html = await this._getHtml(`skills/${ele.name}.html`);
             const newSkill = this._toNode(`<div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
                         <!-- Skill item ${1 + index} -->
-                        <div class="card shadow-sm">
+                        <div class="card shadow-sm h-100">
                             <a class="card-link w-100" data-bs-toggle="modal" href="#skillModal${1 + index}">
                                 <div class="card-hover primary">
                                     <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
@@ -137,7 +137,7 @@ class App extends View {
                                 <img class="card-img-top" src="${IMG_FOLDER}expertise/preview/${ele.name}.webp" alt="${ele.title}" />
                             </a>
                             <div class="card-body bg-light">
-                                <h5 class="card-title kalam text-uppercase text-primary-2 textNoWrap">${ele.title}</h5>
+                                <h5 class="card-title kalam text-uppercase text-primary-2">${ele.title}</h5>
                                 <div class="card-text">${html}</div>
                             </div>
                         
@@ -180,9 +180,9 @@ class App extends View {
             await Promise.all(program.description.map(async (card, index2) => {
                 const html = await this._getHtml(`programs/${program.folder + card.name}.html`);
                 cards += `
-                    <div class="col-lg-4 mb-4" style="order:${1 + index2};">
-                        <div class="card shadow-sm">
-                            <a class="card-link" data-bs-toggle="modal" data-bs-target="#modal-${index1 + '-' + index2}" href="#modal-${index1 + '-' + index2}">
+                    <div class="col-lg-4 mb-4 mb-lg-0" style="order:${1 + index2};">
+                        <div class="card shadow-sm h-100">
+                            <a class="card-link w-100" data-bs-toggle="modal" data-bs-target="#modal-${index1 + '-' + index2}" href="#modal-${index1 + '-' + index2}">
                                 <div class="card-hover primary">
                                     <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
