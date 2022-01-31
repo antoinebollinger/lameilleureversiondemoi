@@ -1,2 +1,2 @@
-export const IMG_FOLDER = 'assets/img/';
-export const HTML_FOLDER = 'assets/html/';
+export const IMG = 'assets/img/';
+export const HTML = 'assets/html/';

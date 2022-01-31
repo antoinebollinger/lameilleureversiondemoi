@@ -1,8 +1,8 @@
 'use strict';
 
-import View from "./View";
+import View from './View';
 
-class Settings extends View {
+export default class Settings extends View {
     primary = getComputedStyle(document.body).getPropertyValue('--bs-primary').trim();
     secondary = getComputedStyle(document.body).getPropertyValue('--bs-primary-2').trim();
     #colorsForm;
@@ -65,7 +65,7 @@ class Settings extends View {
         this.#colorsForm.querySelectorAll('input').forEach(ele => {
             ele.addEventListener('change', () => {
                 const hexa = ele.value;
-                const rgb = this._convertHexaToRgb(hexa);
+                const rgb = this.convertHexaToRgb(hexa);
                 document.documentElement.style.setProperty(ele.dataset.root, hexa);
                 document.documentElement.style.setProperty(`${ele.dataset.root}-rgb`, rgb);
                 this[`${ele.dataset.this}`] = hexa;
@@ -81,7 +81,7 @@ class Settings extends View {
     }
 
     _copyColors() {
-        this._copy(`Couleur principale : ${this.primary}, couleur secondaire : ${this.secondary}`);
+        this.getCopy(`Couleur principale : ${this.primary}, couleur secondaire : ${this.secondary}`);
     }
 
     async _init() {
@@ -89,8 +89,4 @@ class Settings extends View {
         this._addInputHolder();
         this._addCopyHandler();
     }
-
-
 }
-
-export default new Settings();

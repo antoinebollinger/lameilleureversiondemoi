@@ -1,8 +1,8 @@
 'use strict';
 
-import View from "./View";
+import View from './View';
 
-class Cookies extends View {
+export default class Cookies extends View {
     #body = document.body;
     #cookies = document.cookie;
 
@@ -14,5 +14,3 @@ class Cookies extends View {
 
     }
 }
-
-export default new Cookies();

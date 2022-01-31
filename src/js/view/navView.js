@@ -1,28 +1,13 @@
 'use strict';
 
-import View from "./View";
-import data from "../json/data.json";
-import { IMG_FOLDER } from "../config";
+import View from './View';
 
-class Nav extends View {
-    #header;
+export default class Nav extends View {
     #navbarImg = this.navbarCollapsible.querySelector('img');
-    #navbarButton = this.navbarCollapsible.querySelector('.navbar-toggler');
 
-    constructor(data) {
+    constructor() {
         super();
-        this.#header = data.header;
         this._init();
-    }
-
-    // Nav & Header functions
-    _headerSlider(interval = 5000) {
-        const nbr = this.#header.background.length;
-        setInterval(() => {
-            this.masthead.style.backgroundImage = `url('../${IMG_FOLDER}header/${this.#header.path}${this.#header.background[Math.floor(Math.random() * nbr)]}')`;
-        }, interval);
-        const before = window.getComputedStyle(this.masthead, ':before');
-        //console.log(before.getPropertyValue('background'));
     }
 
     _navbarShrink() {
@@ -37,9 +22,6 @@ class Nav extends View {
             this.backToTop.classList.add('show');
             this.backToTop.classList.remove('hide');
         }
-        // setTimeout(() => {
-        //     document.getElementsByTagName('html')[0].style.scrollPaddingTop = `${this.navbarCollapsible.offsetHeight}px`;
-        // }, 100);
     }
 
     _scrollSpy() {
@@ -72,7 +54,6 @@ class Nav extends View {
 
     _init() {
         window.addEventListener('DOMContentLoaded', async () => {
-            // this._headerSlider();
             this._navbarShrink();
             document.addEventListener('scroll', () => {
                 this._navbarShrink();
@@ -82,5 +63,3 @@ class Nav extends View {
         });
     }
 }
-
-export default new Nav(data);

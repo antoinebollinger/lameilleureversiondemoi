@@ -1,9 +1,8 @@
 'use strict';
 
-import View from "./View";
-import { IMG_FOLDER } from "../config";
+import View from './View';
 
-class Mappy extends View {
+export default class Mappy extends View {
     #goToHome = document.getElementById('goToHome');
     #goToCurrent = document.getElementById('goToCurrent');
     #distance = document.getElementById('distance');
@@ -50,7 +49,7 @@ class Mappy extends View {
 
     _addMarker(coords, text, style = 'primary', marker = 'neutral') {
         const newMarker = L.icon({
-            iconUrl: `../${IMG_FOLDER}markers/${marker}.png`,
+            iconUrl: `../${this.folder.IMG}markers/${marker}.png`,
             iconSize: [48, 48]
         });
         return L.marker(coords, { icon: newMarker })
@@ -95,6 +94,4 @@ class Mappy extends View {
     _calculateDistance(from, to) {
         return ((from.distanceTo(to)).toFixed(0) / 1000).toFixed(0);
     }
-};
-
-export default new Mappy();
+}

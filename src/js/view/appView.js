@@ -1,20 +1,16 @@
 'use strict';
 
-import View from "./View";
-import data from "../json/data.json";
-import { IMG_FOLDER } from "../config";
+import View from './View';
 
-class App extends View {
+export default class App extends View {
     #sections;
     #images;
-    #data;
     #programs = [];
     #programsNav;
 
-    constructor(data) {
+    constructor() {
         super();
         return (async () => {
-            this.#data = data;
             await this._init();
         })();
     }
@@ -73,17 +69,17 @@ class App extends View {
     }
 
     async _renderWork() {
-        const html = await this._getHtml('work.html');
+        const html = await this.getHTML('work.html');
         this.workContainer.insertAdjacentHTML('beforeend', html);
     }
 
     async _renderTeam() {
-        this.#data.team.forEach(async (ele) => {
-            const html = await this._getHtml(`team/${ele.id}.html`);
+        this.data.team.forEach(async (ele) => {
+            const html = await this.getHTML(`team/${ele.id}.html`);
             this.teamContainer.insertAdjacentHTML('beforeend', `
-                <div class="col-lg-${12 / this.#data.team.length}">
+                <div class="col-lg-${12 / this.data.team.length}">
                     <div class="team-member">
-                        <img class="team-portrait mx-auto rounded-circle" src="${IMG_FOLDER}team/${ele.id}.webp" alt="${ele.name}" />
+                        <img class="team-portrait mx-auto rounded-circle" src="${this.folder.IMG}team/${ele.id}.webp" alt="${ele.name}" />
                         <h3>${ele.name}</h3>
                         <p class="text-muted">${ele.function}</p>
                         <div class="row align-items-center justify-content-center mb-4">
@@ -99,16 +95,16 @@ class App extends View {
                 ${html}
             `);
             const myAge = document.getElementById(`${ele.id}-age`);
-            myAge.innerHTML = this._getAge(ele.birthDate);
+            myAge.innerHTML = this.getAge(ele.birthDate);
             myAge.classList.remove('spinner-border');
         });
     }
 
     async _renderAbout() {
-        this.#data.about.forEach((ele, index) => {
+        this.data.about.forEach((ele, index) => {
             this.aboutContainer.insertAdjacentHTML('beforeend', `
                 <li${(index % 2 === 1 ? ' class="timeline-inverted"' : '')}>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="${IMG_FOLDER}about/${ele.img}"
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="${this.folder.IMG}about/${ele.img}"
                             alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -125,16 +121,16 @@ class App extends View {
     }
 
     async _renderSkill() {
-        this.#data.skill.forEach(async (ele, index) => {
-            const html = await this._getHtml(`skills/${ele.name}.html`);
-            const newSkill = this._toNode(`<div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
+        this.data.skill.forEach(async (ele, index) => {
+            const html = await this.getHTML(`skills/${ele.name}.html`);
+            const newSkill = this.toNode(`<div class="col-lg-4 col-sm-6 mb-4" style="order:${1 + index};">
                         <!-- Skill item ${1 + index} -->
                         <div class="card shadow-sm h-100">
                             <a class="card-link w-100" data-bs-toggle="modal" href="#skillModal${1 + index}">
                                 <div class="card-hover primary">
                                     <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="card-img-top" src="${IMG_FOLDER}expertise/preview/${ele.name}.webp" alt="${ele.title}" />
+                                <img class="card-img-top" src="${this.folder.IMG}expertise/preview/${ele.name}.webp" alt="${ele.title}" />
                             </a>
                             <div class="card-body bg-light">
                                 <h5 class="card-title kalam text-uppercase text-primary-2">${ele.title}</h5>
@@ -154,7 +150,7 @@ class App extends View {
                                     </div>
                                     <div class="modal-body">
                                         <div class="text-center mb-4">
-                                            <img src="${IMG_FOLDER}expertise/${ele.name}.webp" alt="${ele.title}" class="w-100">
+                                            <img src="${this.folder.IMG}expertise/${ele.name}.webp" alt="${ele.title}" class="w-100">
                                         </div>
                                         ${html}
                                     </div>
@@ -169,7 +165,7 @@ class App extends View {
 
     async _renderProgram() {
         let buttons = '';
-        await this.#data.programs.forEach(async (program, index1) => {
+        await this.data.programs.forEach(async (program, index1) => {
             if (!program.active) return;
             buttons += `
                 <li class="nav-item">
@@ -178,7 +174,7 @@ class App extends View {
             `;
             let cards = '';
             await Promise.all(program.description.map(async (card, index2) => {
-                const html = await this._getHtml(`programs/${program.folder + card.name}.html`);
+                const html = await this.getHTML(`programs/${program.folder + card.name}.html`);
                 cards += `
                     <div class="col-lg-4 mb-4 mb-lg-0" style="order:${1 + index2};">
                         <div class="card shadow-sm h-100">
@@ -186,7 +182,7 @@ class App extends View {
                                 <div class="card-hover primary">
                                     <div class="card-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="card-img-top" src="${IMG_FOLDER}programs/${program.folder + card.name}.webp"
+                                <img class="card-img-top" src="${this.folder.IMG}programs/${program.folder + card.name}.webp"
                                 alt="${card.title}">
                             </a>
                             <div class="card-body bg-light">
@@ -210,7 +206,7 @@ class App extends View {
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="text-center mb-4"><img src="${IMG_FOLDER}programs/${program.folder + card.name}.webp" alt="${card.title}" class="w-50 rounded shadow"></div>
+                                        <div class="text-center mb-4"><img src="${this.folder.IMG}programs/${program.folder + card.name}.webp" alt="${card.title}" class="w-50 rounded shadow"></div>
                                         ${html}
                                     </div>
                                 </div>
@@ -219,7 +215,7 @@ class App extends View {
                     </div>
                 `;
             }));
-            const newProgram = this._toNode(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
+            const newProgram = this.toNode(`<div class="program py-4${(index1 === 0 ? ' show' : ' hide')}" id="pills-program${1 + index1}">
                     <div class="col-lg-8 mx-auto p-4 d-none">
                         <div class="text-center">
                             <h3 class="kalam text-uppercase text-tertary-2">${program.title}</h3>
@@ -233,18 +229,18 @@ class App extends View {
             this.programsContainer.insertAdjacentElement('afterbegin', newProgram);
             this.#programs.push(newProgram);
         });
-        if (this.#data.programs.filter(program => program.active).length <= 1) return;
+        if (this.data.programs.filter(program => program.active).length <= 1) return;
         this.programsContainer.insertAdjacentHTML('beforebegin', `<ul class="nav nav-tabs nav-fill" id="pills-tab">${buttons}</ul>`);
         this.programsContainer.className = 'bg-white border border-top-0';
     }
 
     async _renderPrivacy() {
-        const html = await this._getHtml('privacy.html');
+        const html = await this.getHTML('privacy.html');
         document.getElementById('modalPrivacy').querySelector('.modal-body').insertAdjacentHTML('beforeend', html);
     }
 
     async _renderTerms() {
-        const html = await this._getHtml('terms.html');
+        const html = await this.getHTML('terms.html');
         document.getElementById('modalCU').querySelector('.modal-body').insertAdjacentHTML('beforeend', html);
     }
 
@@ -273,7 +269,7 @@ class App extends View {
     }
 
     async _reader(section) {
-        const progressBar = this._toNode(`
+        const progressBar = this.toNode(`
             <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="25" aria-valuemin="0"
                 aria-valuemax="100"></div>
@@ -336,5 +332,3 @@ class App extends View {
         // this._reader(this.team);
     }
 };
-
-export default new App(data);

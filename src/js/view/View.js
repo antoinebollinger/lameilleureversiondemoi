@@ -1,5 +1,7 @@
 'use strict';
-import { HTML_FOLDER } from "../config";
+
+import * as FOLDER from '../config';
+import DATA from "../json/data.json";
 
 export default class View {
     navbarCollapsible = document.getElementById('mainNav');
@@ -13,32 +15,33 @@ export default class View {
     contactContainer = document.getElementById('contact');
     mapDiv = document.getElementById('mapDiv');
     backToTop = document.getElementById('btn-back-to-top');
+    folder = FOLDER;
+    data = DATA;
 
-
-    async _getHtml(url) {
-        const privacy = await fetch(HTML_FOLDER + url);
+    async getHTML(url) {
+        const privacy = await fetch(this.folder.HTML + url);
         if (!privacy.ok) return;
         const html = await privacy.text();
         return html;
     }
 
-    _convertHexaToRgb(hexa) {
+    convertHexaToRgb(hexa) {
         const r = parseInt(hexa.substr(1, 2), 16);
         const g = parseInt(hexa.substr(3, 2), 16);
         const b = parseInt(hexa.substr(5, 2), 16);
         return `${r}, ${g}, ${b}`;
     }
 
-    _copy(text) {
+    getCopy(text) {
         navigator.clipboard.writeText(text);
         alert(`Le texte : \n\n${text}\n\n a bien été copié dans le presse-papier.`);
     }
 
-    _toNode(html) {
+    toNode(html) {
         return new DOMParser().parseFromString(html, 'text/html').body.childNodes[0];
     }
 
-    _getAge(birthDate = '1984-08-24') {
+    getAge(birthDate = '1984-08-24') {
         return Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
     }
 
@@ -63,4 +66,4 @@ export default class View {
         modalContainer.className = 'modal fade';
         return new bootstrap.Modal(modalContainer);
     }
-};
+}

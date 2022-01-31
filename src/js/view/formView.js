@@ -1,10 +1,8 @@
 'use strict';
 
-import View from "./View";
-import data from "../json/data.json";
-import { IMG_FOLDER } from "../config";
+import View from './View';
 
-class Form extends View {
+export default class Form extends View {
     #initForm = document.getElementById('initForm');
     #inputsSrc;
     #form;
@@ -21,9 +19,9 @@ class Form extends View {
     #okBtn;
     #sendBtn;
 
-    constructor(data) {
+    constructor() {
         super();
-        this.#inputsSrc = data.contact;
+        this.#inputsSrc = this.data.contact;
         this._initForm();
     }
 
@@ -219,5 +217,3 @@ class Form extends View {
         `;
     }
 }
-
-export default new Form(data);
