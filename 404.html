@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+        content="Rencontrez votre coach en développement personnel Sabrina Appriou. Grâce à sa méthode " />
+    <meta name="author" content="Sabrina Appriou" />
+    <title>Erreur 404 | LaMeilleureVersionDeMoi</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Permanent+Marker&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            height: 100vh
+        }
+
+        h1 {
+            font-size: 2em
+        }
+
+        article {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            height: 100%
+        }
+
+        .logo,
+        .text {
+            width: 20%;
+            padding: 1%
+        }
+
+        .logo img {
+            width: 100%
+        }
+
+        span,
+        a {
+            color: var(--bleu-osborn);
+            text-decoration: none
+        }
+
+        a:hover {
+            -webkit-transition: color 0.2s;
+            transition: color 0.2s;
+            color: var(--bleu-moyen)
+        }
+
+        @media (max-width: 700px) {
+            article {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column
+            }
+
+            .logo,
+            .text {
+                width: 80%;
+                text-align: center
+            }
+        }
+
+        a i {
+            padding: 0 5px 0 0
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <div class="logo">
+            <img src="assets/img/logos/LMVDM-4.svg" alt="LaMeilleureVersionDeMoi" />
+        </div>
+        <div class="text">
+            <h1>Error <span>404</span></h1>
+            <h2>Page not found</h2>
+            <p><i>https://amdtcap06.osborn.com/homeeqrg</i></p>
+            <p>We could not find the above page on our servers.</p>
+            <p><a href="" id="goback"><i class="fas fa-arrow-alt-circle-left"></i>&nbsp;Go back</a>
+                Or redirect to the <a href="https://lameilleureversiondemoi.netlify.app/"><i
+                        class="fas fa-home"></i>&nbsp;Home Page</a>
+
+            </p>
+        </div>
+    </article>
+    <script>
+        document.querySelector('.text i').innerHTML = document.referrer;
+        const goback = document.getElementById('goback');
+        goback.addEventListener('click', event => {
+            event.preventDefault();
+            window.history.go(-1);
+        });
+    </script>
+</body>
+
+</html>
