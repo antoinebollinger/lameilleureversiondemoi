@@ -17,11 +17,11 @@
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            height: 100vh
+            height: 100vh;
         }
 
         h1 {
-            font-size: 2em
+            font-size: 2em;
         }
 
         article {
@@ -34,29 +34,29 @@
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
-            height: 100%
+            height: 100%;
         }
 
         .logo,
         .text {
-            width: 20%;
-            padding: 1%
+            width: 25%;
+            padding: 1%;
         }
 
         .logo img {
-            width: 100%
+            width: 100%;
         }
 
         span,
         a {
-            color: var(--bleu-osborn);
-            text-decoration: none
+            color: #421556;
+            text-decoration: none;
         }
 
         a:hover {
             -webkit-transition: color 0.2s;
             transition: color 0.2s;
-            color: var(--bleu-moyen)
+            color: #b07d92;
         }
 
         @media (max-width: 700px) {
@@ -64,18 +64,18 @@
                 -webkit-box-orient: vertical;
                 -webkit-box-direction: normal;
                 -ms-flex-direction: column;
-                flex-direction: column
+                flex-direction: column;
             }
 
             .logo,
             .text {
                 width: 80%;
-                text-align: center
+                text-align: center;
             }
         }
 
         a i {
-            padding: 0 5px 0 0
+            padding: 0 5px 0 0;
         }
     </style>
 </head>
@@ -83,16 +83,17 @@
 <body>
     <article>
         <div class="logo">
-            <img src="assets/img/logos/LMVDM-4.svg" alt="LaMeilleureVersionDeMoi" />
+            <img src="assets/img/logos/LMVDM-3.svg" alt="LaMeilleureVersionDeMoi" />
         </div>
         <div class="text">
-            <h1>Error <span>404</span></h1>
-            <h2>Page not found</h2>
+            <h1>Erreur <span>404</span></h1>
+            <h2>Oups. Nous n'avons pas trouvé la page que vous demandez.</h2>
             <p><i>https://amdtcap06.osborn.com/homeeqrg</i></p>
-            <p>We could not find the above page on our servers.</p>
-            <p><a href="" id="goback"><i class="fas fa-arrow-alt-circle-left"></i>&nbsp;Go back</a>
-                Or redirect to the <a href="https://lameilleureversiondemoi.netlify.app/"><i
-                        class="fas fa-home"></i>&nbsp;Home Page</a>
+            <p><a href="" id="goback"><i class="fas fa-arrow-alt-circle-left"></i>&nbsp;Revenir en arrière</a>
+            </p>
+            <p>
+                ou <a href="https://lameilleureversiondemoi.netlify.app/">revenir à la
+                    page d'accueil&nbsp;<i class="fas fa-home"></i></a>
 
             </p>
         </div>
