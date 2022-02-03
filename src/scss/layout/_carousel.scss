@@ -28,6 +28,9 @@
                 background: radial-gradient(circle, rgba(var(--bs-primary-2-rgb),0.3) 0%, rgba(255,255,255,0) 100%);
                 left: 0;
                 right: 0;
+                p {
+                    @include textNoWrap;
+                }
             }
         }
     }
@@ -37,9 +40,10 @@
     .container {
         position: absolute;
         inset: 0;
-        top: 200px;
+        // top: 200px;
         display: flex;
         align-items: center;
+        justify-content: center;
         flex-direction: column;
         color: #fff;
         text-align: center;

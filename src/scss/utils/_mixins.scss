@@ -10,3 +10,9 @@
     align-items: $align;
     justify-content: $justify;
 }
+
+@mixin textNoWrap() {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;      
+}
