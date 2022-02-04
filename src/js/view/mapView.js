@@ -16,6 +16,7 @@ export default class Mappy extends View {
 
     constructor() {
         super();
+        this.#goDistance.style.display = 'none';
         this._launchMap();
     }
 
@@ -23,26 +24,41 @@ export default class Mappy extends View {
         const callback = (entries, observer) => {
             const [entry] = entries;
             if (!entry.isIntersecting) return;
-            this._getCurrentCoords();
+            this._loadMap();
             observer.unobserve(entry.target);
         };
         const contactObserver = new IntersectionObserver(callback, { root: null, threshold: 0.1 });
         contactObserver.observe(this.contactContainer);
     }
 
-    _loadMap(current = false) {
+    _loadMap() {
         this.#map = L.map('map', { scrollWheelZoom: false }).setView(this.#homeCoords, this.#mapZoomLevel);
         L.tileLayer(`https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
             maxZoom: 20,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.#map);
         this.#home = this._addMarker(this.#homeCoords, '<img src="assets/img/logos/LMVDM-3.svg" class="h-100 logo" alt="Sabrina Coaching" />', 'neutral');
-        if (!current) return;
+        this._goFocusHandler(this.#goToHome, { marker: this.#home, coords: this.#homeCoords });
+        this.#goToCurrent.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (this.#currentCoords === undefined)
+                this._getCurrentCoords();
+        });
+    }
+
+    _getCurrentCoords() {
+        navigator.geolocation.getCurrentPosition((pos) => {
+            this.#currentCoords = [pos.coords.latitude, pos.coords.longitude];
+            this._loadMarkers();
+        });
+    }
+
+    _loadMarkers() {
         this.#current = this._addMarker(this.#currentCoords, 'Vous', 'tertary');
         const group = [this.#home, this.#current];
-        this.#distance.insertAdjacentHTML('afterbegin', `${this._calculateDistance(this.#current.getLatLng(), this.#home.getLatLng())} km`)
+        this.#distance.insertAdjacentHTML('afterbegin', `${this._calculateDistance(this.#current.getLatLng(), this.#home.getLatLng())} km`);
+        this.#goDistance.style.display = 'inline';
         this._goDistance(group);
-        this._goFocusHandler(this.#goToHome, { marker: this.#home, coords: this.#homeCoords });
         this._goFocusHandler(this.#goToCurrent, { marker: this.#current, coords: this.#currentCoords });
         this._goDistanceHandler(this.#goDistance, group);
     }
@@ -57,14 +73,6 @@ export default class Mappy extends View {
             .bindPopup(L.popup({ offset: [0, 0], maxWidth: 250, minWidth: 100, autoClose: false, closeOnClick: false, className: style }))
             .setPopupContent(text)
             .openPopup();
-    }
-
-    _getCurrentCoords() {
-        navigator.geolocation.getCurrentPosition((pos) => {
-            this.#currentCoords = [pos.coords.latitude, pos.coords.longitude];
-            this._loadMap(true);
-
-        }, () => { this._loadMap() });
     }
 
     _goFocusHandler(button, ele) {
