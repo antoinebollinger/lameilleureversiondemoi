@@ -3,6 +3,7 @@
 import View from './View';
 
 export default class Mappy extends View {
+
     #goToHome = document.getElementById('goToHome');
     #goToCurrent = document.getElementById('goToCurrent');
     #distance = document.getElementById('distance');
@@ -13,11 +14,16 @@ export default class Mappy extends View {
     #current;
     #homeCoords = [47.658236, -2.760847];
     #currentCoords;
+    #permission = false;
 
     constructor() {
         super();
-        this.#goDistance.style.visibility = 'hidden';
-        this._launchMap();
+        return (async () => {
+            const permissionStatus = await navigator?.permissions?.query({ name: 'geolocation' });
+            this.#permission = permissionStatus.state === 'granted';
+            this.#goDistance.style.visibility = 'hidden';
+            this._launchMap();
+        })();
     }
 
     _launchMap() {
@@ -39,14 +45,16 @@ export default class Mappy extends View {
         }).addTo(this.#map);
         this.#home = this._addMarker(this.#homeCoords, '<img src="assets/img/logos/LMVDM-3.svg" class="h-100 logo" alt="Sabrina Coaching" />', 'neutral');
         this._goFocusHandler(this.#goToHome, { marker: this.#home, coords: this.#homeCoords });
-        this.#goToCurrent.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (this.#currentCoords === undefined)
-                this._getCurrentCoords();
-        });
+        if (this.#permission) {
+            this._getCurrentPosition();
+        } else {
+            this.#goToCurrent.addEventListener('click', (e) => {
+                e._getCurrentPosition();
+            });
+        }
     }
 
-    _getCurrentCoords() {
+    _getCurrentPosition() {
         navigator.geolocation.getCurrentPosition((pos) => {
             this.#currentCoords = [pos.coords.latitude, pos.coords.longitude];
             this._loadMarkers();
