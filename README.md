@@ -45,7 +45,7 @@ I used the [Webpack](https://webpack.js.org/) package to manage my **JS** code. 
 
 The website is currently tested on a [Netlify](https://www.netlify.com/) deployment. You can see the result at [LaMeilleureVersionDeMoi](https://lameilleureversiondemoi.netlify.app/).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f49d62bd-6859-4abe-a465-306d84627c4a/deploy-status)](https://app.netlify.com/sites/lameilleureversiondemoi/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f49d62bd-6859-4abe-a465-306d84627c4a/deploy-status)](https://lameilleureversiondemoi.netlify.app/)
 
 Soon it will have its own domain 😎 !
 
