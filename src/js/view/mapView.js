@@ -49,7 +49,8 @@ export default class Mappy extends View {
             this._getCurrentPosition();
         } else {
             this.#goToCurrent.addEventListener('click', (e) => {
-                e._getCurrentPosition();
+                e.preventDefault();
+                this._getCurrentPosition();
             });
         }
     }
