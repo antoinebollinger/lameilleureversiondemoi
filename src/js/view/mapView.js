@@ -16,7 +16,7 @@ export default class Mappy extends View {
 
     constructor() {
         super();
-        this.#goDistance.style.display = 'none';
+        this.#goDistance.style.visibility = 'hidden';
         this._launchMap();
     }
 
@@ -57,7 +57,7 @@ export default class Mappy extends View {
         this.#current = this._addMarker(this.#currentCoords, 'Vous', 'tertary');
         const group = [this.#home, this.#current];
         this.#distance.insertAdjacentHTML('afterbegin', `${this._calculateDistance(this.#current.getLatLng(), this.#home.getLatLng())} km`);
-        this.#goDistance.style.display = 'inline';
+        this.#goDistance.style.visibility = 'visible';
         this._goDistance(group);
         this._goFocusHandler(this.#goToCurrent, { marker: this.#current, coords: this.#currentCoords });
         this._goDistanceHandler(this.#goDistance, group);
