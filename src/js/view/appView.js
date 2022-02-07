@@ -84,7 +84,7 @@ export default class App extends View {
                         <p class="text-muted">${ele.function}</p>
                         <div class="row align-items-center justify-content-center mb-4">
                             <div class="col-lg-4 col-10">
-                                <img src="/assets/img/logos/v4/purpleText/pinkLeaf/LMVDM.svg" class="w-100" alt="La Meilleure Version de Moi" />
+                                <img src="${this.folder.IMG}logos/v4/purpleText/pinkLeaf/LMVDM.svg" class="w-100" alt="La Meilleure Version de Moi" />
                             </div>
                         </div>
                         <a class="btn btn-primary btn-social mx-2 shadow" href="${ele.instagram}" title="Instagram"><i class="fab fa-instagram"></i></a>

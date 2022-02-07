@@ -44,7 +44,7 @@ export default class Mappy extends View {
             maxZoom: 20,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.#map);
-        this.#home = this._addMarker(this.#homeCoords, '<img src="/assets/img/logos/v4/purpleText/pinkLeaf/LMVDM.svg" class="h-100 logo" alt="Sabrina Coaching" />', 'neutral');
+        this.#home = this._addMarker(this.#homeCoords, `<img src="${this.folder.IMG}logos/v4/purpleText/pinkLeaf/LMVDM.svg" class="h-100 logo" alt="Sabrina Coaching" />`, 'neutral');
         this._goFocusHandler(this.#goToHome, { marker: this.#home, coords: this.#homeCoords });
         if (this.#permission) {
             this._getCurrentPosition();
