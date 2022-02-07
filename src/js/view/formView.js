@@ -156,7 +156,7 @@ export default class Form extends View {
                         </div>
                     </form>
                     <div class="modal-footer">
-                    <img src="assets/img/logos/LMVDM-4-feuille-violette.svg" class="w-25 d-none d-lg-block" />
+                    <img src="assets/img/logos/LMVDM-5-blanc.svg" class="w-25 d-none d-lg-block" />
                     <button type="button" class="btn btn-lg btn-primary">Démarrer</button>
                   </div>
                 </div>
