@@ -75,7 +75,7 @@ export default class Mappy extends View {
 
     _addMarker(coords, text, style = 'primary', marker = 'neutral') {
         const newMarker = L.icon({
-            iconUrl: `../${this.folder.IMG}markers/${marker}.png`,
+            iconUrl: `./${this.folder.IMG}markers/${marker}.png`,
             iconSize: [48, 48]
         });
         return L.marker(coords, { icon: newMarker })
