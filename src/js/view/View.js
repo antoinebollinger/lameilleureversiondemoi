@@ -8,6 +8,7 @@ export default class View {
     masthead = document.querySelector('.masthead');
     workContainer = document.getElementById('myWork');
     programsContainer = document.getElementById('programsContainer');
+    feedbackContainer = document.getElementById('feedbackContainer');
     team = document.getElementById('team');
     teamContainer = document.getElementById('team').querySelector('.row');
     aboutContainer = document.getElementById('team').querySelector('.timeline');
