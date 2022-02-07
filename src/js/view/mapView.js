@@ -20,7 +20,8 @@ export default class Mappy extends View {
         super();
         return (async () => {
             const permissionStatus = await navigator?.permissions?.query({ name: 'geolocation' });
-            this.#permission = permissionStatus.state === 'granted';
+            if (permissionStatus !== undefined)
+                this.#permission = permissionStatus.state === 'granted';
             this.#goDistance.style.visibility = 'hidden';
             this._launchMap();
         })();
