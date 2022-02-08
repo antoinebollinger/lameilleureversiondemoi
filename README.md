@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <a href="https://amdtcap06.osborn.com">
-    <img src="assets/img/logos/LMVDM-3.svg" alt="Logo" height="50">
+  <a href="https://lameilleureversiondemoi.netlify.app/">
+    <img src="assets/img/logos/v4/whiteText/purpleLeaf/LMVDM.svg" alt="Logo" height="50">
   </a>
 
   <h3 align="center">LaMeilleureVersionDeMoi website project</h3>
