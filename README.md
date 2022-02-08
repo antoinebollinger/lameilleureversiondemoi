@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://lameilleureversiondemoi.netlify.app/">
-    <img src="assets/img/logos/v4/whiteText/purpleLeaf/LMVDM.svg" alt="Logo" height="50">
+    <img src="assets/img/logos/v4/purpleText/pinkLeaf/LMVDM.svg" alt="Logo" height="50">
   </a>
 
   <h3 align="center">LaMeilleureVersionDeMoi website project</h3>
