@@ -77,33 +77,31 @@
     ],
     "feedback": [
         {
-            "id": "01",
-            "name": "Parveen Anand",
-            "function": "Lead Designer",
-            "instagram": "",
-            "facebook": "",
-            "linkedIn": "",
-            "feedback": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        },
-        {
             "id": "02",
-            "name": "Diana Petersen",
-            "function": "Lead Marketer",
-            "instagram": "",
-            "facebook": "",
-            "linkedIn": "",
-            "feedback": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+            "name": "Delphine",
+            "function": "",
+            "social": [],
+            "feedback": "Merci Sabrina ! T'as cru en moi comme j'ai cru en toi. La dream team va sortir vainqueur du challenge et les nouveaux objectifs sont au rdv. A chaque fois que j'en atteints, je m'en fixe d'autres et on les atteint tranquillement donc Merci beaucoup! Juste merci beaucoup Sabrina ! Tu m'as vraiment aidée et ça c'était important pour moi !"
         },
         {
-            "id": "03",
-            "name": "Larry Parker",
-            "function": "Lead Developer",
-            "instagram": "",
-            "facebook": "",
-            "linkedIn": "",
-            "feedback": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+            "id": "04",
+            "name": "Antoine",
+            "function": "Développeur Web",
+            "social": [
+                {
+                    "name": "linkedin",
+                    "url": "https://www.linkedin.com/in/antoinebollinger/"
+                }
+            ],
+            "feedback": "Très heureux d'avoir pu travailler avec Sabrina sur la réalisation et la mise en ligne de son site !"
         }
     ],
+    "social": {
+        "facebook": "<i class=\"fab fa-facebook-f\"></i>",
+        "twitter": "<i class=\"fab fa-twitter\"></i>",
+        "instagram": "<i class=\"fab fa-instagram\"></i>",
+        "linkedin": "<i class=\"fab fa-linkedin-in\"></i>"
+    },
     "team": [
         {
             "id": "01",

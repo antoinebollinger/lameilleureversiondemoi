@@ -148,17 +148,13 @@ export default class App extends View {
     async _renderFeedback() {
         this.data.feedback.forEach(ele => {
             this.feedbackContainer.insertAdjacentHTML('beforeend', `
-                <div class="col-md-4">
+                <div class="col-md-${12 / this.data.feedback.length}">
                     <div class="team-member">
                         <img class="mx-auto rounded-circle team-portrait" src="${this.folder.IMG}feedback/${ele.id}.webp" alt="${ele.name}" />
                         <h4 class="text-primary-2">${ele.name}</h4>
                         <p class="text-secondary">${ele.function}</p>
-                        <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                        <p class="feedback text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime
-                            quam
-                            architecto quo inventore harum ex magni, dicta impedit.</p>
+                        ${ele.social.map(so => `<a class="btn btn-primary btn-social mx-2" href="${so.url}">${this.data.social[so.name]}</a>`).join('')}
+                        <p class="feedback text-secondary"> ${ele.feedback} </p>
                     </div>
                 </div>
             `);
